@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+        <title>Any Job</title>
+
+        <link rel="icon" href="C:\Users\richa\Downloads\Any-job-icon.ico" type="image/x-icon"/>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            .navbar {
+                background-color: #003F63; 
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 20px;
+            }
+
+            .buttonImageLogo {
+                background: none;
+                border: none;
+                cursor: pointer;
+                margin-left: 5px;
+            }
+
+            .search-box {
+                display: flex;
+                align-items: center;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                padding: 5px 10px;
+                width: 500px;
+                background-color: white;
+            }
+
+            .search-box input {
+                border: none;
+                outline: none;
+                flex: 1;
+                padding: 5px;
+                font-size: 16px;
+                background: transparent;
+            }
+
+            .search-box input::placeholder {
+                font-style: italic;
+                color: #aaa;
+            }
+
+            .search-box button {
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            .search-box button img {
+                width: 20px;
+                height: 20px;
+            }
+
+            .buttonOpcion {
+                background: none;
+                border: none;
+                cursor: pointer;
+                margin-right: 35px;
+            }
+
+            .carousel {
+            position: relative;
+            max-width: auto;
+            margin: auto;
+            overflow: hidden;
+            }
+
+            .slides {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+            }
+
+            .slide {
+                min-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .slide img {
+                width: 100%;
+                display: block;
+            }
+
+            .familyContainer {
+                display: flex;
+                
+            }
+
+            .familyContainer > div {
+                width: 17%;
+                display:inline-block;
+                margin: auto;
+                border-radius: 10px;
+                background-color: #FFFFFF;
+                text-align: center;
+            }
+
+        </style>
+
+    </head>
+
+    <body style="background-color:#82BEDA;">
+
+        <div class="navbar">
+
+            <!-- Logo Izquierda -->
+
+            <button class="buttonImageLogo">
+                <img src="Any Job Imagotipo chiquito.png" width="129" height="43" title="Any job">
+            </button>
+
+            <!-- Buscador -->
+
+            <div style="margin: 0 auto;" class="search-box">
+                <input type="text" placeholder="Herramientas...">
+                <button>
+                    <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Buscar">
+                </button>
+            </div>
+
+            <!-- Opciones -->
+
+            <button class="buttonOpcion">
+                <img src="Perfil Any Job.png" href="" width="38" height="43" title="Perfil">
+            </button>
+
+            <button class="buttonOpcion">
+                <img src="Catalogo Any Job.png" width="30" height="43" title="Catalogo de proveedores">
+            </button>
+
+            <button class="buttonOpcion">
+                <img src="Carrito de compras.png" width="43" height="43" title="Carrito de compras">
+            </button>
+
+        </div>
+
+        <!-- Carrusel -->
+
+        <div class="carousel">
+            <div class="slides">
+                <div class="slide"><img src="Urrea carrusel chico.jpg" alt="Imagen 1"></div>
+                <div class="slide"><img src="Urrea Plomeria carrusel.png" alt="Imagen 2"></div>
+                <div class="slide"><img src="Truper Banner chico.png" alt="Imagen 3"></div>
+            </div>
+        </div>
+    
+        <script>
+            let index = 0;
+            const slides = document.querySelector('.slides');
+            const totalSlides = document.querySelectorAll('.slide').length;
+    
+            function showNextSlide() {
+                index = (index + 1) % totalSlides;
+                slides.style.transform = `translateX(${-index * 100}%)`;
+            }
+    
+            setInterval(showNextSlide, 5000);
+        </script>
+
+        <div style="padding: 50px ;">
+            <h2 style="font-size:3vw; text-align: center; font-family: helvetica;" >Explora por nuestras familias de herramientas</h2>
+        </div>
+
+        <div class="familyContainer">
+
+            <div>
+                <img src="Albanileria sin fondo.png" alt="Imagen 1" height="200px" width="200px" style="max-width:100%;height:auto;">
+                <div style="background-color: #FF6F00; border-radius: 10px;">
+                    <h2>Carpintería</h2>
+                </div>
+            </div>
+            
+            <div>
+                <img src="Plomeria sin fondo.png" alt="Imagen 1" height="200px" width="200px" style="max-width:100%;height:auto;">
+                <div style="background-color: #FF6F00; border-radius: 10px;">
+                    <h2>Plomería</h2>
+                </div>
+            </div>
+            
+            <div>
+                <img src="Electricidad sin findo.png" alt="Imagen 1" height="200px" width="200px" style="max-width:100%;height:auto;">
+                <div style="background-color: #FF6F00; border-radius: 10px;">
+                    <h2>Electricidad</h2>
+                </div>
+            </div>
+
+            <div>
+                <img src="Carpinteria sin fondo.png" alt="Imagen 1" height="200px" width="200px" style="max-width:100%;height:auto;">
+                <div style="background-color: #FF6F00; border-radius: 10px;">
+                    <h2>Carpintería</h2>
+                </div>
+              </div>
+          
+          </div>
+
+        
+
+    </body>
+
+</html>
