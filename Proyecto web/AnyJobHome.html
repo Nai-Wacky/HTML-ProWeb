@@ -4,6 +4,7 @@
     <head>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+        <link rel="stylesheet" href="TheStyle.css">
 
         <title>Any Job</title>
 
@@ -166,18 +167,7 @@
             </div>
         </div>
     
-        <script>
-            let index = 0;
-            const slides = document.querySelector('.slides');
-            const totalSlides = document.querySelectorAll('.slide').length;
-    
-            function showNextSlide() {
-                index = (index + 1) % totalSlides;
-                slides.style.transform = `translateX(${-index * 100}%)`;
-            }
-    
-            setInterval(showNextSlide, 5000);
-        </script>
+        
 
         <div style="padding: 50px ;">
             <h2 style="font-size:3vw; text-align: center; font-family: helvetica;" >Explora por nuestras familias de herramientas</h2>
@@ -221,7 +211,70 @@
             </h2>
         </div>
         
-        
+        <div class="contenedor">
+            <p class="titulo">Te podría interesar <span class="subtitulo">Productos nuevos o en promoción</span></p>
+    
+            <div class="carrusel">
+                <button class="boton boton-izquierda" onclick="moverCarrusel(-1)">
+                    <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="izquierda">
+                </button>
+                
+                <div class="carrusel-contenido" id="carrusel">
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
+    
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
+    
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
+    
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
+                </div>
+    
+                <button class="boton boton-derecha" onclick="moverCarrusel(1)">
+                    <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="derecha">
+                </button>
+            </div>
+        </div>
+
+        <script>
+            
+            let index = 0;
+            const slides = document.querySelector('.slides');
+            const totalSlides = document.querySelectorAll('.slide').length;
+    
+            function showNextSlide() {
+                index = (index + 1) % totalSlides;
+                slides.style.transform = `translateX(${-index * 100}%)`;
+            }
+    
+            setInterval(showNextSlide, 5000);
+
+            function moverCarrusel(direccion) {
+                const carrusel = document.getElementById("carrusel");
+                const desplazamiento = 250;
+                carrusel.scrollBy({ left: direccion * desplazamiento, behavior: "smooth" });
+            }
+
+        </script>
 
     </body>
 
