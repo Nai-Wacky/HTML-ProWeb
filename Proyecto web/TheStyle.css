@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #82b4d8;
+    margin: 0;
+    padding: 20px;
+}
+
+.contenedor {
+    max-width: 1000px;
+    margin: auto;
+    text-align: left;
+}
+
+.titulo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.subtitulo {
+    font-size: 16px;
+    color: #333;
+}
+
+.carrusel {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.carrusel-contenido {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.carrusel-contenido::-webkit-scrollbar {
+    display: none;
+}
+
+.producto {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    min-width: 220px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.producto img {
+    width: 100px;
+    height: 100px;
+}
+
+.producto h3 {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.producto p {
+    color: #ff7b00;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.boton {
+    background: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+}
+
+.boton:hover {
+    background: #ddd;
+}
+
+.boton-container {
+    display: flex;
+    align-items: center;
+}
+
+.boton-derecha {
+    transform: rotate(180deg);
+}
+
+.boton img {
+    width: 20px;
+}
+
+.boton-agregar {
+    background: navy;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.boton-agregar:hover {
+    background: darkblue;
+}
