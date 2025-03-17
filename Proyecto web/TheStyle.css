@@ -6,9 +6,10 @@ bodyProductos {
 }
 
 .contenedorProductos {
-    max-width: 85%;
+    max-width: 92%;
     margin: auto;
     text-align: left;
+    padding-bottom: 20px;
 }
 
 .titulo {
@@ -60,6 +61,7 @@ bodyProductos {
 }
 
 .producto p {
+    padding-bottom: 9px;
     color: #ff7b00;
     font-weight: bold;
     font-size: 18px;
