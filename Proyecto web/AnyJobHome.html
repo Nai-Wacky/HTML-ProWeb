@@ -122,6 +122,11 @@
 
     </head>
 
+
+
+
+
+    
     <body style="background-color:#82BEDA;">
 
         <div class="navbar">
@@ -167,11 +172,11 @@
             </div>
         </div>
     
-        
-
         <div style="padding: 50px ;">
             <h2 style="font-size:3vw; text-align: center; font-family: helvetica;" >Explora por nuestras familias de herramientas</h2>
         </div>
+
+        <!-- Familias de productos -->
 
         <div class="familyContainer">
 
@@ -205,15 +210,15 @@
           
         </div>
 
+        <!-- Productos en promoción -->
+
         <div style="padding: 50px ;">
             <h2 style="font-size:3vw; text-align: left; font-family: helvetica; padding-left: 125px;" >Te podría interesar 
                 <sub style="font-size: medium;"> (Productos nuevos o en promocion)  </sub>
             </h2>
         </div>
         
-        <div class="contenedor">
-            <p class="titulo">Te podría interesar <span class="subtitulo">Productos nuevos o en promoción</span></p>
-    
+        <div class="contenedorProductos">
             <div class="carrusel">
                 <button class="boton boton-izquierda" onclick="moverCarrusel(-1)">
                     <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="izquierda">
@@ -247,6 +252,20 @@
                         <p>$199.99</p>
                         <button class="boton-agregar">Añadir al carrito</button>
                     </div>
+
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
+
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
                 </div>
     
                 <button class="boton boton-derecha" onclick="moverCarrusel(1)">
@@ -255,7 +274,40 @@
             </div>
         </div>
 
+        <div class="footer">
+
+            <div>
+                <h1>Información</h1>
+                <p><b>Acerca de nosotros</b></p>
+                <p><b>Términos y Condiciones</b></p>
+                <p><b>Aviso de privacidad</b></p>
+            </div>
+            
+            <div>
+                <h1>Atención al cliente</h1>
+                <p><b>Garantías</b></p>
+                <p><b>Devoluciones</b></p>
+                <p><b>Facturación</b></p>
+            </div>
+            
+            <div>
+                <h1>Contáctanos</h1>
+                <p><b>800 00 ANY JOB</b></p>
+                <p><b>servicioac@anyjob.com.mx</b></p>
+            </div>
+
+            <img src="Any job isotipo.png" alt="Isotipo">
+
+        </div>
+
+
+
+
+
+
         <script>
+
+            //Carrusel de marcas
             
             let index = 0;
             const slides = document.querySelector('.slides');
@@ -267,6 +319,8 @@
             }
     
             setInterval(showNextSlide, 5000);
+
+            //Carrusel de productos en promoción
 
             function moverCarrusel(direccion) {
                 const carrusel = document.getElementById("carrusel");
