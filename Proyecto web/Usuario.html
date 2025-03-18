@@ -113,8 +113,6 @@
 
     <br />
 
-
-
     <div class="carrusel">
 
 
@@ -167,23 +165,6 @@
 
 
     <script>
-
-        let index = 0;
-        const slides = document.querySelector('.slides');
-        const totalSlides = document.querySelectorAll('.slide').length;
-
-        function showNextSlide() {
-            index = (index + 1) % totalSlides;
-            slides.style.transform = `translateX(${-index * 100}%)`;
-        }
-
-        setInterval(showNextSlide, 5000);
-
-        function moverCarrusel(direccion) {
-            const carrusel = document.getElementById("carrusel");
-            const desplazamiento = 250;
-            carrusel.scrollBy({ left: direccion * desplazamiento, behavior: "smooth" });
-        }
 
     </script>
 
