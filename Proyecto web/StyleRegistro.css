@@ -22,71 +22,72 @@ bodyProductos {
 }
 
 .carrusel {
-    width: 900px; 
-    height: 90%; 
-    overflow-y: auto; 
-    overflow-x: hidden; 
+    width: 900px;
+    height: 90%;
+    overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
-    flex-direction:column;
-    justify-content:center;
-    align-content:center;
-    margin:auto;
-    
- 
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+
+
 }
 
-.categorias{
-    background-color:lightgray;
+.categorias {
+    background-color: lightgray;
     width: 12%;
     float: right;
-    padding:0px 0px 0px 30px;
+    padding: 0px 0px 0px 30px;
 }
 
 .carrusel-contenido {
     display: flex;
     grid-template-columns: repeat(1, 1fr);
-    flex-direction:column;
-    align-items:center;
-    gap: 10px; /* Espacio entre productos */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    /* Espacio entre productos */
     width: 100%;
-    height:100%;
+    height: 100%;
     padding: 10px;
     box-sizing: border-box;
 }
 
-    .carrusel-contenido::-webkit-scrollbar {
-        display: none;
-    }
+.carrusel-contenido::-webkit-scrollbar {
+    display: none;
+}
 
 .producto {
-    background-color:white;
+    background-color: white;
     display: flex;
     flex-direction: column;
     padding: 30px;
-    border: 2px solid white; 
+    border: 2px solid white;
     border-radius: 10px;
-    height:100%;
-    width:85%;
+    height: 100%;
+    width: 85%;
 }
 
-    .producto img {
-        float:right;
-        width: 50px;
-        height: 50px;
-    }
+.producto img {
+    float: right;
+    width: 50px;
+    height: 50px;
+}
 
-    .producto h3 {
-        font-size: 25px;
-        margin: 10px 0;
-        float:left;
-    }
+.producto h3 {
+    font-size: 25px;
+    margin: 10px 0;
+    float: left;
+}
 
-    .producto p {
+.producto p {
 
-        color: #ff7b00;
-        font-weight: bold;
-        font-size: 18px;
-    }
+    color: #ff7b00;
+    font-weight: bold;
+    font-size: 18px;
+}
 
 .boton {
     background: white;
@@ -99,9 +100,9 @@ bodyProductos {
     margin: 10px;
 }
 
-    .boton:hover {
-        background: #ddd;
-    }
+.boton:hover {
+    background: #ddd;
+}
 
 .boton-container {
     display: flex;
@@ -117,16 +118,16 @@ bodyProductos {
 }
 
 .boton-agregar {
-    float:none;
+    float: none;
     background: white;
     color: white;
     border: none;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     width: 50px;
-    height:50px;
+    height: 50px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
@@ -134,7 +135,7 @@ bodyProductos {
 
 .boton-comprar {
     float: none;
-    background:darkblue;
+    background: #003F63;
     color: white;
     border: none;
     display: flex;
@@ -149,32 +150,32 @@ bodyProductos {
 }
 
 .boton-comprar:hover {
-    background: #0300fe;
+    background: #005f96;
 }
 
-.familias{
-    color:red;
-    text-align:right;
+.familias {
+    color: red;
+    text-align: right;
     margin-bottom: 0px;
-    font-size:17px;
+    font-size: 17px;
 }
 
 .checkbox {
-    display: flex; 
+    display: flex;
     justify-content: center;
-    align-items: center; 
-    font-size: 18px; 
+    align-items: center;
+    font-size: 18px;
     color: #333;
-    font-weight: bold; 
+    font-weight: bold;
     margin-right: 10px;
 }
 
-    .checkbox input[type="checkbox"] {
-        margin-left: 10px; 
-        transform: scale(1.2);
-    }
+.checkbox input[type="checkbox"] {
+    margin-left: 10px;
+    transform: scale(1.2);
+}
 
 
-    .boton-agregar:hover {
-        background: darkblue;
-    }
+.boton-agregar:hover {
+    background: darkblue;
+}
