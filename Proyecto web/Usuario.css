@@ -139,7 +139,7 @@ bodyProductos {
 
 .boton-comprar {
     float: none;
-    background: darkblue;
+    background: #003F63;
     color: white;
     border: none;
     display: flex;
@@ -154,7 +154,7 @@ bodyProductos {
 }
 
 .boton-comprar:hover {
-    background: #0300fe;
+    background: #005f96;
 }
 
 .familias {
