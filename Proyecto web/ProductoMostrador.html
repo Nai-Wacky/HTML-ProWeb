@@ -4,82 +4,11 @@
     <head>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        <link rel="stylesheet" href="TheStyle.css">
+        <link rel="stylesheet" href="TheStyleProductoMostrador.css">
 
         <title>Any Job</title>
 
         <link rel="icon" href="Any-job-icon.ico" type="image/x-icon"/>
-
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            body {
-                font-family: Arial, sans-serif;
-            }
-
-            .navbar {
-                background-color: #003F63; 
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 10px 20px;
-            }
-
-            .buttonImageLogo {
-                background: none;
-                border: none;
-                cursor: pointer;
-                margin-left: 5px;
-            }
-
-            .search-box {
-                display: flex;
-                align-items: center;
-                border: 2px solid #ccc;
-                border-radius: 10px;
-                padding: 5px 10px;
-                width: 500px;
-                background-color: white;
-            }
-
-            .search-box input {
-                border: none;
-                outline: none;
-                flex: 1;
-                padding: 5px;
-                font-size: 16px;
-                background: transparent;
-            }
-
-            .search-box input::placeholder {
-                font-style: italic;
-                color: #aaa;
-            }
-
-            .search-box button {
-                background: none;
-                border: none;
-                cursor: pointer;
-            }
-
-            .search-box button img {
-                width: 20px;
-                height: 20px;
-            }
-
-            .buttonOpcion {
-                background: none;
-                border: none;
-                cursor: pointer;
-                margin-right: 35px;
-            }
-
-            
-        </style>
 
     </head>
 
@@ -88,7 +17,7 @@
 
 
     
-    <body style="background-color:#82BEDA;">
+    <body style="background-color:#e9e9e9;">
 
         <div class="navbar">
 
@@ -123,6 +52,135 @@
 
         </div>
 
+        <div class="contenedor">
+            <div class="imagen-producto">
+                <img src="Pala_Truper.jpg" alt="Pala T200 Truper">
+            </div>
+    
+            <div class="detalles">
+                <h1>Pala cuadrada puño "Y" T200 Truper; Codigo 17161</h1>
+                <p class="precio">$199.99</p>
+    
+                <label>Cantidad</label>
+                <div class="cantidad">
+                    <button onclick="cambiarCantidad(-1)">-</button>
+                    <input type="text" id="cantidad" value="1" readonly>
+                    <button onclick="cambiarCantidad(1)">+</button>
+                </div>
+    
+                <div class="botones">
+                    <button class="boton boton-carrito">Agregar al carrito</button>
+                    <button class="boton boton-comprar">Comprar</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding-top: 50px ; padding-bottom: 20px;">
+            <h2 style="font-size:3vw; text-align: left; font-family: helvetica; padding-left: 125px;" >Te podría interesar 
+                <sub style="font-size: medium;"> (Productos nuevos o en promocion)  </sub>
+            </h2>
+        </div>
+
+        <div class="contenedorProductos">
+            <div class="carrusel">
+                <button class="botonC boton-izquierda" onclick="moverCarrusel(-1)">
+                    <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="izquierda">
+                </button>
+                
+                <div class="carrusel-contenido" id="carrusel">
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
+    
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
+    
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
+    
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
+
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
+
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
+
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
+
+                    <div class="producto">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>$199.99</p>
+                        <button class="boton-agregar">Añadir al carrito</button>
+                    </div>
+                </div>
+    
+                <button class="botonC boton-derecha" onclick="moverCarrusel(1)">
+                    <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="derecha">
+                </button>
+            </div>
+        </div>
+
+        <div class="footer">
+
+            <div>
+                <h1>Información</h1>
+                <p><b>Acerca de nosotros</b></p>
+                <p><b>Términos y Condiciones</b></p>
+                <p><b>Aviso de privacidad</b></p>
+            </div>
+            
+            <div>
+                <h1>Atención al cliente</h1>
+                <p><b>Garantías</b></p>
+                <p><b>Devoluciones</b></p>
+                <p><b>Facturación</b></p>
+            </div>
+            
+            <div>
+                <h1>Contáctanos</h1>
+                <p><b>800 00 ANY JOB</b></p>
+                <p><b>servicioac@anyjob.com.mx</b></p>
+                <p><b>Redes sociales</b></p>
+            </div>
+
+        </div>
+
+        <div class="imgFooter">
+            <img src="Any job isotipo.png" alt="Isotipo">
+        </div>
+
+
 
 
 
@@ -130,7 +188,19 @@
 
         <script>
 
-            
+            function cambiarCantidad(cambio) {
+                let cantidadInput = document.getElementById("cantidad");
+                let cantidad = parseInt(cantidadInput.value);
+                cantidad = cantidad + cambio;
+                if (cantidad < 1) cantidad = 1;
+                cantidadInput.value = cantidad;
+            }
+
+            function moverCarrusel(direccion) {
+                const carrusel = document.getElementById("carrusel");
+                const desplazamiento = 250;
+                carrusel.scrollBy({ left: direccion * desplazamiento, behavior: "smooth" });
+            }
 
         </script>
 
