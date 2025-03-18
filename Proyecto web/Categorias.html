@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="StyleC.css">
+
+    <title>CATEGORIAS</title>
+
+    <link rel="icon" href="Any-job-icon.ico" type="image/x-icon" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #003F63;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .buttonImageLogo {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .search-box-a {
+            display: flex;
+            gap: 10px; 
+            align-items: center;
+        }
+
+        .search-box-precio {
+          
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 5px;
+            width: 70px;
+            background-color: white;
+        }
+        .search-box-precio input {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding: 5px;
+            font-size:14px;
+            background: transparent;
+        }
+
+
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 5px 10px;
+            width: 500px;
+            background-color: white;
+        }
+
+            .search-box input {
+                border: none;
+                outline: none;
+                flex: 1;
+                padding: 5px;
+                font-size: 16px;
+                background: transparent;
+            }
+
+                .search-box input::placeholder {
+                    font-style: italic;
+                    color: #aaa;
+                }
+
+            .search-box button {
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+                .search-box button img {
+                    width: 20px;
+                    height: 20px;
+                }
+
+        .buttonOpcion {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-right: 35px;
+        }
+
+        .carousel {
+            position:relative;
+            max-width: auto;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+            .slide img {
+                width: 100%;
+                display: block;
+            }
+
+        .familyContainer {
+            display: flex;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+            .familyContainer > div {
+                width: auto;
+                display: inline-block;
+                margin: auto;
+                border-radius: 10px;
+                background-color: #FFFFFF;
+                text-align: center;
+            }
+    </style>
+
+</head>
+
+<body style="background-color:lightgray;">
+
+    <div class="navbar">
+
+        <!-- Logo Izquierda -->
+
+        <button class="buttonImageLogo">
+            <img src="images/Any Job Imagotipo chiquito.png" width="129" height="43" title="Any job">
+        </button>
+
+        <!-- Buscador -->
+
+        <div style="margin: 0 auto;" class="search-box">
+            <input type="text" placeholder="Herramientas...">
+            <button>
+                <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Buscar">
+            </button>
+        </div>
+
+        <!-- Opciones -->
+
+        <button class="buttonOpcion">
+            <img src="images/Perfil Any Job.png" href="" width="38" height="43" title="Perfil">
+        </button>
+
+        <button class="buttonOpcion">
+            <img src="images/Catalogo Any Job.png" width="30" height="43" title="Catalogo de proveedores">
+        </button>
+
+        <button class="buttonOpcion">
+            <img src="images/Carrito de compras.png" width="43" height="43" title="Carrito de compras">
+        </button>
+
+    </div>
+
+   
+
+    <br />
+    <br />
+    <br />
+
+
+    <div class="contenedor">
+
+        <div class="categorias">
+
+
+
+            <h3 style="font-weight:bold">Familia</h3>
+            <br />
+
+
+            <p class="familias">Plomeria</p>
+            <p class="familias">Albanileria</p>
+            <p class="familias">Carpinteria</p>
+            <p class="familias">Electricidad</p>
+
+
+            <br />
+
+            <h3 style="font-weight:bold">Marca</h3>
+            <br />
+
+
+
+            <p class="familias">Urrea</p>
+            <p class="familias">Surtek</p>
+            <p class="familias">Truper</p>
+            <p class="familias">Cuervo</p>
+            <p class="familias">Rotoplas</p>
+            <br />
+
+            <h3 style="font-weight:bold">Precio</h3>
+            <div class="search-box-a">
+
+                <div class="search-box-precio">
+                    <input type="text" placeholder="Min.">
+
+                </div>
+                <h2>-</h2>
+                <div class="search-box-precio">
+                    <input type="text" placeholder="Max.">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="carrusel">
+           
+
+            <div class="carrusel-contenido" id="carrusel">
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+
+            </div>
+
+           
+        </div>
+    </div>
+
+    <script>
+
+        let index = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showNextSlide() {
+            index = (index + 1) % totalSlides;
+            slides.style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        setInterval(showNextSlide, 5000);
+
+        function moverCarrusel(direccion) {
+            const carrusel = document.getElementById("carrusel");
+            const desplazamiento = 250;
+            carrusel.scrollBy({ left: direccion * desplazamiento, behavior: "smooth" });
+        }
+
+    </script>
+
+</body>
+
+</html>
