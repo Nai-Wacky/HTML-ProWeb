@@ -21,7 +21,7 @@ bodyProductos {
 }
 
 .carrusel {
-    width: 900px;
+    width: 800px;
     height: 70%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -29,7 +29,7 @@ bodyProductos {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    text-align: center;
+    text-align:center;
     margin: auto;
 }
 
@@ -41,13 +41,12 @@ bodyProductos {
 }
 
 .carrusel-contenido {
-
+   
     display: flex;
     grid-template-columns: repeat(1, 1fr);
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    /* Espacio entre productos */
+    gap: 10px; /* Espacio entre productos */
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
@@ -56,42 +55,42 @@ bodyProductos {
     text-align: center;
 }
 
-.carrusel-contenido::-webkit-scrollbar {
-    display: none;
-}
+    .carrusel-contenido::-webkit-scrollbar {
+        display: none;
+    }
 
 .producto {
     background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; 
+    align-items: center; 
     padding: 30px;
     border: 2px solid white;
     border-radius: 10px;
     height: 100%;
     width: 85%;
-    text-align: center;
+    text-align: center; 
 }
 
 
-.producto img {
-    float: right;
-    width: 50px;
-    height: 50px;
-}
+    .producto img {
+        float: right;
+        width: 50px;
+        height: 50px;
+    }
 
-.producto h3 {
-    font-size: 25px;
-    margin: 10px 0;
-    width: 100%;
-}
+    .producto h3 {
+        font-size: 25px;
+        margin: 10px 0;
+        width: 100%;
+    }
 
-.producto p {
-    color: #ff7b00;
-    font-weight: bold;
-    font-size: 18px;
-}
+    .producto p {
+        color: #ff7b00;
+        font-weight: bold;
+        font-size: 18px;
+    }
 
 .boton {
     background: white;
@@ -104,9 +103,9 @@ bodyProductos {
     margin: 10px;
 }
 
-.boton:hover {
-    background: #ddd;
-}
+    .boton:hover {
+        background: #ddd;
+    }
 
 .boton-container {
     display: flex;
@@ -139,7 +138,7 @@ bodyProductos {
 
 .boton-comprar {
     float: none;
-    background: #003F63;
+    background: darkblue;
     color: white;
     border: none;
     display: flex;
@@ -153,9 +152,9 @@ bodyProductos {
     font-size: 14px;
 }
 
-.boton-comprar:hover {
-    background: #005f96;
-}
+    .boton-comprar:hover {
+        background: #0300fe;
+    }
 
 .familias {
     color: red;
@@ -174,92 +173,12 @@ bodyProductos {
     margin-right: 10px;
 }
 
-.checkbox input[type="checkbox"] {
-    margin-left: 10px;
-    transform: scale(1.2);
-}
+    .checkbox input[type="checkbox"] {
+        margin-left: 10px;
+        transform: scale(1.2);
+    }
 
 
 .boton-agregar:hover {
     background: darkblue;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-
-}
-
-.navbar {
-    background-color: #003F63;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-}
-
-.buttonImageLogo {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.search-box-a {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.search-box-b {
-    display: flex;
-    gap: 0px;
-    align-items: center;
-}
-
-.search-box {
-    display: flex;
-    align-items: center;
-    border: 2px solid gray;
-    border-radius: 5px;
-    padding: 10px 10px;
-    background-color: white;
-    width: 100%;
-    height: 100%;
-}
-
-.search-box input {
-    border: none;
-    outline: none;
-    flex: 1;
-    padding: 5px;
-    font-size: 18px;
-    background: transparent;
-}
-
-.search-box input::placeholder {
-    font-style: italic;
-    color: #aaa;
-}
-
-.search-box button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.search-box button img {
-    width: 20px;
-    height: 20px;
-}
-
-.buttonOpcion {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-right: 35px;
 }

@@ -6,27 +6,156 @@
 
     <link rel="stylesheet" href="Usuario.css">
 
-    <title>USUARIO</title>
+    <title>Any Job</title>
 
-    <link rel="icon" href="Any-job-icon.ico" type="image/x-icon" />
+    <link rel="icon" href="images/Any-job-icon.ico" type="image/x-icon" />
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: Arial, sans-serif;
+           
+            background-size: cover;
+            background-attachment: fixed;
+            height: 95vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #003F63;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+        }
+
+        .buttonImageLogo {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding:15px;
+        }
+
+        .search-box-a {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .search-box-b {
+            display: flex;
+            gap: 0px;
+            align-items: center;
+        }
+
+
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 2px solid gray;
+            border-radius: 5px;
+            padding: 10px 10px;
+            background-color: white;
+            width: 100%;
+            height: 100%;
+        }
+
+            .search-box input {
+                border: none;
+                outline: none;
+                flex: 1;
+                padding: 5px;
+                font-size: 18px;
+                background: transparent;
+            }
+
+                .search-box input::placeholder {
+                    font-style: italic;
+                    color: #aaa;
+                }
+
+            .search-box button {
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+                .search-box button img {
+                    width: 20px;
+                    height: 20px;
+                }
+
+        .buttonOpcion {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-right: 35px;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: auto;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+            .slide img {
+                width: 100%;
+                display: block;
+            }
+
+        .familyContainer {
+            display: flex;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+            .familyContainer > div {
+                width: auto;
+                display: inline-block;
+                margin: auto;
+                border-radius: 10px;
+                background-color: #FFFFFF;
+                text-align: center;
+            }
     </style>
 
 </head>
 
-<body style="background-color:white;">
+<body style="background-color: #003F63;">
 
     <div class="navbar">
 
+        <!-- Logo Izquierda -->
+
         <button class="buttonImageLogo">
-            <img src="images/Any Job Imagotipo chiquito.png" width="225" height="75" title="Any job">
+            <img src="images/Any Job Imagotipo chiquito.png" width="270" height="100" title="Any job">
         </button>
+
+
 
     </div>
 
     <br />
+
+
 
     <div class="carrusel">
 
@@ -38,7 +167,7 @@
                 <div class="search-box">
 
                     <br />
-                    <input type="text" placeholder="Nombre y apellido">
+                        <input type="text" placeholder="Nombre y apellido">
 
                 </div>
 
@@ -48,8 +177,8 @@
                 <div class="search-box">
 
                     <br />
-
-                    <input type="text" placeholder="********" />
+                    
+                        <input type="text" placeholder="++++++++++" />
 
                 </div>
 
@@ -63,7 +192,7 @@
                     <h3>Iniciar sesion</h3>
                 </button>
 
-
+                
                 <br />
                 <br />
 
@@ -71,11 +200,32 @@
                     <h3>Crear una cuenta</h3>
                 </button>
             </div>
+
+
         </div>
+
+
     </div>
 
 
     <script>
+
+        let index = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showNextSlide() {
+            index = (index + 1) % totalSlides;
+            slides.style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        setInterval(showNextSlide, 5000);
+
+        function moverCarrusel(direccion) {
+            const carrusel = document.getElementById("carrusel");
+            const desplazamiento = 250;
+            carrusel.scrollBy({ left: direccion * desplazamiento, behavior: "smooth" });
+        }
 
     </script>
 

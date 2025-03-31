@@ -22,64 +22,63 @@ bodyProductos {
 }
 
 .carrusel {
-    width: 88%;
-    height: 90%;
-    overflow-y: auto;
-    overflow-x: hidden;
+    width: 88%; 
+    height: 90%; 
+    overflow-y: auto; 
+    overflow-x: hidden; 
     display: flex;
-    justify-content: center;
-    float: left;
+    justify-content:center;
+    float:left;
 }
 
-.categorias {
-    background-color: lightgray;
+.categorias{
+    background-color:lightgray;
     width: 12%;
     float: right;
-    padding: 0px 0px 0px 30px;
+    padding:0px 0px 0px 30px;
 }
 
 .carrusel-contenido {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    /* Espacio entre productos */
+    gap: 10px; /* Espacio entre productos */
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
 }
 
-.carrusel-contenido::-webkit-scrollbar {
-    display: none;
-}
+    .carrusel-contenido::-webkit-scrollbar {
+        display: none;
+    }
 
 .producto {
-    background-color: white;
+    background-color:white;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    justify-content:space-between;
+    align-items:center;
     padding: 20px;
-    border: 2px solid white;
+    border: 2px solid white; 
     border-radius: 2px;
 }
 
-.producto img {
-    float: right;
-    width: 50px;
-    height: 50px;
-}
+    .producto img {
+        float:right;
+        width: 90px;
+        height: 75px;
+    }
 
-.producto h3 {
-    font-size: 16px;
-    margin: 10px 0;
-}
+    .producto h3 {
+        font-size: 16px;
+        margin: 10px 0;
+    }
 
-.producto p {
+    .producto p {
 
-    color: #ff7b00;
-    font-weight: bold;
-    font-size: 18px;
-}
+        color: #ff7b00;
+        font-weight: bold;
+        font-size: 18px;
+    }
 
 .boton {
     background: white;
@@ -92,9 +91,9 @@ bodyProductos {
     margin: 10px;
 }
 
-.boton:hover {
-    background: #ddd;
-}
+    .boton:hover {
+        background: #ddd;
+    }
 
 .boton-container {
     display: flex;
@@ -110,16 +109,16 @@ bodyProductos {
 }
 
 .boton-agregar {
-    float: none;
+    float:none;
     background: white;
     color: white;
     border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     padding: 10px;
     width: 50px;
-    height: 50px;
+    height:50px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
@@ -127,7 +126,7 @@ bodyProductos {
 
 .boton-comprar {
     float: none;
-    background: #003F63;
+    background:darkblue;
     color: white;
     border: none;
     display: flex;
@@ -142,32 +141,69 @@ bodyProductos {
 }
 
 .boton-comprar:hover {
-    background: #005f96;
+    background: #0300fe;
 }
 
 .familias {
-    color: red;
+    color: #ff7b00;
     text-align: right;
     margin-bottom: 0px;
     font-size: 17px;
+    font-weight: bold;
 }
 
 .checkbox {
-    display: flex;
+    display: flex; 
     justify-content: center;
-    align-items: center;
-    font-size: 18px;
+    align-items: center; 
+    font-size: 18px; 
     color: #333;
-    font-weight: bold;
+    font-weight: bold; 
     margin-right: 10px;
 }
 
-.checkbox input[type="checkbox"] {
-    margin-left: 10px;
-    transform: scale(1.2);
-}
+    .checkbox input[type="checkbox"] {
+        margin-left: 10px; 
+        transform: scale(1.2);
+    }
 
 
-.boton-agregar:hover {
-    background: darkblue;
+    .boton-agregar:hover {
+        background: darkblue;
+    }
+.footer {
+    background-color: #003F63;
+    display: flex;
 }
+
+    .footer > div {
+        padding-left: 2%;
+        width: 30%;
+        display: inline-block;
+        margin: auto;
+        padding-top: 50px;
+        color: white;
+    }
+
+        .footer > div > h1 {
+            padding-bottom: 10px;
+        }
+
+        .footer > div > p {
+            padding-bottom: 9px;
+        }
+
+.imgFooter {
+    background-color: #003F63;
+    display: flex;
+}
+
+    .imgFooter > img {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin: auto;
+        width: 70px;
+        height: 70px;
+        max-width: 100%;
+        height: auto;
+    }

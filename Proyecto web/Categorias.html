@@ -6,12 +6,139 @@
 
     <link rel="stylesheet" href="StyleC.css">
 
-    <title>CATEGORIAS</title>
+    <title>Any Job</title>
 
-    <link rel="icon" href="Any-job-icon.ico" type="image/x-icon" />
+    <link rel="icon" href="images/Any-job-icon.ico" type="image/x-icon" />
 
     <style>
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #003F63;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .buttonImageLogo {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .search-box-a {
+            display: flex;
+            gap: 10px; 
+            align-items: center;
+        }
+
+        .search-box-precio {
+          
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 5px;
+            width: 70px;
+            background-color: white;
+        }
+        .search-box-precio input {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding: 5px;
+            font-size:14px;
+            background: transparent;
+        }
+
+
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 5px 10px;
+            width: 500px;
+            background-color: white;
+        }
+
+            .search-box input {
+                border: none;
+                outline: none;
+                flex: 1;
+                padding: 5px;
+                font-size: 16px;
+                background: transparent;
+            }
+
+                .search-box input::placeholder {
+                    font-style: italic;
+                    color: #aaa;
+                }
+
+            .search-box button {
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+                .search-box button img {
+                    width: 20px;
+                    height: 20px;
+                }
+
+        .buttonOpcion {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-right: 35px;
+        }
+
+        .carousel {
+            position:relative;
+            max-width: auto;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+            .slide img {
+                width: 100%;
+                display: block;
+            }
+
+        .familyContainer {
+            display: flex;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+            .familyContainer > div {
+                width: auto;
+                display: inline-block;
+                margin: auto;
+                border-radius: 10px;
+                background-color: #FFFFFF;
+                text-align: center;
+            }
     </style>
 
 </head>
@@ -23,7 +150,7 @@
         <!-- Logo Izquierda -->
 
         <button class="buttonImageLogo">
-            <img src="images/Any Job Imagotipo chiquito.png" width="129" height="43" title="Any job">
+            <img src="images/Any Job Imagotipo chiquito.png" width="180" height="60" title="Any job">
         </button>
 
         <!-- Buscador -->
@@ -64,7 +191,7 @@
 
 
 
-            <h3 style="font-weight:bold">Familia</h3>
+            <h3 style="font-weight:bold">Categoria</h3>
             <br />
 
 
@@ -109,124 +236,137 @@
             <div class="carrusel-contenido" id="carrusel">
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
                 <div class="producto">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Producto">
+                    <img src="images/prueba.png" alt="Producto">
                     <h3>Nombre del producto</h3>
                     <p>$199.99</p>
-                    <button class="boton-agregar">Añadir al carrito</button>
+                    <button class="boton-agregar">A�adir al carrito</button>
                 </div>
 
+                <div class="producto">
+                    <img src="images/prueba.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
+
+                <div class="producto">
+                    <img src="images/prueba.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>$199.99</p>
+                    <button class="boton-agregar">A�adir al carrito</button>
+                </div>
 
             </div>
 
@@ -234,36 +374,37 @@
         </div>
     </div>
 
-    <div class="footer">
+    <footer>
 
-        <div>
-            <h1>Información</h1>
-            <p><b>Acerca de nosotros</b></p>
-            <p><b>Términos y Condiciones</b></p>
-            <p><b>Aviso de privacidad</b></p>
+        <div class="footer">
+
+            <div>
+                <h1>Información</h1>
+                <p><b>Acerca de nosotros</b></p>
+                <p><b>Términos y Condiciones</b></p>
+                <p><b>Aviso de privacidad</b></p>
+            </div>
+
+            <div>
+                <h1>Atención al cliente</h1>
+                <p><b>Garantías</b></p>
+                <p><b>Devoluciones</b></p>
+                <p><b>Facturación</b></p>
+            </div>
+
+            <div>
+                <h1>Contáctanos</h1>
+                <p><b>800 00 ANY JOB</b></p>
+                <p><b>servicioac@anyjob.com.mx</b></p>
+                <p><b>Redes sociales</b></p>
+            </div>
+
         </div>
-        
-        <div>
-            <h1>Atención al cliente</h1>
-            <p><b>Garantías</b></p>
-            <p><b>Devoluciones</b></p>
-            <p><b>Facturación</b></p>
+
+        <div class="imgFooter">
+            <img src="images/Any job isotipo.png" alt="Isotipo">
         </div>
-        
-        <div>
-            <h1>Contáctanos</h1>
-            <p><b>800 00 ANY JOB</b></p>
-            <p><b>servicioac@anyjob.com.mx</b></p>
-            <p><b>Redes sociales</b></p>
-        </div>
-
-    </div>
-
-    <div class="imgFooter">
-        <img src="Any job isotipo.png" alt="Isotipo">
-    </div>
-
-
+    </footer>
     <script>
 
         let index = 0;
