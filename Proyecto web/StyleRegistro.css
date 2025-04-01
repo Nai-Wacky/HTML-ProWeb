@@ -1,179 +1,75 @@
-bodyProductos {
-    font-family: Arial, sans-serif;
-    background-color: #82b4d8;
+body {
     margin: 0;
-    padding: 20px;
-}
-
-.contenedorProductos {
-    max-width: 1000px;
-    margin: auto;
-    text-align: left;
-}
-
-.titulo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.subtitulo {
-    font-size: 16px;
-    color: #333;
-}
-
-.carrusel {
-    width: 900px;
-    height: 90%;
-    overflow-y: auto;
-    overflow-x: hidden;
+    padding: 0;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-content: center;
-    margin: auto;
-    background-color: #003F63;
+    align-items: center;
+    height: 100vh;
+    background: url('images/TOOLS.jpg') no-repeat center center/cover;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.categorias{
-    background-color:lightgray;
-    width: 12%;
-    float: right;
-    padding:0px 0px 0px 30px;
-}
-
-.carrusel-contenido {
-    display: flex;
-    grid-template-columns: repeat(1, 1fr);
-    flex-direction:column;
-    align-items:center;
-    gap: 10px; /* Espacio entre productos */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height:100%;
-    padding: 10px;
-    box-sizing: border-box;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
 }
 
-    .carrusel-contenido::-webkit-scrollbar {
-        display: none;
-    }
-
-.producto {
-    background-color:white;
-    display: flex;
-    flex-direction: column;
+.container {
+    position: relative;
+    background: white;
     padding: 30px;
-    border: 2px solid white; 
     border-radius: 10px;
-    height:100%;
-    width:85%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
 }
 
-    .producto img {
-        float:right;
-        width: 50px;
-        height: 50px;
-    }
-
-    .producto h3 {
-        font-size: 25px;
-        margin: 10px 0;
-        float:left;
-    }
-
-    .producto p {
-
-        color: #ff7b00;
-        font-weight: bold;
-        font-size: 18px;
-    }
-
-.boton {
-    background: white;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 50%;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    margin: 10px;
+.logo {
+    width: 110px;
+    margin-bottom: 1px;
 }
 
-    .boton:hover {
-        background: #ddd;
-    }
-
-.boton-container {
-    display: flex;
-    align-items: center;
+h2 {
+    margin: 10px 0;
+    font-size: 40px;
 }
 
-.boton-derecha {
-    transform: rotate(180deg);
-}
-
-.boton img {
-    width: 20px;
-}
-
-.boton-agregar {
-    float:none;
-    background: white;
-    color: white;
-    border: none;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding: 10px;
-    width: 50px;
-    height:50px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.boton-comprar {
-    float: none;
-    background:darkblue;
-    color: white;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+input {
     width: 95%;
-    height: 45px;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    flex: 1;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #003366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
     cursor: pointer;
-    font-size: 14px;
 }
 
-.boton-comprar:hover {
-    background: #0300fe;
+button:hover {
+    background: #002244;
 }
-
-.familias{
-    color:red;
-    text-align:right;
-    margin-bottom: 0px;
-    font-size:17px;
-}
-
-.checkbox {
-    display: flex; 
-    justify-content: center;
-    align-items: center; 
-    font-size: 18px; 
-    color: #333;
-    font-weight: bold; 
-    margin-right: 10px;
-}
-
-    .checkbox input[type="checkbox"] {
-        margin-left: 10px; 
-        transform: scale(1.2);
-    }
-
-
-    .boton-agregar:hover {
-        background: darkblue;
-    }

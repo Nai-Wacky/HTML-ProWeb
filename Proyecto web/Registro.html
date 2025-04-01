@@ -11,275 +11,29 @@
     <link rel="icon" href="images/Any-job-icon.ico" type="image/x-icon" />
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-
-            background-color: #003F63;
-            background-size: cover;
-            background-attachment: fixed;
-            height: 95vh;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar {
-            background-color: #003F63;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 20px;
-        }
-
-        .buttonImageLogo {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 15px;
-        }
-
-        .search-box-a {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .search-box-b {
-            display: flex;
-            gap: 0px;
-            align-items: center;
-        }
-
-
-
-        .search-box {
-            display: flex;
-            align-items: center;
-            border: 2px solid black;
-            border-radius: 5px;
-            padding: 5px 10px;
-            background-color: white;
-            width: 100%;
-            height: 100%;
-        }
-
-            .search-box input {
-                border: none;
-                outline: none;
-                flex: 1;
-                padding: 5px;
-                font-size: 16px;
-                background: transparent;
-            }
-
-                .search-box input::placeholder {
-                    font-style: italic;
-                    color: #aaa;
-                }
-
-            .search-box button {
-                background: none;
-                border: none;
-                cursor: pointer;
-            }
-
-                .search-box button img {
-                    width: 20px;
-                    height: 20px;
-                }
-
-        .buttonOpcion {
-            background: none;
-            border: none;
-            cursor: pointer;
-            margin-right: 35px;
-        }
-
-        .carousel {
-            position: relative;
-            max-width: auto;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slide {
-            min-width: 100%;
-            box-sizing: border-box;
-        }
-
-            .slide img {
-                width: 100%;
-                display: block;
-            }
-
-        .familyContainer {
-            display: flex;
-            padding-left: 80px;
-            padding-right: 80px;
-        }
-
-            .familyContainer > div {
-                width: auto;
-                display: inline-block;
-                margin: auto;
-                border-radius: 10px;
-                background-color: #FFFFFF;
-                text-align: center;
-            }
+        
     </style>
 
 </head>
 
 <body style="background-color: #003F63;">
 
-    <div class="navbar">
-
-        <!-- Logo Izquierda -->
-
-        <button class="buttonImageLogo">
-            <img src="images/Any Job Imagotipo chiquito.png" width="270" height="100" title="Any job">
-        </button>
-
-
-
-    </div>
-
-    <br />
-
-
-
-    <div class="carrusel">
-
-
-        <div class="carrusel-contenido">
-
-            <div class="producto">
-                <h3>Nombre</h3>
-                <div class="search-box">
-
-                    <br />
-                    <div class="search-box-precio">
-                        <input type="text" placeholder="Nombre y apellido">
-
-                    </div>
-
-                </div>
-
-                <br />
-
-                <h3>Nombre de usuario</h3>
-                <div class="search-box">
-
-                    <br />
-                    <div class="search-box-precio">
-                        <input type="text" placeholder="username">
-
-                    </div>
-
-                </div>
-
-                <br />
-
-                <h3>Correo electronico</h3>
-                <div class="search-box">
-
-                    <br />
-                    <div class="search-box-precio">
-                        <input type="text" placeholder="correo@gmail.com">
-
-                    </div>
-
-                </div>
-
-                <br />
-
-                <h3>Contrasena</h3>
-                <div class="search-box">
-
-                    <br />
-                    <div class="search-box-precio">
-                        <input type="text" placeholder="++++++++++">
-
-                    </div>
-
-                </div>
-
-                <br />
-
-                <h3>Direccion</h3>
-
-                <div class="search-box">
-
-                    <input type="text" placeholder="Calle">
-
-                </div>
-                <br />
-
-                <div class="search-box">
-
-                    <input type="text" placeholder="Colonia">
-
-                    <input type="text" placeholder="Numero">
-
-
-                </div>
-
-                <br />
-
-                <h3>Numero</h3>
-                <div class="search-box">
-
-                    <br />
-                    <div class="search-box-precio">
-                        <input type="text" placeholder="0123456789">
-
-                    </div>
-
-                </div>
-
-                <br />
-                <br />
-
-                <button class="boton-comprar">
-                    <h3>REGISTRAR</h3>
-                </button>
-            </div>
-
-
+    <div class="container">
+        <img src="images/Isotipo blanco.png" alt="Logo" class="logo">
+        <h2>Regístrate</h2>
+        <input type="text" placeholder="Nombre y apellido">
+        <input type="email" placeholder="correo@email.com">
+        <input type="password" placeholder="***********">
+        <div class="input-group">
+            <input type="text" placeholder="Calle">
+            <input type="text" placeholder="Colonia">
+            <input type="text" placeholder="Número">
         </div>
-
-
+        <input type="text" placeholder="4431ANYJOB">
+        <button style="margin: auto;">Registrarse</button>
     </div>
-
 
     <script>
-
-        let index = 0;
-        const slides = document.querySelector('.slides');
-        const totalSlides = document.querySelectorAll('.slide').length;
-
-        function showNextSlide() {
-            index = (index + 1) % totalSlides;
-            slides.style.transform = `translateX(${-index * 100}%)`;
-        }
-
-        setInterval(showNextSlide, 5000);
-
-        function moverCarrusel(direccion) {
-            const carrusel = document.getElementById("carrusel");
-            const desplazamiento = 250;
-            carrusel.scrollBy({ left: direccion * desplazamiento, behavior: "smooth" });
-        }
 
     </script>
 
