@@ -257,7 +257,7 @@ body {
 
 .tarjeta {
     background: white;
-    width: 200px;
+    width: 250px;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -271,8 +271,8 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 .tarjeta img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
 }
 .tarjeta h3 {
     margin-top: 10px;
@@ -283,7 +283,7 @@ body {
     bottom: -100%;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: #003F63;
     color: white;
     padding: 10px;
     font-size: 14px;
