@@ -11,14 +11,21 @@ if (isset($_POST['nombre']) && isset($_POST['correo']) && isset($_POST['password
     $c->id_usuario = isset($_POST['id_usuario']) ? $_POST['id_usuario'] : 0;
     $c->nombre = $_POST['nombre'];
     $c->correo = $_POST['correo'];
-    $c->password = $_POST['password'];
+    $c->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $c->numerotel = $_POST['numerotel'];
 
-    echo $db->addUser($c);
+    $resultado = $db->addUser($c);
+
+    if ($resultado) {
+        // Registro exitoso, redirigir
+        header("Location: ../AnyJobHome.html");
+        exit;
+    } else {
+        echo "Error al registrar usuario.";
+    }
+
+    header("Location: ../AnyJobHome.html");
+    exit;
 } else {
-    echo "Error, no se pueden agregar calificaciones vacios";
-    echo $_POST['nombre'];
-    echo $_POST['correo'];
-    echo $_POST['password'];
-    echo $_POST['numerotel'];
+    echo "Error: Faltan campos obligatorios";
 }

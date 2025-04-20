@@ -1,5 +1,7 @@
 <?php
 
+require "Usuarios.php";
+
 class DBManager
 {
     private $db;
