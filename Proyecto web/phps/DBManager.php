@@ -39,29 +39,7 @@ class DBManager
 
     //-------------------------------------------------------------------USUARIO-------------------------------------------------------------------
 
-    public function show($p = null) //FUNCIONA
-    {
-        $link = $this->open();
-
-        $sql = "SELECT * FROM usuarios ";
-        if ($p) {
-            $p = "'%$p%'";
-            $sql .= " WHERE nombre_user LIKE $p";
-        }
-
-        $result = mysqli_query($link, $sql, MYSQLI_ASSOC) or die('Error query');
-
-        $rows = [];
-        while ($columns = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $rows[] = $columns;
-        }
-
-        $this->close($link);
-
-        return $rows;
-    }
-
-    public function findCorreo($corr, $pass) //FUNCIONA
+    public function findCorreo($corr, $pass) //ADAPTADO PARA EL PROYECTO
     {
         $link = $this->open();
 
@@ -79,46 +57,31 @@ class DBManager
         return $rows;
     }
 
-    public function editDay($id, $day) //FUNCIONA
+    public function addUser(Usuario $usuario) //ADAPTADO PARA EL PROYECTO
     {
         $link = $this->open();
 
-        $sql = "UPDATE usuarios SET avance = ? WHERE id_usuario = ?";
+        $sql = "INSERT INTO usuarios VALUES(NULL, ?, ?, ?, ?)";
 
+        // Prepara la consulta
         $query = mysqli_prepare($link, $sql);
+
+        // Enlaza los parametros (reemplaza comodines)
+        // Tipos: i para enteros, s para string, d para double y b para blob
+
+        print $usuario->nombre;
 
         mysqli_stmt_bind_param(
             $query,
-            "ss",
-            $day,
-            $id
+            "ssss",
+            $usuario->nombre,
+            $usuario->correo,
+            $usuario->password,
+            $usuario->numerotel
         );
 
-        $resultado = mysqli_stmt_execute($query) or die('Error update');
-
-        $this->close($link);
-
-        return $resultado;
-    }
-
-    public function reset($id, $day)
-    {
-        $day = "0";
-
-        $link = $this->open();
-
-        $sql = "UPDATE productos SET avance = ? WHERE id_usuario = ?";
-
-        $query = mysqli_prepare($link, $sql);
-
-        mysqli_stmt_bind_param(
-            $query,
-            "ss",
-            $day,
-            $id
-        );
-
-        $resultado = mysqli_stmt_execute($query) or die('Error update');
+        // Ejecuta la query
+        $resultado = mysqli_stmt_execute($query) or die('Error insert');
 
         $this->close($link);
 
