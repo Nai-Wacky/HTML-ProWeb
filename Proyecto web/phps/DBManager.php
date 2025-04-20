@@ -39,7 +39,7 @@ class DBManager
 
     //-------------------------------------------------------------------USUARIO-------------------------------------------------------------------
 
-    public function findCorreo($corr, $pass) //ADAPTADO PARA EL PROYECTO
+    public function login($corr, $pass) //ADAPTADO PARA EL PROYECTO
     {
         $link = $this->open();
 
