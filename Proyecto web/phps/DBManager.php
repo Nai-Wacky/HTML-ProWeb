@@ -47,7 +47,7 @@ class DBManager
 
         $sql = "SELECT * FROM usuarios WHERE correo = ?";
         $query = mysqli_prepare($link, $sql);
-        mysqli_stmt_bind_param($query, "s", $correo);
+        mysqli_stmt_bind_param($query, "s", $corr);
         mysqli_stmt_execute($query);
 
         $resultado = mysqli_stmt_get_result($query);
@@ -57,6 +57,7 @@ class DBManager
             if (password_verify($password, $fila['password'])) {
                 // Login exitoso: puedes devolver info del usuario (sin la contraseña)
                 unset($fila['password']); // Oculta el hash
+                print "SI SE PUDO";
                 return $fila;
             } else {
                 return ["error" => "Contraseña incorrecta"];
