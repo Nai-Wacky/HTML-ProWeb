@@ -41,22 +41,31 @@ class DBManager
 
     //-------------------------------------------------------------------USUARIO-------------------------------------------------------------------
 
-    public function login($corr, $pass) //ADAPTADO PARA EL PROYECTO
+    public function login($corr, $password) //ADAPTADO PARA EL PROYECTO
     {
         $link = $this->open();
 
-        $sql = "SELECT * FROM usuarios WHERE correo='$corr' AND password='$pass'";
+        $sql = "SELECT * FROM usuarios WHERE correo = ?";
+        $query = mysqli_prepare($link, $sql);
+        mysqli_stmt_bind_param($query, "s", $correo);
+        mysqli_stmt_execute($query);
 
-        $result = mysqli_query($link, $sql, MYSQLI_ASSOC) or die('Error query');
+        $resultado = mysqli_stmt_get_result($query);
 
-        $rows = [];
-        while ($columns = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $rows[] = $columns;
+        if ($fila = mysqli_fetch_assoc($resultado)) {
+            // Verificar la contraseña
+            if (password_verify($password, $fila['password'])) {
+                // Login exitoso: puedes devolver info del usuario (sin la contraseña)
+                unset($fila['password']); // Oculta el hash
+                return $fila;
+            } else {
+                return ["error" => "Contraseña incorrecta"];
+            }
+        } else {
+            return ["error" => "Usuario no encontrado"];
         }
 
         $this->close($link);
-
-        return $rows;
     }
 
     public function addUser(Usuario $usuario) //ADAPTADO PARA EL PROYECTO
