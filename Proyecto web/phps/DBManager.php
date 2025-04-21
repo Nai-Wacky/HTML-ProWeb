@@ -14,7 +14,7 @@ class DBManager
 
     public function __construct()
     {
-        $this->db = "anyjob";
+        $this->db = "bdanyjob";
         $this->host = "localhost";
         $this->user = "root";
         $this->pass = null;
