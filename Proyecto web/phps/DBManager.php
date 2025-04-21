@@ -15,10 +15,10 @@ class DBManager
     public function __construct()
     {
         $this->db = "anyjob";
-        $this->host = "shinkansen.proxy.rlwy.net";
+        $this->host = "localhost";
         $this->user = "root";
-        $this->pass = "YySIikZhGCZVOphoMdqGCzoccVokWHUs";
-        $this->port = 27717;
+        $this->pass = null;
+        $this->port = 3306;
     }
 
     private function open()
@@ -71,10 +71,10 @@ class DBManager
         // Enlaza los parametros (reemplaza comodines)
         // Tipos: i para enteros, s para string, d para double y b para blob
 
-        print $usuario->nombre;
-        print $usuario->correo;
+        //print $usuario->nombre;
+        //print $usuario->correo;
         print $usuario->password;
-        print $usuario->numerotel;
+        //print $usuario->numerotel;
 
         mysqli_stmt_bind_param(
             $query,
