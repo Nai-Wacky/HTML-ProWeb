@@ -72,6 +72,9 @@ class DBManager
         // Tipos: i para enteros, s para string, d para double y b para blob
 
         print $usuario->nombre;
+        print $usuario->correo;
+        print $usuario->password;
+        print $usuario->numerotel;
 
         mysqli_stmt_bind_param(
             $query,
