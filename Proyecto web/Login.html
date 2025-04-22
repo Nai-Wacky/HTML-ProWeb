@@ -44,6 +44,45 @@
 
     <script>
 
+        const form = document.getElementById('loginForm');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Evita que se recargue la página
+
+            const correo = document.getElementById('corr').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('phps/endPointLogin.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `corr=${encodeURIComponent(correo)}&pass=${encodeURIComponent(password)}`
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                mostrarError(data.error);
+            } else {
+                // Login exitoso, redirigir
+                window.location.href = 'AnyJobHome.html';
+            }
+        });
+
+        function mostrarError(mensaje) {
+            let errorBox = document.getElementById('mensaje-error');
+            if (!errorBox) {
+                errorBox = document.createElement('div');
+                errorBox.id = 'mensaje-error';
+                errorBox.style.color = 'red';
+                errorBox.style.marginTop = '10px';
+                errorBox.style.fontWeight = 'bold';
+                form.appendChild(errorBox);
+            }
+            errorBox.textContent = mensaje;
+        }
+
     </script>
 
 </body>
