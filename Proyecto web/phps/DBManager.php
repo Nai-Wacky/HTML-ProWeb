@@ -21,7 +21,7 @@ class DBManager
         $this->port = 3306;
     }
 
-    private function open()
+    public function open()
     {
         $link = mysqli_connect(
             $this->host,
@@ -34,7 +34,7 @@ class DBManager
         return $link;
     }
 
-    private function close($link)
+    public function close($link)
     {
         mysqli_close($link);
     }

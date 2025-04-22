@@ -23,7 +23,7 @@
         <img src="images/Imagotipo blanco.png" alt="Logo">
         <h2>Regístro</h2>
 
-        <form action="phps/endPointRegistro.php" method="POST">
+        <form id="loginForm">
             <div class="input-container">
                 <input type="text" name="nombre" id="nombre" placeholder=" " required>
                 <label for="nombre">Nombre de usuario</label>
@@ -51,6 +51,47 @@
     </div>
 
     <script>
+
+        const form = document.getElementById('loginForm');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Evita que se recargue la página
+
+            const nombre = document.getElementById('nombre').value;
+            const correo = document.getElementById('correo').value;
+            const password = document.getElementById('password').value;
+            const numerotel = document.getElementById('numerotel').value;
+
+            const response = await fetch('phps/endPointRegistro.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `nombre=${encodeURIComponent(nombre)}&correo=${encodeURIComponent(correo)}&password=${encodeURIComponent(password)}&numerotel=${encodeURIComponent(numerotel)}`
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                mostrarError(data.error);
+            } else {
+                // Login exitoso, redirigir
+                window.location.href = 'Login.html';
+            }
+        });
+
+        function mostrarError(mensaje) {
+            let errorBox = document.getElementById('mensaje-error');
+            if (!errorBox) {
+                errorBox = document.createElement('div');
+                errorBox.id = 'mensaje-error';
+                errorBox.style.color = 'red';
+                errorBox.style.marginTop = '10px';
+                errorBox.style.fontWeight = 'bold';
+                form.appendChild(errorBox);
+            }
+            errorBox.textContent = mensaje;
+        }
 
     </script>
 

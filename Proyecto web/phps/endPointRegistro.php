@@ -6,6 +6,26 @@ if (isset($_POST['nombre']) && isset($_POST['correo']) && isset($_POST['password
 
     $db = new DBManager();
 
+    $db = new DBManager();
+    $link = $db->open();
+
+    $correo = $_POST['correo'];
+
+    // Verifica si el correo ya está registrado
+    $checkSql = "SELECT id_usuario FROM usuarios WHERE correo = ?";
+    $checkStmt = mysqli_prepare($link, $checkSql);
+    mysqli_stmt_bind_param($checkStmt, "s", $correo);
+    mysqli_stmt_execute($checkStmt);
+    $result = mysqli_stmt_get_result($checkStmt);
+
+    if (mysqli_num_rows($result) > 0) {
+        echo json_encode(["error" => "El correo ya está registrado"]);
+        $db->close($link);
+        exit;
+    }
+
+    $db->close($link);
+
     $c = new Usuario();
 
     $c->id_usuario = isset($_POST['id_usuario']) ? $_POST['id_usuario'] : 0;
@@ -17,15 +37,10 @@ if (isset($_POST['nombre']) && isset($_POST['correo']) && isset($_POST['password
     $resultado = $db->addUser($c);
 
     if ($resultado) {
-        // Registro exitoso, redirigir
-        header("Location: ../AnyJobHome.html");
-        exit;
+        echo json_encode(["success" => true]);
     } else {
-        echo "Error al registrar usuario.";
+        echo json_encode(["error" => "Error al registrar usuario"]);
     }
-
-    header("Location: ../AnyJobHome.html");
-    exit;
 } else {
-    echo "Error: Faltan campos obligatorios";
+    echo json_encode(["error" => "Faltan campos obligatorios"]);
 }
