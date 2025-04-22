@@ -61,7 +61,6 @@ class DBManager
             if (password_verify($password, $fila['password'])) {
                 // Login exitoso: puedes devolver info del usuario (sin la contraseña)
                 unset($fila['password']); // Oculta el hash
-                print "SI SE PUDO";
                 return $fila;
             } else {
                 return ["error" => "Contraseña incorrecta"];

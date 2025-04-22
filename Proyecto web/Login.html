@@ -53,12 +53,15 @@
             const correo = document.getElementById('corr').value;
             const password = document.getElementById('password').value;
 
+            console.log(correo);
+            console.log(password);
+
             const response = await fetch('phps/endPointLogin.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: `corr=${encodeURIComponent(correo)}&pass=${encodeURIComponent(password)}`
+                body: `corr=${encodeURIComponent(correo)}&password=${encodeURIComponent(password)}`
             });
 
             const data = await response.json();
