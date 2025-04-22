@@ -47,7 +47,11 @@ class DBManager
 
         $sql = "SELECT * FROM usuarios WHERE correo = ?";
         $query = mysqli_prepare($link, $sql);
-        mysqli_stmt_bind_param($query, "s", $corr);
+        mysqli_stmt_bind_param(
+            $query,
+            "s",
+            $corr
+        );
         mysqli_stmt_execute($query);
 
         $resultado = mysqli_stmt_get_result($query);

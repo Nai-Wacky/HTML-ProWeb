@@ -9,5 +9,5 @@ if (isset($_POST['corr']) && isset($_POST['password'])) {
 
     echo json_encode($resultado);
 } else {
-    die('Error, se requiere el correo y pass');
+    echo json_encode(["error" => "Error, el correo o la contraseña no coincide"]);
 }
