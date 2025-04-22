@@ -63,7 +63,7 @@ class DBManager
                 return ["error" => "Contraseña incorrecta"];
             }
         } else {
-            return ["error" => "Usuario no encontrado"];
+            return ["error" => "Correo no encontrado"];
         }
 
         $this->close($link);
