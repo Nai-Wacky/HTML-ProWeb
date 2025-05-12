@@ -1,94 +1,101 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
-<head>
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="StyleInicioSesion.css">
+    <link rel="stylesheet" href="StyleInicioSesion.css" />
 
     <title>Any Job</title>
 
     <link rel="icon" href="images/Any-job-icon.ico" type="image/x-icon" />
 
-    <style>
-        
-    </style>
+    <style></style>
+  </head>
 
-</head>
-
-<body style="background-color: #003F63;">
-
+  <body style="background-color: #003f63">
     <div class="overlay"></div>
     <div class="login-box">
-        <img src="images/Imagotipo blanco.png" alt="Logo">
-        <h2>Iniciar sesión</h2>
+      <img src="images/Imagotipo blanco.png" alt="Logo" />
+      <h2>Iniciar sesión</h2>
 
-        <form id="loginForm">
+      <form id="loginForm">
+        <div class="input-container">
+          <input type="text" name="corr" id="corr" placeholder=" " required />
+          <label for="corr">Correo electronico</label>
+        </div>
 
-            <div class="input-container">
-                <input type="text" name="corr" id="corr" placeholder=" " required>
-                <label for="corr">Correo electronico</label>
-            </div>
+        <div class="input-container">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder=" "
+            required
+          />
+          <label for="password">Contraseña</label>
+        </div>
 
-            <div class="input-container">
-                <input type="password" name="password" id="password" placeholder=" " required>
-                <label for="password">Contraseña</label>
-            </div>
+        <a href="#" class="forgot-password">¿Olvidó la contraseña?</a>
 
-            <a href="#" class="forgot-password">¿Olvidó la contraseña?</a>
+        <button type="submit">Iniciar Sesión</button>
+      </form>
 
-            <button type="submit">Iniciar Sesión</button>
-        </form>
-
-        <p class="register">¿No tienes una cuenta? <a href="Registro.html">Crear una cuenta</a></p>
+      <p class="register">
+        ¿No tienes una cuenta? <a href="Registro.html">Crear una cuenta</a>
+      </p>
     </div>
 
     <script>
+      const form = document.getElementById("loginForm");
 
-        const form = document.getElementById('loginForm');
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Evita que se recargue la página
+        const correo = document.getElementById("corr").value;
+        const password = document.getElementById("password").value;
 
-            const correo = document.getElementById('corr').value;
-            const password = document.getElementById('password').value;
-
-            console.log(correo);
-            console.log(password);
-
-            const response = await fetch('phps/endPointLogin.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `corr=${encodeURIComponent(correo)}&password=${encodeURIComponent(password)}`
-            });
-
-            const data = await response.json();
-
-            if (data.error) {
-                mostrarError(data.error);
-            } else {
-                // Login exitoso, redirigir
-                window.location.href = 'AnyJobHome.html';
-            }
+        const response = await fetch("phps/endPointLogin.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `corr=${encodeURIComponent(
+            correo
+          )}&password=${encodeURIComponent(password)}`,
         });
 
-        function mostrarError(mensaje) {
-            let errorBox = document.getElementById('mensaje-error');
-            if (!errorBox) {
-                errorBox = document.createElement('div');
-                errorBox.id = 'mensaje-error';
-                errorBox.style.color = 'red';
-                errorBox.style.marginTop = '10px';
-                errorBox.style.fontWeight = 'bold';
-                form.appendChild(errorBox);
-            }
-            errorBox.textContent = mensaje;
+        const data = await response.json();
+
+        if (data.error) {
+          mostrarError(data.error);
+        } else {
+          // Guardar datos del usuario en localStorage
+          localStorage.setItem("nombre", data.nombre);
+          localStorage.setItem("correo", data.correo);
+          localStorage.setItem("id_usuario", data.id_usuario);
+          localStorage.setItem("telefono", data.numerotel); // si lo necesitas
+
+          // Redirigir a página principal
+          window.location.href = "AnyJobHome.html";
         }
+      });
 
+      function mostrarError(mensaje) {
+        let errorBox = document.getElementById("mensaje-error");
+        if (!errorBox) {
+          errorBox = document.createElement("div");
+          errorBox.id = "mensaje-error";
+          errorBox.style.color = "red";
+          errorBox.style.marginTop = "10px";
+          errorBox.style.fontWeight = "bold";
+          form.appendChild(errorBox);
+        }
+        errorBox.textContent = mensaje;
+      }
     </script>
-
-</body>
-
+  </body>
 </html>
