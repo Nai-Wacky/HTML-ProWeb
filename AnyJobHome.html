@@ -324,6 +324,18 @@
           filtro
         )}`;
       }
+
+      //----------------------------------------------LOCALSTORAGE----------------------------------------------
+
+      const nombre = localStorage.getItem("nombre");
+      const correo = localStorage.getItem("correo");
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const nombreGuardado = localStorage.getItem("usuarioNombre");
+        if (nombreGuardado) {
+          document.getElementById("bienvenida").textContent = nombreGuardado;
+        }
+      });
     </script>
   </body>
 </html>
