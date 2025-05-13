@@ -4,7 +4,7 @@ require "DBManager.php";
 
 if (isset($_POST['id_usuario']) && isset($_POST['password'])) {
     $id_usuario = $_POST['id_usuario'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     $db = new DBManager();
     $resultado = $db->editPassword($id_usuario, $password);

@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="StylePerfil.css" />
 
-    <title>Any Job</title>
+    <title>Mi perfil</title>
 
     <link rel="icon" href="images/Any-job-icon.ico" type="image/x-icon" />
   </head>
@@ -69,9 +69,18 @@
       </button>
     </div>
 
+    <!------------------------------------------------------------- Opciones ------------------------------------------------------------->
+
     <div class="supercontenedor">
       <div class="confPerfil">
-        <h1>Configuracion de perfil</h1>
+        <h1 id="tituloNombre">Nombre</h1>
+        <h2 id="tituloCorreo">Correo</h2>
+      </div>
+    </div>
+
+    <div class="supercontenedor">
+      <div class="confPerfil">
+        <h1>Tu Información</h1>
         <form id="loginForm">
           <div class="input-container">
             <input
@@ -97,12 +106,8 @@
 
           <button type="submit">Guardar cambios</button>
         </form>
-      </div>
-    </div>
 
-    <div class="supercontenedor">
-      <div class="confPerfil">
-        <h1>Cambiar contraseña</h1>
+        <h1 style="padding-top: 10%">Cambiar contraseña</h1>
         <form id="loginFormPassword">
           <div class="input-container">
             <input
@@ -139,12 +144,8 @@
 
           <button type="submit">Guardar cambios</button>
         </form>
-      </div>
-    </div>
 
-    <div class="supercontenedor">
-      <div class="confPerfil">
-        <h1>Direcciones</h1>
+        <h1 style="padding-top: 10%">Tus direcciones</h1>
         <button>Añadir direccion</button>
       </div>
     </div>
@@ -184,6 +185,8 @@
       if (nombre) {
         document.getElementById("nombre").value = nombre;
         document.getElementById("correo").value = correo;
+        document.getElementById("tituloNombre").textContent = nombre;
+        document.getElementById("tituloCorreo").textContent = correo;
       } else {
         // Si no hay datos en localStorage, redirigir a login
         window.location.href = "Login.html";
