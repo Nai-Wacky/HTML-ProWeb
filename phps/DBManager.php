@@ -151,6 +151,28 @@ class DBManager
         return $resultado;
     }
 
+    public function editCorreo($id_usuario, $correo) //FUNCIONA
+    {
+        $link = $this->open();
+
+        $sql = "UPDATE usuarios SET correo = ? WHERE id_usuario = ?";
+
+        $query = mysqli_prepare($link, $sql);
+
+        mysqli_stmt_bind_param(
+            $query,
+            "si",
+            $correo,
+            $id_usuario
+        );
+
+        $resultado = mysqli_stmt_execute($query) or die('Error update');
+
+        $this->close($link);
+
+        return $resultado;
+    }
+
 
 
     //-------------------------------------------------------------------direcciones-------------------------------------------------------------------
