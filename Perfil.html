@@ -80,7 +80,7 @@
 
     <div class="supercontenedor">
       <div class="confPerfil">
-        <h1>Tu Información</h1>
+        <h1>Tus datos</h1>
         <form id="loginForm">
           <div class="input-container">
             <input
@@ -178,6 +178,35 @@
     </div>
 
     <script>
+      const form = document.getElementById("loginForm");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const correo = document.getElementById("corr").value;
+        const password = document.getElementById("password").value;
+
+        const response = await fetch("phps/endPointLogin.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `corr=${encodeURIComponent(
+            correo
+          )}&password=${encodeURIComponent(password)}`,
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+          //ERROR
+        } else {
+          //SUCESS
+        }
+      });
+
+      //----------------------------------------------LOCALSTORAGE----------------------------------------------
+
       const nombre = localStorage.getItem("nombre");
       const correo = localStorage.getItem("correo");
       const id_usuario = localStorage.getItem("id_usuario");
