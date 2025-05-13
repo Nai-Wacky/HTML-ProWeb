@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="StyleCarro.css" />
 
-    <title>Any Job</title>
+    <title>Carrito</title>
 
     <link rel="icon" href="images/Any-job-icon.ico" type="image/x-icon" />
 
@@ -183,6 +183,7 @@
           height="43"
           title="Perfil"
         />
+        <h3 id="bienvenida" style="color: white">Login</h3>
       </button>
 
       <button
@@ -361,6 +362,17 @@
           behavior: "smooth",
         });
       }
+
+      //----------------------------------------------LOCALSTORAGE----------------------------------------------
+
+      const nombre = localStorage.getItem("nombre");
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const nombreGuardado = localStorage.getItem("usuarioNombre");
+        if (nombreGuardado) {
+          document.getElementById("bienvenida").textContent = nombreGuardado;
+        }
+      });
     </script>
   </body>
 </html>
