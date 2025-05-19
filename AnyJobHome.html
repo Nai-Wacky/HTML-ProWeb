@@ -99,76 +99,122 @@
           <img src="images/Truper Banner chico.png" alt="Imagen 3" />
         </div>
         <div class="slide">
-          <img src="images/Urrea Plomeria carrusel.png" alt="Imagen 4" />
-        </div>
-        <div class="slide">
           <img src="images/Carrusel/Makita carrusel.png" alt="Imagen 5" />
         </div>
       </div>
     </div>
 
-    <!------------------------------------------------------- Familias de productos ------------------------------------------------------->
+    <!------------------------------------------------------- Categorias ------------------------------------------------------->
 
     <div style="padding: 50px">
-      <h2 style="font-size: 3vw; text-align: center; font-family: helvetica">
-        Explora nuestras marcas mas famosas
+      <h2
+        style="
+          font-size: clamp(30px, 3vw, 50px);
+          text-align: center;
+          font-family: helvetica;
+        "
+      >
+        Explora por nuestras categorias de productos
       </h2>
     </div>
 
     <div class="contenedor">
       <div class="tarjeta" onclick="aplicarFiltro('Truper')">
-        <img src="images/truper1.png" alt="Carpintería" />
+        <img src="images/Truper.png" alt="Carpintería" />
         <h3></h3>
         <div class="descripcion">
           Líder en herramientas y productos para la construcción
         </div>
       </div>
       <div class="tarjeta" onclick="aplicarFiltro('Pretul')">
-        <img src="images/pretul.png" alt="Plomería" />
+        <img src="images/Pretul.png" alt="Plomería" />
         <h3></h3>
         <div class="descripcion">
           Herramientas y accesorios de calidad, ideales para el trabajo
         </div>
       </div>
       <div class="tarjeta" onclick="aplicarFiltro('Makita')">
-        <img
-          src="images/makita1.png"
-          alt="Electricidad"
-          style="height: 45px; margin-top: 45px; margin-bottom: 55px"
-        />
+        <img src="images/Makita.png" alt="Electricidad" />
         <h3></h3>
         <div class="descripcion">
           Herramientas eléctricas de alto rendimiento y durabilidad
         </div>
       </div>
       <div class="tarjeta" onclick="aplicarFiltro('Cuervo')">
-        <img
-          src="images/cuervo.png"
-          alt="Jardinería"
-          style="height: 140px; margin-top: 5px; margin-bottom: 0px"
-        />
+        <img src="images/Cuervo.png" alt="Jardinería" />
         <h3></h3>
         <div class="descripcion">
           Herramientas duraderas y de calidad para cualquier trabajo
         </div>
       </div>
       <div class="tarjeta" onclick="aplicarFiltro('Husky')">
-        <img
-          src="images/husky.png"
-          alt="Electricidad"
-          style="margin-top: 5px"
-        />
+        <img src="images/Husky.png" alt="Electricidad" />
         <h3></h3>
         <div class="descripcion">
           Herramientas que ofrecen soluciones para cualquier trabajo
         </div>
       </div>
       <div class="tarjeta" onclick="aplicarFiltro('Urrea')">
-        <img
-          src="images/urrea.png"
-          alt="Jardinería"
-          style="height: 140px; margin-top: 0px; margin-bottom: 15px"
-        />
+        <img src="images/Urrea.png" alt="Jardinería" />
+        <h3></h3>
+        <div class="descripcion">
+          Herramientas y productos, ideales para tus proyectos
+        </div>
+      </div>
+    </div>
+
+    <!------------------------------------------------------- Marcas ------------------------------------------------------->
+
+    <div style="padding: 50px">
+      <h2
+        style="
+          font-size: clamp(30px, 3vw, 50px);
+          text-align: center;
+          font-family: helvetica;
+        "
+      >
+        Explora nuestras marcas mas famosas
+      </h2>
+    </div>
+
+    <div class="contenedor">
+      <div class="tarjeta" onclick="aplicarFiltro('Truper')">
+        <img src="images/Truper.png" alt="Carpintería" />
+        <h3></h3>
+        <div class="descripcion">
+          Líder en herramientas y productos para la construcción
+        </div>
+      </div>
+      <div class="tarjeta" onclick="aplicarFiltro('Pretul')">
+        <img src="images/Pretul.png" alt="Plomería" />
+        <h3></h3>
+        <div class="descripcion">
+          Herramientas y accesorios de calidad, ideales para el trabajo
+        </div>
+      </div>
+      <div class="tarjeta" onclick="aplicarFiltro('Makita')">
+        <img src="images/Makita.png" alt="Electricidad" />
+        <h3></h3>
+        <div class="descripcion">
+          Herramientas eléctricas de alto rendimiento y durabilidad
+        </div>
+      </div>
+      <div class="tarjeta" onclick="aplicarFiltro('Cuervo')">
+        <img src="images/Cuervo.png" alt="Jardinería" />
+        <h3></h3>
+        <div class="descripcion">
+          Herramientas duraderas y de calidad para cualquier trabajo
+        </div>
+      </div>
+      <div class="tarjeta" onclick="aplicarFiltro('Husky')">
+        <img src="images/Husky.png" alt="Electricidad" />
+        <h3></h3>
+        <div class="descripcion">
+          Herramientas que ofrecen soluciones para cualquier trabajo
+        </div>
+      </div>
+      <div class="tarjeta" onclick="aplicarFiltro('Urrea')">
+        <img src="images/Urrea.png" alt="Jardinería" />
         <h3></h3>
         <div class="descripcion">
           Herramientas y productos, ideales para tus proyectos
@@ -181,14 +227,16 @@
     <div style="padding-top: 50px; padding-bottom: 20px">
       <h2
         style="
-          font-size: 3vw;
+          font-size: clamp(30px, 3vw, 50px);
           text-align: left;
           font-family: helvetica;
           padding-left: 125px;
         "
       >
         Te podría interesar
-        <sub style="font-size: medium"> (Productos nuevos o en promocion) </sub>
+        <sub style="font-size: clamp(15px, 1vw, 20px)">
+          (Productos nuevos o en promocion)
+        </sub>
       </h2>
     </div>
 

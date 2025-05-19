@@ -261,7 +261,8 @@ body {
 
 .tarjeta {
     background: white;
-    width: 250px;
+    width: 100%;
+    max-width: 250px;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -300,15 +301,16 @@ body {
 /*----------------------------------------------------- Porque nosotros -----------------------------------------------------*/
 
 .containerPorque {
-    max-width: 1200px;
+    text-align: center;
+    max-width: 1500px;
     margin: 0 auto;
-    background: #fff;
+    background: #E3F2FD;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
 }
 .headerPorque {
-    font-size: 24px;
+    font-size: clamp(30px, 3vw, 50px);
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -318,24 +320,24 @@ body {
     flex-wrap: wrap;
 }
 .feature {
-    width: 200px;
+    width: 275px;
     padding: 20px;
-    background: #007BFF;
-    color: white;
+    background: #ffffff;
+    color: black;
     margin: 10px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .feature img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-bottom: 10px;
 }
 .feature-title {
-    font-size: 18px;
+    font-size: clamp(20px, 1.7vw, 28px);
     font-weight: bold;
     margin-bottom: 10px;
 }
 .feature-text {
-    font-size: 14px;
+    font-size: clamp(15px, 1.7vw, 20px);
 }
