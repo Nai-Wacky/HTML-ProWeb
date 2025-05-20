@@ -252,6 +252,8 @@ body {
 /*----------------------------------------------------- Contenedor de las familias -----------------------------------------------------*/
 
 .contenedor {
+    padding-left: 8%;
+    padding-right: 8%;
     text-align: center;
     display: flex;
     justify-content: center;
