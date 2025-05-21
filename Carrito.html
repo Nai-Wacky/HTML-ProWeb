@@ -16,7 +16,7 @@
     <style></style>
   </head>
 
-  <body style="background-color: lightgray">
+  <body style="background-color: ffffff">
     <div class="navbar">
       <!-- Logo Izquierda -->
 
@@ -76,61 +76,121 @@
     <!-- Carrito -->
 
     <div class="carrito-container">
-      <div class="productos-lista" id="productosLista">
-        <!-- Aquí se insertarán los productos con JS -->
+      <!-- Productos en el carrito -->
+      <div class="productos">
+        <div class="carrito-producto" data-id="1">
+          <input type="checkbox" checked />
+          <img src="https://i.imgur.com/1.png" alt="Puma RS-X" />
+          <div class="producto-info">
+            <p class="titulo">Puma RS-X</p>
+            <p>Precio unitario: $2350</p>
+            <p>Subtotal: <span class="subtotal">4700</span></p>
+            <a href="#" class="eliminar" style="color: #e53935">Eliminar</a>
+          </div>
+          <div class="cantidad">
+            <button class="restar">-</button>
+            <input type="text" value="2" readonly />
+            <button class="sumar">+</button>
+          </div>
+        </div>
+        <div class="carrito-producto" data-id="2">
+          <input type="checkbox" checked />
+          <img src="https://i.imgur.com/2.png" alt="Adidas Ultraboost" />
+          <div class="producto-info">
+            <p class="titulo">Adidas Ultraboost</p>
+            <p>Precio unitario: $2500</p>
+            <p>Subtotal: <span class="subtotal">5000</span></p>
+            <a href="#" class="eliminar" style="color: #e53935">Eliminar</a>
+          </div>
+          <div class="cantidad">
+            <button class="restar">-</button>
+            <input type="text" value="2" readonly />
+            <button class="sumar">+</button>
+          </div>
+        </div>
       </div>
-      <div class="resumen-compra">
-        <h2>Resumen de compra</h2>
-        <p><strong>Producto:</strong> $<span id="subtotal">0.00</span></p>
-        <p><strong>Envío:</strong> Gratis</p>
-        <p><strong>Total:</strong> $<span id="total">0.00</span></p>
+      <!-- Resumen de compra -->
+      <div class="resumen">
+        <h3>Resumen de compra</h3>
+        <div class="fila">
+          <span>Producto</span>
+          <span id="resumen-producto">$9700.00</span>
+        </div>
+        <div class="fila">
+          <span>Envío</span>
+          <span style="color: green">Gratis</span>
+        </div>
+        <hr />
+        <div class="fila total">
+          <span>Total</span>
+          <span id="resumen-total">$9700.00</span>
+        </div>
         <button class="btn-comprar">Continuar compra</button>
       </div>
     </div>
+    <script src="carrito.js"></script>
 
     <script>
       //----------------------------------------------CARRITO----------------------------------------------
-      const productos = [
-        {
-          id: 1,
-          nombre: "Producto 1",
-          precio: 100,
-          imagen: "ruta/imagen1.png",
-        },
-        {
-          id: 2,
-          nombre: "Producto 2",
-          precio: 150,
-          imagen: "ruta/imagen2.png",
-        },
-      ];
-
-      function agregarAlCarrito(producto) {
-        const lista = document.getElementById("productosLista");
-
-        const item = document.createElement("div");
-        item.className = "producto-item";
-        item.innerHTML = `
-          <img src="${producto.imagen}" alt="${producto.nombre}">
-          <div>
-            <h4>${producto.nombre}</h4>
-            <p>$${producto.precio.toFixed(2)}</p>
-          </div>
-        `;
-        lista.appendChild(item);
-
-        actualizarTotal();
+      function actualizarResumen() {
+        let total = 0;
+        document.querySelectorAll(".carrito-producto").forEach((producto) => {
+          const checkbox = producto.querySelector('input[type="checkbox"]');
+          if (checkbox.checked) {
+            const precioUnitario = parseInt(
+              producto
+                .querySelector(".producto-info p:nth-child(2)")
+                .textContent.replace(/\D/g, "")
+            );
+            const cantidad = parseInt(
+              producto.querySelector(".cantidad input").value
+            );
+            const subtotal = precioUnitario * cantidad;
+            producto.querySelector(".subtotal").textContent = subtotal;
+            total += subtotal;
+          } else {
+            producto.querySelector(".subtotal").textContent = 0;
+          }
+        });
+        document.getElementById(
+          "resumen-producto"
+        ).textContent = `$${total}.00`;
+        document.getElementById("resumen-total").textContent = `$${total}.00`;
       }
 
-      function actualizarTotal() {
-        const precios = [...document.querySelectorAll(".producto-item p")].map(
-          (p) => parseFloat(p.textContent.replace("$", ""))
-        );
+      // Eventos para sumar/restar cantidad
+      document.querySelectorAll(".carrito-producto").forEach((producto) => {
+        const restarBtn = producto.querySelector(".restar");
+        const sumarBtn = producto.querySelector(".sumar");
+        const cantidadInput = producto.querySelector(".cantidad input");
+        const checkbox = producto.querySelector('input[type="checkbox"]');
+        const eliminarBtn = producto.querySelector(".eliminar");
 
-        const subtotal = precios.reduce((acc, val) => acc + val, 0);
-        document.getElementById("subtotal").textContent = subtotal.toFixed(2);
-        document.getElementById("total").textContent = subtotal.toFixed(2);
-      }
+        restarBtn.addEventListener("click", () => {
+          let cantidad = parseInt(cantidadInput.value);
+          if (cantidad > 1) {
+            cantidadInput.value = cantidad - 1;
+            actualizarResumen();
+          }
+        });
+
+        sumarBtn.addEventListener("click", () => {
+          let cantidad = parseInt(cantidadInput.value);
+          cantidadInput.value = cantidad + 1;
+          actualizarResumen();
+        });
+
+        checkbox.addEventListener("change", actualizarResumen);
+
+        eliminarBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          producto.remove();
+          actualizarResumen();
+        });
+      });
+
+      // Inicializar resumen al cargar
+      actualizarResumen();
 
       //----------------------------------------------LOCALSTORAGE----------------------------------------------
 
