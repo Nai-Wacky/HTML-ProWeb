@@ -73,27 +73,28 @@ body {
 .supercontenedor{
     padding-top: 1%;
     padding-bottom: 1%;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-.confPerfil {
+.info-Perfil {
     margin: auto;
-    position: relative;
     background: white;
     padding: 30px;
-    width: 45%;
+    width: 100%;
+    max-width: 700px;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 10;
+    /*box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);*/
 
 }
 
-.confPerfil h1 {
-    padding: 15px;
+.info-Perfil h3 {
+    padding: 5px;
 }
 
-.confPerfil h2 {
-    padding: 15px;
+.info-Perfil p {
+    padding: 2px;
+
 }
 
 .input-container {
@@ -103,6 +104,7 @@ body {
 
 .input-container input {
     width: 100%;
+
     padding: 12px;
     border: 2px solid #ccc;
     border-radius: 2px;
@@ -148,45 +150,92 @@ body {
     transition: 0.3s ease-in-out;
 }
 
-
-
 .confPerfil button:hover {
     background: #003f7f;
 }
 
-.footer{
-    background-color: #003F63;
-    display: flex;
+.config-panel {
+  background: #f6f6f6;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.footer > div{
-    padding-left: 2%;
-    width:30%;
-    display: inline-block;
-    margin: auto;
-    padding-top: 50px;
-    color: white;
+.config-item {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
-.footer > div > h1{
-    padding-bottom: 10px;
+.config-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
 
-.footer > div > p{
-    padding-bottom: 9px;
+.icon {
+  font-size: 24px;
+  margin-right: 16px;
+  width: 30px;
+  text-align: center;
 }
 
-.imgFooter{
-    background-color: #003F63;
-    display: flex;
+.content h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #222;
 }
 
-.imgFooter > img{
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin: auto;
-    width: 90px;
-    height: 90px;
-    max-width:100%;
-    height:auto;
+.content p {
+  margin: 2px 0 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.arrow {
+  margin-left: auto;
+  font-size: 24px;
+  color: #ccc;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-content {
+  font-family: 'Segoe UI', sans-serif;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 500px;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
 }

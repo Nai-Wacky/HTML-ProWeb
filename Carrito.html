@@ -13,133 +13,7 @@
 
     <link rel="icon" href="images/Any-job-icon.ico" type="image/x-icon" />
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: Arial, sans-serif;
-      }
-
-      .navbar {
-        background-color: #003f63;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-      }
-
-      .buttonImageLogo {
-        background: none;
-        border: none;
-        cursor: pointer;
-        margin-left: 5px;
-      }
-
-      .search-box-a {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-      }
-
-      .search-box-precio {
-        border: 2px solid #ccc;
-        border-radius: 5px;
-        padding: 5px 5px;
-        width: 70px;
-        background-color: white;
-      }
-      .search-box-precio input {
-        border: none;
-        outline: none;
-        flex: 1;
-        padding: 5px;
-        font-size: 14px;
-        background: transparent;
-      }
-
-      .search-box {
-        display: flex;
-        align-items: center;
-        border: 2px solid #ccc;
-        border-radius: 10px;
-        padding: 5px 10px;
-        width: 500px;
-        background-color: white;
-      }
-
-      .search-box input {
-        border: none;
-        outline: none;
-        flex: 1;
-        padding: 5px;
-        font-size: 16px;
-        background: transparent;
-      }
-
-      .search-box input::placeholder {
-        font-style: italic;
-        color: #aaa;
-      }
-
-      .search-box button {
-        background: none;
-        border: none;
-        cursor: pointer;
-      }
-
-      .search-box button img {
-        width: 20px;
-        height: 20px;
-      }
-
-      .buttonOpcion {
-        background: none;
-        border: none;
-        cursor: pointer;
-        margin-right: 35px;
-      }
-
-      .carousel {
-        position: relative;
-        max-width: auto;
-        margin: auto;
-        overflow: hidden;
-      }
-
-      .slides {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-      }
-
-      .slide {
-        min-width: 100%;
-        box-sizing: border-box;
-      }
-
-      .slide img {
-        width: 100%;
-        display: block;
-      }
-
-      .familyContainer {
-        display: flex;
-        padding-left: 80px;
-        padding-right: 80px;
-      }
-
-      .familyContainer > div {
-        width: auto;
-        display: inline-block;
-        margin: auto;
-        border-radius: 10px;
-        background-color: #ffffff;
-        text-align: center;
-      }
-    </style>
+    <style></style>
   </head>
 
   <body style="background-color: lightgray">
@@ -177,10 +51,10 @@
         onclick="window.location.assign('Perfil.html')"
       >
         <img
-          src="images/Perfil Any Job.png"
+          src="images/navbar/Perfil Any Job.png"
           href=""
-          width="38"
-          height="43"
+          width="28"
+          height="33"
           title="Perfil"
         />
         <h3 id="bienvenida" style="color: white">Login</h3>
@@ -191,176 +65,71 @@
         onclick="window.location.assign('Categorias.html')"
       >
         <img
-          src="images/Catalogo Any Job.png"
-          width="30"
-          height="43"
+          src="images/navbar/Pedidos.png"
+          width="50"
+          height="50"
           title="Catalogo de proveedores"
         />
       </button>
     </div>
 
-    <br />
+    <!-- Carrito -->
 
-    <div class="contenedor">
-      <div class="categorias">
-        <div class="carrusel-contenido">
-          <h3 style="font-weight: bold">Subtotal:</h3>
-          <p class="familias">$999.99</p>
-        </div>
-        <br />
-
-        <div class="carrusel-contenido">
-          <h3 style="font-weight: bold">Envio:</h3>
-          <p class="familias">$999.99</p>
-        </div>
-        <br />
-
-        <div class="carrusel-contenido">
-          <h3 style="font-weight: bold">Descuento:</h3>
-          <p class="familias">$999.99</p>
-        </div>
-        <br />
-
-        <div class="carrusel-contenido">
-          <h3 style="font-weight: bold">Total:</h3>
-          <p class="familias">$999.99</p>
-        </div>
-        <br />
-
-        <button class="boton-comprar">
-          <h3>Comprar carrito</h3>
-        </button>
-
-        <br />
-        <br />
-
-        <form>
-          <label class="checkbox">
-            Facturar
-            <input type="checkbox" name="facturar" />
-          </label>
-        </form>
+    <div class="carrito-container">
+      <div class="productos-lista" id="productosLista">
+        <!-- Aquí se insertarán los productos con JS -->
       </div>
-
-      <div class="carrusel">
-        <div class="carrusel-contenido" id="carrusel">
-          <div class="producto">
-            <img src="images/prueba.png" alt="Producto" />
-            <div>
-              <h3>Nombre del producto</h3>
-              <p>$199.99</p>
-            </div>
-            <div>
-              <h3>Cantidad:</h3>
-              <p>99</p>
-            </div>
-            <div>
-              <h3>Total:</h3>
-              <p>$9999.99</p>
-            </div>
-            <button class="boton-agregar">
-              <img src="images/basurero.jpg" alt="Basurero" />
-            </button>
-          </div>
-
-          <div class="producto">
-            <img src="images/prueba.png" alt="Producto" />
-            <div>
-              <h3>Nombre del producto</h3>
-              <p>$199.99</p>
-            </div>
-            <div>
-              <h3>Cantidad:</h3>
-              <p>99</p>
-            </div>
-            <div>
-              <h3>Total:</h3>
-              <p>$9999.99</p>
-            </div>
-            <button class="boton-agregar">
-              <img src="images/basurero.jpg" alt="Basurero" />
-            </button>
-          </div>
-
-          <div class="producto">
-            <img src="images/prueba.png" alt="Producto" />
-            <div>
-              <h3>Nombre del producto</h3>
-              <p>$199.99</p>
-            </div>
-            <div>
-              <h3>Cantidad:</h3>
-              <p>99</p>
-            </div>
-            <div>
-              <h3>Total:</h3>
-              <p>$9999.99</p>
-            </div>
-            <button class="boton-agregar">
-              <img src="images/basurero.jpg" alt="Basurero" />
-            </button>
-          </div>
-
-          <div class="producto">
-            <img src="images/prueba.png" alt="Producto" />
-            <div>
-              <h3>Nombre del producto</h3>
-              <p>$199.99</p>
-            </div>
-            <div>
-              <h3>Cantidad:</h3>
-              <p>99</p>
-            </div>
-            <div>
-              <h3>Total:</h3>
-              <p>$9999.99</p>
-            </div>
-            <button class="boton-agregar">
-              <img src="images/basurero.jpg" alt="Basurero" />
-            </button>
-          </div>
-
-          <div class="producto">
-            <img src="images/prueba.png" alt="Producto" />
-            <div>
-              <h3>Nombre del producto</h3>
-              <p>$199.99</p>
-            </div>
-            <div>
-              <h3>Cantidad:</h3>
-              <p>99</p>
-            </div>
-            <div>
-              <h3>Total:</h3>
-              <p>$9999.99</p>
-            </div>
-            <button class="boton-agregar">
-              <img src="images/basurero.jpg" alt="Basurero" />
-            </button>
-          </div>
-        </div>
+      <div class="resumen-compra">
+        <h2>Resumen de compra</h2>
+        <p><strong>Producto:</strong> $<span id="subtotal">0.00</span></p>
+        <p><strong>Envío:</strong> Gratis</p>
+        <p><strong>Total:</strong> $<span id="total">0.00</span></p>
+        <button class="btn-comprar">Continuar compra</button>
       </div>
     </div>
 
     <script>
-      let index = 0;
-      const slides = document.querySelector(".slides");
-      const totalSlides = document.querySelectorAll(".slide").length;
+      //----------------------------------------------CARRITO----------------------------------------------
+      const productos = [
+        {
+          id: 1,
+          nombre: "Producto 1",
+          precio: 100,
+          imagen: "ruta/imagen1.png",
+        },
+        {
+          id: 2,
+          nombre: "Producto 2",
+          precio: 150,
+          imagen: "ruta/imagen2.png",
+        },
+      ];
 
-      function showNextSlide() {
-        index = (index + 1) % totalSlides;
-        slides.style.transform = `translateX(${-index * 100}%)`;
+      function agregarAlCarrito(producto) {
+        const lista = document.getElementById("productosLista");
+
+        const item = document.createElement("div");
+        item.className = "producto-item";
+        item.innerHTML = `
+          <img src="${producto.imagen}" alt="${producto.nombre}">
+          <div>
+            <h4>${producto.nombre}</h4>
+            <p>$${producto.precio.toFixed(2)}</p>
+          </div>
+        `;
+        lista.appendChild(item);
+
+        actualizarTotal();
       }
 
-      setInterval(showNextSlide, 5000);
+      function actualizarTotal() {
+        const precios = [...document.querySelectorAll(".producto-item p")].map(
+          (p) => parseFloat(p.textContent.replace("$", ""))
+        );
 
-      function moverCarrusel(direccion) {
-        const carrusel = document.getElementById("carrusel");
-        const desplazamiento = 250;
-        carrusel.scrollBy({
-          left: direccion * desplazamiento,
-          behavior: "smooth",
-        });
+        const subtotal = precios.reduce((acc, val) => acc + val, 0);
+        document.getElementById("subtotal").textContent = subtotal.toFixed(2);
+        document.getElementById("total").textContent = subtotal.toFixed(2);
       }
 
       //----------------------------------------------LOCALSTORAGE----------------------------------------------

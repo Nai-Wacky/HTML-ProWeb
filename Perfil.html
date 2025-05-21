@@ -49,9 +49,9 @@
         onclick="window.location.assign('Categorias.html')"
       >
         <img
-          src="images/Catalogo Any Job.png"
-          width="30"
-          height="43"
+          src="images/navbar/Pedidos.png"
+          width="50"
+          height="50"
           title="Catalogo de proveedores"
         />
       </button>
@@ -61,9 +61,9 @@
         onclick="window.location.assign('Carrito.html')"
       >
         <img
-          src="images/Carrito de compras.png"
-          width="43"
-          height="43"
+          src="images/navbar/Carrito de compras.png"
+          width="35"
+          height="35"
           title="Carrito de compras"
         />
       </button>
@@ -71,114 +71,266 @@
 
     <!------------------------------------------------------------- Opciones ------------------------------------------------------------->
 
-    <div class="supercontenedor">
-      <div class="confPerfil">
-        <h1 id="tituloNombre">Nombre</h1>
-        <h2 id="tituloCorreo">Correo</h2>
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!--<h2>Título del modal</h2>-->
+        <!--<p>Contenido...</p>-->
+        <div class="confPerfil">
+          <h3>Tu información</h3>
+          <form id="nombreForm">
+            <div class="input-container">
+              <input
+                type="text"
+                name="nombre"
+                id="nombre"
+                placeholder=" "
+                required
+              />
+              <label for="nombre">Nombre de usuario</label>
+            </div>
+            <button type="submit">Guardar cambios</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalDatos" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!--<h2>Título del modal</h2>-->
+        <!--<p>Contenido...</p>-->
+        <div class="confPerfil">
+          <h3>Correo</h3>
+          <form id="correoForm">
+            <div class="input-container">
+              <input
+                type="text"
+                name="correo"
+                id="correo"
+                placeholder=" "
+                required
+              />
+              <label for="correo">Correo electronico</label>
+            </div>
+            <button type="submit">Guardar correo</button>
+          </form>
+          <h3 style="padding-top: 20px">Numero telefonico</h3>
+          <form id="telefonoForm">
+            <div class="input-container">
+              <input
+                type="text"
+                name="telefono"
+                id="telefono"
+                placeholder=" "
+                required
+              />
+              <label for="telefono">Numero telefonico</label>
+            </div>
+            <button type="submit">Guardar numero</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalSeguridad" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!--<h2>Título del modal</h2>-->
+        <!--<p>Contenido...</p>-->
+        <div class="confPerfil">
+          <h3>Cambiar contraseña</h3>
+          <form id="passwordForm">
+            <div class="input-container">
+              <input
+                type="text"
+                name="password"
+                id="password"
+                placeholder=" "
+                required
+              />
+              <label for="password">Contraseña</label>
+            </div>
+            <div class="input-container">
+              <input
+                type="text"
+                name="verificar"
+                id="verificar"
+                placeholder=" "
+                required
+              />
+              <label for="verificar">Contraseña</label>
+            </div>
+            <button type="submit">Cambiar contraseña</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalPedidos" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Tus pedidos</h3>
       </div>
     </div>
 
     <div class="supercontenedor">
-      <div class="confPerfil">
-        <h1>Tus datos</h1>
-        <form id="loginForm">
-          <div class="input-container">
-            <input
-              type="text"
-              name="nombre"
-              id="nombre"
-              placeholder=" "
-              required
-            />
-            <label for="nombre">Nombre de usuario</label>
-          </div>
-
-          <div class="input-container">
-            <input
-              type="text"
-              name="correo"
-              id="correo"
-              placeholder=" "
-              required
-            />
-            <label for="correo">Correo electronico</label>
-          </div>
-
-          <button type="submit">Guardar cambios</button>
-        </form>
-
-        <h1 style="padding-top: 10%">Cambiar contraseña</h1>
-        <form id="loginFormPassword">
-          <div class="input-container">
-            <input
-              type="text"
-              name="password"
-              id="password"
-              placeholder=" "
-              required
-            />
-            <label for="password">Contraseña actual</label>
-          </div>
-
-          <div class="input-container">
-            <input
-              type="text"
-              name="npassword"
-              id="npassword"
-              placeholder=" "
-              required
-            />
-            <label for="npassword">Nueva contraseña</label>
-          </div>
-
-          <div class="input-container">
-            <input
-              type="text"
-              name="cpassword"
-              id="cpassword"
-              placeholder=" "
-              required
-            />
-            <label for="cpassword">Confirmar contraseña</label>
-          </div>
-
-          <button type="submit">Guardar cambios</button>
-        </form>
-
-        <h1 style="padding-top: 10%">Tus direcciones</h1>
-        <button>Añadir direccion</button>
+      <div class="info-Perfil">
+        <h3 id="tituloNombre">Nombre</h3>
+        <p id="tituloCorreo">Correo</p>
       </div>
     </div>
 
-    <div class="footer">
-      <div>
-        <h1>Información</h1>
-        <p><b>Acerca de nosotros</b></p>
-        <p><b>Términos y Condiciones</b></p>
-        <p><b>Aviso de privacidad</b></p>
+    <div class="config-panel">
+      <div class="config-item" data-target="modal">
+        <div class="icon">👤</div>
+        <div class="content">
+          <h3>Tu información</h3>
+          <p>Nombre elegido y datos para identificarte.</p>
+        </div>
+        <div class="arrow">›</div>
       </div>
 
-      <div>
-        <h1>Atención al cliente</h1>
-        <p><b>Garantías</b></p>
-        <p><b>Devoluciones</b></p>
-        <p><b>Facturación</b></p>
+      <div class="config-item" data-target="modalDatos">
+        <div class="icon">✅</div>
+        <div class="content">
+          <h3>Datos de tu cuenta</h3>
+          <p>
+            Aqui puedes modificar datos de tu cuenta como correo y numero
+            telefonico.
+          </p>
+        </div>
+        <div class="arrow">›</div>
       </div>
 
-      <div>
-        <h1>Contáctanos</h1>
-        <p><b>800 00 ANY JOB</b></p>
-        <p><b>servicioac@anyjob.com.mx</b></p>
-        <p><b>Redes sociales</b></p>
+      <div class="config-item" data-target="modalSeguridad">
+        <div class="icon">🔒</div>
+        <div class="content">
+          <h3>Seguridad</h3>
+          <p>Configura datos sensibles como tu contraseña.</p>
+        </div>
+        <div class="arrow">›</div>
       </div>
-    </div>
 
-    <div class="imgFooter">
-      <img src="images/Any job isotipo.png" alt="Isotipo" />
+      <!--<div class="config-item" data-target="modalPedido">
+        <div class="icon">📦</div>
+        <div class="content">
+          <h3>Pedidos</h3>
+          <p>Visualiza los pedidos que has realizado.</p>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="config-item">
+        <div class="icon">💳</div>
+        <div class="content">
+          <h3>Tarjetas</h3>
+          <p>Tarjetas guardadas en tu cuenta.</p>
+        </div>
+        <div class="arrow">›</div>
+      </div>-->
     </div>
 
     <script>
-      const form = document.getElementById("loginForm");
+      //----------------------------------------------MODAL NOMBRE----------------------------------------------
+      // Mostrar modal al hacer clic
+      document.querySelectorAll(".config-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const modalId = item.getAttribute("data-target") || "modal";
+          document.getElementById(modalId).classList.remove("hidden");
+        });
+      });
+
+      // Cerrar modal al hacer clic en la X
+      document.querySelectorAll(".modal .close").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          btn.closest(".modal").classList.add("hidden");
+        });
+      });
+
+      // Cerrar modal si se hace clic fuera del contenido
+      window.addEventListener("click", (e) => {
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach((modal) => {
+          if (e.target === modal) {
+            modal.classList.add("hidden");
+          }
+        });
+      });
+
+      //----------------------------------------------MODAL DATOS----------------------------------------------
+      // Mostrar modal al hacer clic
+      document.querySelectorAll(".config-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const modalId = item.getAttribute("data-target") || "modalDatos";
+          document.getElementById(modalId).classList.remove("hidden");
+        });
+      });
+
+      // Cerrar modal al hacer clic en la X
+      document.querySelectorAll(".modalDatos .close").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          btn.closest(".modalDatos").classList.add("hidden");
+        });
+      });
+
+      // Cerrar modal si se hace clic fuera del contenido
+      window.addEventListener("click", (e) => {
+        const modals = document.querySelectorAll(".modalDatos");
+        modals.forEach((modal) => {
+          if (e.target === modal) {
+            modal.classList.add("hidden");
+          }
+        });
+      });
+
+      //----------------------------------------------MODAL SEGURIDAD----------------------------------------------
+      // Mostrar modal al hacer clic
+      document.querySelectorAll(".config-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const modalId = item.getAttribute("data-target") || "modalSeguridad";
+          document.getElementById(modalId).classList.remove("hidden");
+        });
+      });
+
+      // Cerrar modal al hacer clic en la X
+      document.querySelectorAll(".modalSeguridad .close").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          btn.closest(".modalSeguridad").classList.add("hidden");
+        });
+      });
+
+      // Cerrar modal si se hace clic fuera del contenido
+      window.addEventListener("click", (e) => {
+        const modals = document.querySelectorAll(".modalSeguridad");
+        modals.forEach((modal) => {
+          if (e.target === modal) {
+            modal.classList.add("hidden");
+          }
+        });
+      });
+
+      //----------------------------------------------LOCALSTORAGE----------------------------------------------
+
+      const nombre = localStorage.getItem("nombre");
+      const correo = localStorage.getItem("correo");
+      const id_usuario = localStorage.getItem("id_usuario");
+      const telefono = localStorage.getItem("telefono");
+
+      if (nombre) {
+        document.getElementById("nombre").value = nombre;
+        document.getElementById("correo").value = correo;
+        document.getElementById("telefono").value = telefono;
+        document.getElementById("tituloNombre").textContent = nombre;
+        document.getElementById("tituloCorreo").textContent = correo;
+      } else {
+        // Si no hay datos en localStorage, redirigir a login
+        window.location.href = "Login.html";
+      }
+
+      //----------------------------------------------BASE DE DATOS----------------------------------------------
+
+      const form = document.getElementById("nombreForm");
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -204,22 +356,6 @@
           //SUCESS
         }
       });
-
-      //----------------------------------------------LOCALSTORAGE----------------------------------------------
-
-      const nombre = localStorage.getItem("nombre");
-      const correo = localStorage.getItem("correo");
-      const id_usuario = localStorage.getItem("id_usuario");
-
-      if (nombre) {
-        document.getElementById("nombre").value = nombre;
-        document.getElementById("correo").value = correo;
-        document.getElementById("tituloNombre").textContent = nombre;
-        document.getElementById("tituloCorreo").textContent = correo;
-      } else {
-        // Si no hay datos en localStorage, redirigir a login
-        window.location.href = "Login.html";
-      }
     </script>
   </body>
 </html>
