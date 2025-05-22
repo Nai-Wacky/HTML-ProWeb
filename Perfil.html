@@ -315,17 +315,15 @@
         <div class="arrow">›</div>
       </div>
 
-      <!--<div class="config-item">
-        <div class="icon">💳</div>
-        <div class="content">
-          <h3>Tarjetas</h3>
-          <p>Tarjetas guardadas en tu cuenta.</p>
-        </div>
-        <div class="arrow">›</div>
-      </div>-->
+      <button id="cerrarSesion" class="btn-cerrar-sesion">Cerrar sesión</button>
     </div>
 
     <script>
+      //----------------------------------------------CERRAR SESION----------------------------------------------
+      document.getElementById("cerrarSesion").addEventListener("click", () => {
+        localStorage.clear();
+        window.location.href = "AnyJobHome.html";
+      });
       //----------------------------------------------MODAL NOMBRE----------------------------------------------
       // Mostrar modal al hacer clic
       document.querySelectorAll(".config-item").forEach((item) => {

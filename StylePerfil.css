@@ -387,3 +387,21 @@ body {
 .btn-agregar:hover {
   background: #2968c8;
 }
+
+.btn-cerrar-sesion {
+  margin: 30px auto 0 auto;
+  display: block;
+  background: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-cerrar-sesion:hover {
+  background: #b71c1c;
+}
