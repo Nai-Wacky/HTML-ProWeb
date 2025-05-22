@@ -7,16 +7,154 @@
       content="width=device-width, initial-scale=1.0"
     />
 
+    <link rel="stylesheet" href="TheStyle.css" />
     <link rel="stylesheet" href="StyleCarro.css" />
 
-    <title>Carrito</title>
+    <title>Carrito de Compras</title>
 
     <link rel="icon" href="images/Any-job-icon.ico" type="image/x-icon" />
 
-    <style></style>
+    <style>
+      .carrito-container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+      }
+
+      .carrito-item {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .producto-carrusel {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+      }
+
+      .producto-imagenes {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .producto-imagenes img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+      }
+
+      .carrusel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        z-index: 1;
+        transition: background-color 0.3s ease;
+        opacity: 0;
+      }
+
+      .carrusel-btn:hover {
+        background: rgba(0, 0, 0, 0.8);
+      }
+
+      .prev-btn {
+        left: 5px;
+      }
+
+      .next-btn {
+        right: 5px;
+      }
+
+      .producto-carrusel:hover .carrusel-btn {
+        opacity: 1;
+      }
+
+      .carrito-item img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin-right: 20px;
+      }
+
+      .carrito-item-info {
+        flex-grow: 1;
+      }
+
+      .carrito-item-nombre {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .carrito-item-precio {
+        font-size: 16px;
+        color: #003f63;
+        margin-bottom: 10px;
+      }
+
+      .carrito-item-acciones {
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-eliminar {
+        padding: 8px 15px;
+        background-color: #f44336;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .carrito-vacio {
+        text-align: center;
+        padding: 40px;
+        font-size: 18px;
+        color: #666;
+      }
+
+      .carrito-total {
+        text-align: right;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .btn-comprar {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    </style>
   </head>
 
-  <body style="background-color: ffffff">
+  <body style="background-color: #e3f2fd">
     <div class="navbar">
       <!-- Logo Izquierda -->
 
@@ -52,9 +190,8 @@
       >
         <img
           src="images/navbar/Perfil Any Job.png"
-          href=""
-          width="28"
-          height="33"
+          width="38"
+          height="43"
           title="Perfil"
         />
         <h3 id="bienvenida" style="color: white">Login</h3>
@@ -66,9 +203,9 @@
       >
         <img
           src="images/navbar/Pedidos.png"
-          width="50"
-          height="50"
-          title="Catalogo de proveedores"
+          width="43"
+          height="43"
+          title="Catalogo de productos"
         />
       </button>
     </div>
@@ -76,132 +213,234 @@
     <!-- Carrito -->
 
     <div class="carrito-container">
-      <!-- Productos en el carrito -->
-      <div class="productos">
-        <div class="carrito-producto" data-id="1">
-          <input type="checkbox" checked />
-          <img src="https://i.imgur.com/1.png" alt="Puma RS-X" />
-          <div class="producto-info">
-            <p class="titulo">Puma RS-X</p>
-            <p>Precio unitario: $2350</p>
-            <p>Subtotal: <span class="subtotal">4700</span></p>
-            <a href="#" class="eliminar" style="color: #e53935">Eliminar</a>
-          </div>
-          <div class="cantidad">
-            <button class="restar">-</button>
-            <input type="text" value="2" readonly />
-            <button class="sumar">+</button>
-          </div>
-        </div>
-        <div class="carrito-producto" data-id="2">
-          <input type="checkbox" checked />
-          <img src="https://i.imgur.com/2.png" alt="Adidas Ultraboost" />
-          <div class="producto-info">
-            <p class="titulo">Adidas Ultraboost</p>
-            <p>Precio unitario: $2500</p>
-            <p>Subtotal: <span class="subtotal">5000</span></p>
-            <a href="#" class="eliminar" style="color: #e53935">Eliminar</a>
-          </div>
-          <div class="cantidad">
-            <button class="restar">-</button>
-            <input type="text" value="2" readonly />
-            <button class="sumar">+</button>
-          </div>
-        </div>
-      </div>
-      <!-- Resumen de compra -->
-      <div class="resumen">
-        <h3>Resumen de compra</h3>
-        <div class="fila">
-          <span>Producto</span>
-          <span id="resumen-producto">$9700.00</span>
-        </div>
-        <div class="fila">
-          <span>Envío</span>
-          <span style="color: green">Gratis</span>
-        </div>
-        <hr />
-        <div class="fila total">
-          <span>Total</span>
-          <span id="resumen-total">$9700.00</span>
-        </div>
-        <button class="btn-comprar">Continuar compra</button>
-      </div>
+      <h1>Mi Carrito de Compras</h1>
+      <div id="carrito-contenido"></div>
+      <div id="carrito-total" class="carrito-total"></div>
     </div>
-    <script src="carrito.js"></script>
 
     <script>
-      //----------------------------------------------CARRITO----------------------------------------------
-      function actualizarResumen() {
-        let total = 0;
-        document.querySelectorAll(".carrito-producto").forEach((producto) => {
-          const checkbox = producto.querySelector('input[type="checkbox"]');
-          if (checkbox.checked) {
-            const precioUnitario = parseInt(
-              producto
-                .querySelector(".producto-info p:nth-child(2)")
-                .textContent.replace(/\D/g, "")
-            );
-            const cantidad = parseInt(
-              producto.querySelector(".cantidad input").value
-            );
-            const subtotal = precioUnitario * cantidad;
-            producto.querySelector(".subtotal").textContent = subtotal;
-            total += subtotal;
+      // Función para verificar la sesión
+      async function verificarSesion() {
+        try {
+          const response = await fetch('phps/checkSession.php');
+          const data = await response.json();
+          
+          const bienvenidaElement = document.getElementById('bienvenida');
+          
+          if (data.loggedin) {
+            bienvenidaElement.textContent = `¡Hola, ${data.nombre}!`;
+            cargarCarrito(); // Solo cargamos el carrito si hay sesión
           } else {
-            producto.querySelector(".subtotal").textContent = 0;
+            bienvenidaElement.textContent = 'Login';
+            mostrarMensaje('Debes iniciar sesión para ver tu carrito');
+            setTimeout(() => {
+              window.location.href = 'Login.html';
+            }, 2000);
           }
-        });
-        document.getElementById(
-          "resumen-producto"
-        ).textContent = `$${total}.00`;
-        document.getElementById("resumen-total").textContent = `$${total}.00`;
+        } catch (error) {
+          console.error('Error al verificar la sesión:', error);
+        }
       }
 
-      // Eventos para sumar/restar cantidad
-      document.querySelectorAll(".carrito-producto").forEach((producto) => {
-        const restarBtn = producto.querySelector(".restar");
-        const sumarBtn = producto.querySelector(".sumar");
-        const cantidadInput = producto.querySelector(".cantidad input");
-        const checkbox = producto.querySelector('input[type="checkbox"]');
-        const eliminarBtn = producto.querySelector(".eliminar");
+      // Función para cargar los productos del carrito
+      async function cargarCarrito() {
+        try {
+          const response = await fetch('phps/getCarrito.php');
+          const data = await response.json();
 
-        restarBtn.addEventListener("click", () => {
-          let cantidad = parseInt(cantidadInput.value);
-          if (cantidad > 1) {
-            cantidadInput.value = cantidad - 1;
-            actualizarResumen();
+          const contenidoCarrito = document.getElementById('carrito-contenido');
+          const totalCarrito = document.getElementById('carrito-total');
+          
+          if (!contenidoCarrito || !totalCarrito) {
+            console.error('No se encontraron los elementos del carrito');
+            return;
           }
-        });
+          
+          if (data.error) {
+            mostrarMensaje(data.error);
+            return;
+          }
 
-        sumarBtn.addEventListener("click", () => {
-          let cantidad = parseInt(cantidadInput.value);
-          cantidadInput.value = cantidad + 1;
-          actualizarResumen();
-        });
+          if (!Array.isArray(data) || data.length === 0) {
+            contenidoCarrito.innerHTML = '<div class="carrito-vacio">Tu carrito está vacío</div>';
+            totalCarrito.innerHTML = '';
+            return;
+          }
 
-        checkbox.addEventListener("change", actualizarResumen);
+          let total = 0;
+          contenidoCarrito.innerHTML = '';
 
-        eliminarBtn.addEventListener("click", (e) => {
-          e.preventDefault();
-          producto.remove();
-          actualizarResumen();
-        });
-      });
+          data.forEach(producto => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'carrito-item';
 
-      // Inicializar resumen al cargar
-      actualizarResumen();
+            // Crear el contenedor del carrusel
+            const carruselContainer = document.createElement('div');
+            carruselContainer.className = 'producto-carrusel';
+            
+            // Crear los botones de navegación
+            const btnPrev = document.createElement('button');
+            btnPrev.className = 'carrusel-btn prev-btn';
+            btnPrev.innerHTML = '&#10094;';
+            
+            const btnNext = document.createElement('button');
+            btnNext.className = 'carrusel-btn next-btn';
+            btnNext.innerHTML = '&#10095;';
 
-      //----------------------------------------------LOCALSTORAGE----------------------------------------------
+            // Crear el contenedor de imágenes
+            const imgContainer = document.createElement('div');
+            imgContainer.className = 'producto-imagenes';
+            
+            // Crear la imagen principal
+            const imgPrincipal = document.createElement('img');
+            imgPrincipal.src = producto.imagenes[0] || 'ruta/a/imagen/por/defecto.jpg';
+            imgPrincipal.alt = producto.nombre || 'Producto';
+            imgPrincipal.dataset.imagenIndex = "0";
+            imgPrincipal.dataset.imagenes = JSON.stringify(producto.imagenes);
+            
+            // Agregar los elementos al carrusel
+            imgContainer.appendChild(imgPrincipal);
+            carruselContainer.appendChild(btnPrev);
+            carruselContainer.appendChild(imgContainer);
+            carruselContainer.appendChild(btnNext);
 
-      const nombre = localStorage.getItem("nombre");
+            // Agregar eventos a los botones
+            btnPrev.onclick = (e) => {
+              e.stopPropagation();
+              cambiarImagen(imgPrincipal, -1);
+            };
+            
+            btnNext.onclick = (e) => {
+              e.stopPropagation();
+              cambiarImagen(imgPrincipal, 1);
+            };
 
-      window.addEventListener("DOMContentLoaded", () => {
-        const nombreGuardado = localStorage.getItem("usuarioNombre");
-        if (nombreGuardado) {
-          document.getElementById("bienvenida").textContent = nombreGuardado;
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'carrito-item-info';
+
+            const nombre = document.createElement('div');
+            nombre.className = 'carrito-item-nombre';
+            nombre.textContent = producto.nombre;
+
+            const precio = document.createElement('div');
+            precio.className = 'carrito-item-precio';
+            precio.textContent = `$${producto.precio}`;
+
+            const acciones = document.createElement('div');
+            acciones.className = 'carrito-item-acciones';
+
+            const btnEliminar = document.createElement('button');
+            btnEliminar.className = 'btn-eliminar';
+            btnEliminar.textContent = 'Eliminar';
+            btnEliminar.onclick = () => eliminarDelCarrito(producto.id_producto);
+
+            acciones.appendChild(btnEliminar);
+            infoDiv.appendChild(nombre);
+            infoDiv.appendChild(precio);
+            infoDiv.appendChild(acciones);
+
+            itemDiv.appendChild(carruselContainer);
+            itemDiv.appendChild(infoDiv);
+            contenidoCarrito.appendChild(itemDiv);
+
+            total += parseFloat(producto.precio);
+          });
+
+          totalCarrito.innerHTML = `
+            <div>Total: $${total.toFixed(2)}</div>
+            <button class="btn-comprar" onclick="procesarCompra()">Proceder al pago</button>
+          `;
+
+        } catch (error) {
+          console.error('Error al cargar el carrito:', error);
+          mostrarMensaje('Error al cargar el carrito');
         }
-      });
+      }
+
+      // Función para cambiar la imagen en el carrusel
+      function cambiarImagen(imgElement, direccion) {
+        const imagenes = JSON.parse(imgElement.dataset.imagenes);
+        let currentIndex = parseInt(imgElement.dataset.imagenIndex);
+        
+        // Calcular el nuevo índice
+        currentIndex = (currentIndex + direccion + imagenes.length) % imagenes.length;
+        
+        // Actualizar la imagen
+        imgElement.src = imagenes[currentIndex];
+        imgElement.dataset.imagenIndex = currentIndex;
+        
+        // Efecto de transición
+        imgElement.style.opacity = '0';
+        setTimeout(() => {
+          imgElement.style.opacity = '1';
+        }, 50);
+      }
+
+      // Función para eliminar un producto del carrito
+      async function eliminarDelCarrito(idProducto) {
+        try {
+          const formData = new FormData();
+          formData.append('idProducto', idProducto);
+
+          const response = await fetch('phps/eliminarDelCarrito.php', {
+            method: 'POST',
+            body: formData
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            mostrarMensaje('Producto eliminado del carrito', 'success');
+            cargarCarrito(); // Recargar el carrito
+          } else {
+            mostrarMensaje(data.error || 'Error al eliminar el producto');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          mostrarMensaje('Error al eliminar el producto');
+        }
+      }
+
+      // Función para procesar la compra
+      function procesarCompra() {
+        // Aquí irá la lógica para procesar la compra
+        alert('Funcionalidad de compra en desarrollo');
+      }
+
+      // Función para mostrar mensajes
+      function mostrarMensaje(mensaje, tipo = 'error') {
+        const notificacion = document.createElement('div');
+        notificacion.className = `notificacion ${tipo}`;
+        notificacion.textContent = mensaje;
+        
+        notificacion.style.position = 'fixed';
+        notificacion.style.top = '20px';
+        notificacion.style.right = '20px';
+        notificacion.style.padding = '15px 25px';
+        notificacion.style.borderRadius = '5px';
+        notificacion.style.zIndex = '1000';
+        
+        if (tipo === 'success') {
+          notificacion.style.backgroundColor = '#4CAF50';
+          notificacion.style.color = 'white';
+        } else {
+          notificacion.style.backgroundColor = '#f44336';
+          notificacion.style.color = 'white';
+        }
+
+        document.body.appendChild(notificacion);
+
+        setTimeout(() => {
+          notificacion.style.opacity = '0';
+          notificacion.style.transition = 'opacity 0.5s ease';
+          setTimeout(() => {
+            document.body.removeChild(notificacion);
+          }, 500);
+        }, 3000);
+      }
+
+      // Inicializar la página
+      window.addEventListener('DOMContentLoaded', verificarSesion);
     </script>
   </body>
 </html>

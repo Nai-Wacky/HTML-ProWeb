@@ -288,23 +288,81 @@ class DBManager
 
     public function getProductos()
     {
-        $link = $this->open();
+        try {
+            $link = $this->open();
+            
+            if (!$link) {
+                throw new Exception("Error de conexión a la base de datos");
+            }
 
-        $sql = "SELECT * FROM productos"; // Ajusta el nombre de la tabla si es diferente
-        $result = mysqli_query($link, $sql);
+            // Consulta simple a la tabla productos
+            $sql = "SELECT * FROM productos";
+                    
+            $result = mysqli_query($link, $sql);
 
-        $productos = [];
+            if (!$result) {
+                throw new Exception(mysqli_error($link));
+            }
 
-        if ($result) {
+            $productos = [];
             while ($row = mysqli_fetch_assoc($result)) {
                 $productos[] = $row;
             }
-        } else {
-            return ["error" => "Error al obtener los productos"];
+
+            $this->close($link);
+            return $productos;
+
+        } catch (Exception $e) {
+            if (isset($link)) {
+                $this->close($link);
+            }
+            return ["error" => "Error al obtener los productos: " . $e->getMessage()];
         }
+    }
 
-        $this->close($link);
+    //-------------------------------------------------------------------carrito-------------------------------------------------------------------
+    
+    public function agregarAlCarrito($idProducto, $idCliente) {
+        try {
+            $link = $this->open();
+            
+            if (!$link) {
+                throw new Exception("Error de conexión a la base de datos");
+            }
 
-        return $productos;
+            // Verificamos si el producto ya está en el carrito del usuario
+            $sqlExiste = "SELECT * FROM carrito WHERE idproducto = ? AND idcliente = ?";
+            $stmtExiste = mysqli_prepare($link, $sqlExiste);
+            mysqli_stmt_bind_param($stmtExiste, "ii", $idProducto, $idCliente);
+            mysqli_stmt_execute($stmtExiste);
+            $resultExiste = mysqli_stmt_get_result($stmtExiste);
+
+            if (mysqli_num_rows($resultExiste) > 0) {
+                return ["error" => "Este producto ya está en tu carrito"];
+            }
+
+            // Si no existe, lo agregamos
+            $sqlInsertar = "INSERT INTO carrito (idproducto, idcliente) VALUES (?, ?)";
+            $stmtInsertar = mysqli_prepare($link, $sqlInsertar);
+            
+            if (!$stmtInsertar) {
+                throw new Exception("Error al preparar la consulta: " . mysqli_error($link));
+            }
+
+            mysqli_stmt_bind_param($stmtInsertar, "ii", $idProducto, $idCliente);
+            
+            if (!mysqli_stmt_execute($stmtInsertar)) {
+                throw new Exception("Error al ejecutar la consulta: " . mysqli_stmt_error($stmtInsertar));
+            }
+
+            $this->close($link);
+            return ["success" => true];
+
+        } catch (Exception $e) {
+            if (isset($link)) {
+                $this->close($link);
+            }
+            return ["error" => "Error al agregar al carrito: " . $e->getMessage()];
+        }
     }
 }

@@ -39,27 +39,7 @@
         margin-left: 5px;
       }
 
-      .search-box-a {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-      }
-
-      .search-box-precio {
-        border: 2px solid #ccc;
-        border-radius: 5px;
-        padding: 5px 5px;
-        width: 70px;
-        background-color: white;
-      }
-      .search-box-precio input {
-        border: none;
-        outline: none;
-        flex: 1;
-        padding: 5px;
-        font-size: 14px;
-        background: transparent;
-      }
+      
 
       .search-box {
         display: flex;
@@ -161,8 +141,8 @@
       <!-- Buscador -->
 
       <div style="margin: 0 auto" class="search-box">
-        <input type="text" placeholder="Herramientas..." />
-        <button>
+        <input id="searchInput" type="text" placeholder="Herramientas..." maxlength="30" />
+        <button onclick="buscarProductos()">
           <img
             src="https://cdn-icons-png.flaticon.com/512/622/622669.png"
             alt="Buscar"
@@ -218,11 +198,9 @@
       >
         <h3 style="font-weight: bold">Categoria</h3>
         <br />
-
-        <p class="familias">Herramientas</p>
-        <p class="familias">Materiales</p>
-        <p class="familias">Electricos</p>
-        <p class="familias">Pinturas</p>
+        <div id="lista-categorias">
+          <!-- Las categorías se cargarán dinámicamente aquí -->
+        </div>
 
         <br />
 
@@ -232,22 +210,9 @@
         <p class="familias">Truper</p>
         <p class="familias">Pretul</p>
         <p class="familias">Makita</p>
-        <p class="familias">Cemex</p>
         <p class="familias">Husky</p>
-        <p class="familias">Comex</p>
-
-        <br />
-
-        <h3 style="font-weight: bold">Precio</h3>
-        <div class="search-box-a">
-          <div class="search-box-precio">
-            <input type="text" placeholder="Min." />
-          </div>
-          <h2>-</h2>
-          <div class="search-box-precio">
-            <input type="text" placeholder="Max." />
-          </div>
-        </div>
+        <p class="familias">Cuervo</p>
+        <p class="familias">Urrea</p>
       </div>
 
       <div class="carrusel">
@@ -296,84 +261,313 @@
       </div>
     </footer>
     <script>
-      //filtrar
+      // Función para normalizar texto (eliminar acentos y convertir a minúsculas)
+      function normalizarTexto(texto) {
+        return texto.toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+      }
+
       // Función para obtener parámetros de la URL
-      function obtenerFiltro() {
+      function obtenerFiltros() {
         const params = new URLSearchParams(window.location.search);
-        const filtro = params.get("filtro"); // e.g., "Truper"
-        if (filtro) {
-          aplicarFiltro(filtro);
-          console.log = filtro;
-        }
+        const filtro = params.get("filtro");
+        cargarProductos(filtro);
       }
 
-      // Función que ejecuta el filtro (la defines tú)
-      function aplicarFiltro(filtro) {
-        console.log("Aplicando filtro:", filtro);
-        // Aquí podrías ocultar/mostrar productos según el filtro recibido
-        // Por ejemplo, podrías recorrer las tarjetas y ocultar las que no coincidan
-        const tarjetas = document.querySelectorAll(".tarjetaProducto");
-        tarjetas.forEach((tarjeta) => {
-          const nombre = tarjeta.getAttribute("data-marca");
-          if (nombre.toLowerCase() === filtro.toLowerCase()) {
-            tarjeta.style.display = "block";
-          } else {
-            tarjeta.style.display = "none";
-          }
-        });
-      }
-
-      // Llamar al obtenerFiltro cuando cargue la página
-      window.onload = obtenerFiltro;
-
-      async function cargarProductos() {
+      async function cargarProductos(filtro = null) {
+        const contenedorProductos = document.getElementById("carrusel");
+        
         try {
-          // Hacer la petición fetch a getProductos.php
           const response = await fetch("phps/getProductos.php");
-          const productos = await response.json(); // Suponemos que el PHP devuelve un JSON
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          
+          console.log("Datos recibidos del servidor:", data);
 
-          // Seleccionar el contenedor donde se listarán los productos
-          const contenedorProductos = document.getElementById("carrusel");
-
-          // Limpiar el contenedor antes de agregar los productos
           contenedorProductos.innerHTML = "";
 
+          if (!Array.isArray(data) || data.length === 0) {
+            contenedorProductos.innerHTML = `
+              <div style="width: 100%; text-align: center; padding: 20px;">
+                <h3>No hay productos disponibles</h3>
+              </div>
+            `;
+            return;
+          }
+
+          const marcas = ["Truper", "Pretul", "Makita", "Husky", "Cuervo", "Urrea"];
+          const categorias = ["Herramientas", "Eléctricos", "Abrasivos", 
+                            "Tornillería y clavos", 
+                            "Protección y accesorios", "Adhesivos"];
+
+          let productosFiltrados = data;
+          let esMarca = false;
+          let esCategoria = false;
+          
+          // Excluir productos de la categoría Materiales
+          productosFiltrados = productosFiltrados.filter(producto => 
+            normalizarTexto(producto.Categoria || '') !== 'materiales'
+          );
+          
+          // Aplicar filtro de marca/categoría
+          if (filtro) {
+            const filtroNormalizado = normalizarTexto(filtro);
+            esMarca = marcas.some(marca => normalizarTexto(marca) === filtroNormalizado);
+            esCategoria = categorias.some(categoria => normalizarTexto(categoria) === filtroNormalizado);
+
+            productosFiltrados = productosFiltrados.filter(producto => {
+              if (esMarca) {
+                return normalizarTexto(producto.Marca || '') === filtroNormalizado;
+              } else if (esCategoria) {
+                return normalizarTexto(producto.Categoria || '') === filtroNormalizado;
+              } else {
+                return producto.nombre && normalizarTexto(producto.nombre).includes(filtroNormalizado);
+              }
+            });
+          }
+
+          if (productosFiltrados.length === 0) {
+            let mensaje = 'No hay productos disponibles';
+            if (filtro) {
+              mensaje = `No se encontraron productos ${esMarca ? 'de la marca' : 'en la categoría'} "${filtro}"`;
+            }
+            
+            contenedorProductos.innerHTML = `
+              <div style="width: 100%; text-align: center; padding: 20px;">
+                <h3>${mensaje}</h3>
+              </div>
+            `;
+            return;
+          }
+
+          // Mostrar notificación con el número de resultados
+          let mensajeResultados = `Se encontraron ${productosFiltrados.length} productos`;
+          if (filtro) {
+            mensajeResultados += ` ${esMarca ? 'de la marca' : 'en la categoría'} "${filtro}"`;
+          }
+          mostrarNotificacion(mensajeResultados, 'success');
+
           // Recorrer el arreglo de productos y crear los elementos para cada producto
-          productos.forEach((producto) => {
+          productosFiltrados.forEach((producto) => {
             const productoDiv = document.createElement("div");
             productoDiv.classList.add("producto");
 
-            // Crear los elementos HTML para cada producto
-            const img = document.createElement("img");
-            img.src = producto.ligaIMG; // Suponemos que la imagen está en la propiedad 'imagen'
-            img.alt = producto.nombre;
+            // Crear el contenedor del carrusel
+            const carruselContainer = document.createElement("div");
+            carruselContainer.classList.add("producto-carrusel");
+            
+            // Crear los botones de navegación
+            const btnPrev = document.createElement("button");
+            btnPrev.classList.add("carrusel-btn", "prev-btn");
+            btnPrev.innerHTML = "&#10094;";
+            
+            const btnNext = document.createElement("button");
+            btnNext.classList.add("carrusel-btn", "next-btn");
+            btnNext.innerHTML = "&#10095;";
+
+            // Crear el contenedor de imágenes
+            const imgContainer = document.createElement("div");
+            imgContainer.classList.add("producto-imagenes");
+            
+            // Crear la imagen principal
+            const imgPrincipal = document.createElement("img");
+            imgPrincipal.src = producto.imagenes[0] || 'images/default-product.jpg';
+            imgPrincipal.alt = producto.nombre || 'Producto';
+            imgPrincipal.dataset.imagenIndex = "0";
+            imgPrincipal.dataset.imagenes = JSON.stringify(producto.imagenes);
+            
+            // Agregar los elementos al carrusel
+            imgContainer.appendChild(imgPrincipal);
+            carruselContainer.appendChild(btnPrev);
+            carruselContainer.appendChild(imgContainer);
+            carruselContainer.appendChild(btnNext);
+
+            // Agregar eventos a los botones
+            btnPrev.onclick = (e) => {
+              e.stopPropagation();
+              cambiarImagen(imgPrincipal, -1);
+            };
+            
+            btnNext.onclick = (e) => {
+              e.stopPropagation();
+              cambiarImagen(imgPrincipal, 1);
+            };
+
+            // Crear enlace para el nombre del producto
+            const nombreLink = document.createElement("a");
+            nombreLink.href = `ProductoMostrador.html?id=${producto.id_producto}`;
+            nombreLink.style.textDecoration = "none";
+            nombreLink.style.color = "inherit";
+            nombreLink.style.cursor = "pointer";
 
             const nombre = document.createElement("h3");
-            nombre.textContent = producto.nombre;
+            nombre.textContent = producto.nombre || 'Producto sin nombre';
+            nombre.style.transition = "color 0.3s ease";
+            
+            nombreLink.appendChild(nombre);
 
             const precio = document.createElement("p");
-            precio.textContent = `$${producto.precio}`;
+            precio.textContent = producto.precio ? `$${producto.precio}` : 'Precio no disponible';
 
             const boton = document.createElement("button");
             boton.classList.add("boton-agregar");
             boton.textContent = "Añadir al carrito";
+            boton.onclick = () => agregarAlCarrito(producto.id_producto);
+
+            // También hacer que la imagen sea clickeable
+            imgContainer.style.cursor = "pointer";
+            imgContainer.onclick = () => {
+              window.location.href = `ProductoMostrador.html?id=${producto.id_producto}`;
+            };
 
             // Agregar los elementos al contenedor del producto
-            productoDiv.appendChild(img);
-            productoDiv.appendChild(nombre);
+            productoDiv.appendChild(carruselContainer);
+            productoDiv.appendChild(nombreLink);
             productoDiv.appendChild(precio);
             productoDiv.appendChild(boton);
 
-            // Agregar el producto al carrusel
+            // Agregar el producto al contenedor
             contenedorProductos.appendChild(productoDiv);
           });
+
         } catch (error) {
           console.error("Error al cargar los productos:", error);
+          contenedorProductos.innerHTML = `
+            <div style="width: 100%; text-align: center; padding: 20px;">
+              <h3>Error al cargar los productos: ${error.message}</h3>
+            </div>
+          `;
         }
       }
 
-      // Llamar la función para cargar los productos cuando la página cargue
-      window.onload = cargarProductos;
+      // Función para agregar al carrito
+      async function agregarAlCarrito(idProducto) {
+        if (!idProducto) {
+          mostrarNotificacion('Error: ID de producto no válido', 'error');
+          return;
+        }
+
+        try {
+          const formData = new FormData();
+          formData.append('idProducto', idProducto);
+
+          const response = await fetch('phps/agregarAlCarrito.php', {
+            method: 'POST',
+            body: formData
+          });
+
+          const data = await response.json();
+          console.log('Respuesta del servidor:', data);
+
+          if (data.success) {
+            mostrarNotificacion(data.success, 'success');
+          } else if (data.error) {
+            if (data.error.includes('iniciar sesión')) {
+              mostrarNotificacion('Debes iniciar sesión para agregar productos al carrito', 'error');
+              setTimeout(() => {
+                window.location.href = 'Login.html';
+              }, 2000);
+            } else {
+              mostrarNotificacion(data.error, 'error');
+            }
+          }
+        } catch (error) {
+          console.error('Error al agregar al carrito:', error);
+          mostrarNotificacion('Error al agregar al carrito', 'error');
+        }
+      }
+
+      // Función para mostrar notificaciones
+      function mostrarNotificacion(mensaje, tipo) {
+        const notificacion = document.createElement('div');
+        notificacion.className = `notificacion ${tipo}`;
+        notificacion.textContent = mensaje;
+        
+        // Estilos para la notificación
+        notificacion.style.position = 'fixed';
+        notificacion.style.top = '20px';
+        notificacion.style.right = '20px';
+        notificacion.style.padding = '15px 25px';
+        notificacion.style.borderRadius = '5px';
+        notificacion.style.zIndex = '1000';
+        
+        if (tipo === 'success') {
+          notificacion.style.backgroundColor = '#4CAF50';
+          notificacion.style.color = 'white';
+        } else {
+          notificacion.style.backgroundColor = '#f44336';
+          notificacion.style.color = 'white';
+        }
+
+        document.body.appendChild(notificacion);
+
+        // Eliminar la notificación después de 3 segundos
+        setTimeout(() => {
+          notificacion.style.opacity = '0';
+          notificacion.style.transition = 'opacity 0.5s ease';
+          setTimeout(() => {
+            document.body.removeChild(notificacion);
+          }, 500);
+        }, 3000);
+      }
+
+      // Función para verificar la sesión
+      async function verificarSesion() {
+        try {
+          const response = await fetch('phps/checkSession.php');
+          const data = await response.json();
+          
+          const bienvenidaElement = document.getElementById('bienvenida');
+          
+          if (data.loggedin) {
+            bienvenidaElement.textContent = `¡Hola, ${data.nombre}!`;
+          } else {
+            bienvenidaElement.textContent = 'Login';
+          }
+        } catch (error) {
+          console.error('Error al verificar la sesión:', error);
+        }
+      }
+
+      // Función para cargar las categorías en el panel lateral
+      function cargarCategorias() {
+        const categorias = ["Herramientas", "Eléctricos", "Abrasivos", 
+                          "Tornillería y clavos", 
+                          "Protección y accesorios", "Adhesivos"];
+        
+        const listaCategorias = document.getElementById('lista-categorias');
+        listaCategorias.innerHTML = categorias.map(categoria => 
+          `<p class="familias">${categoria}</p>`
+        ).join('');
+
+        // Agregar eventos de clic a las categorías y marcas
+        document.querySelectorAll('.familias').forEach(elemento => {
+          elemento.addEventListener('click', () => {
+            const filtro = elemento.textContent.trim();
+            window.location.href = `Categorias.html?filtro=${encodeURIComponent(filtro)}`;
+          });
+          elemento.style.cursor = 'pointer';
+          elemento.style.transition = 'color 0.3s ease';
+          
+          // Agregar efectos hover
+          elemento.addEventListener('mouseenter', () => {
+            elemento.style.color = '#003f63';
+          });
+          elemento.addEventListener('mouseleave', () => {
+            elemento.style.color = 'inherit';
+          });
+        });
+      }
+
+      // Inicializar la página
+      window.addEventListener('DOMContentLoaded', () => {
+        verificarSesion();
+        obtenerFiltros();
+        cargarCategorias();
+      });
 
       //----------------------------------------------LOCALSTORAGE----------------------------------------------
 
@@ -383,6 +577,156 @@
         const nombreGuardado = localStorage.getItem("usuarioNombre");
         if (nombreGuardado) {
           document.getElementById("bienvenida").textContent = nombreGuardado;
+        }
+      });
+
+      // Función para cambiar la imagen en el carrusel
+      function cambiarImagen(imgElement, direccion) {
+        const imagenes = JSON.parse(imgElement.dataset.imagenes);
+        let currentIndex = parseInt(imgElement.dataset.imagenIndex);
+        
+        // Calcular el nuevo índice
+        currentIndex = (currentIndex + direccion + imagenes.length) % imagenes.length;
+        
+        // Actualizar la imagen
+        imgElement.src = imagenes[currentIndex];
+        imgElement.dataset.imagenIndex = currentIndex;
+        
+        // Efecto de transición
+        imgElement.style.opacity = '0';
+        setTimeout(() => {
+          imgElement.style.opacity = '1';
+        }, 50);
+      }
+
+      // Función para buscar productos
+      async function buscarProductos() {
+        const searchInput = document.getElementById('searchInput');
+        const query = searchInput.value.trim();
+        
+        if (!query) {
+          mostrarNotificacion('Por favor ingresa un término de búsqueda', 'error');
+          return;
+        }
+
+        try {
+          const response = await fetch(`phps/buscarProductos.php?query=${encodeURIComponent(query)}`);
+          const data = await response.json();
+
+          if (!data.success) {
+            mostrarNotificacion(data.error || 'Error al buscar productos', 'error');
+            return;
+          }
+
+          const contenedor = document.getElementById('carrusel');
+          
+          if (data.productos.length === 0) {
+            contenedor.innerHTML = `
+              <div style="width: 100%; text-align: center; padding: 20px;">
+                <h3>No se encontraron productos para "${query}"</h3>
+              </div>
+            `;
+            return;
+          }
+
+          contenedor.innerHTML = "";
+
+          // Recorrer el arreglo de productos y crear los elementos para cada producto
+          data.productos.forEach((producto) => {
+            const productoDiv = document.createElement("div");
+            productoDiv.classList.add("producto");
+
+            // Crear el contenedor del carrusel
+            const carruselContainer = document.createElement("div");
+            carruselContainer.classList.add("producto-carrusel");
+            
+            // Crear los botones de navegación
+            const btnPrev = document.createElement("button");
+            btnPrev.classList.add("carrusel-btn", "prev-btn");
+            btnPrev.innerHTML = "&#10094;";
+            
+            const btnNext = document.createElement("button");
+            btnNext.classList.add("carrusel-btn", "next-btn");
+            btnNext.innerHTML = "&#10095;";
+
+            // Crear el contenedor de imágenes
+            const imgContainer = document.createElement("div");
+            imgContainer.classList.add("producto-imagenes");
+            
+            // Crear la imagen principal
+            const imgPrincipal = document.createElement("img");
+            imgPrincipal.src = producto.imagenes[0] || 'images/default-product.jpg';
+            imgPrincipal.alt = producto.nombre || 'Producto';
+            imgPrincipal.dataset.imagenIndex = "0";
+            imgPrincipal.dataset.imagenes = JSON.stringify(producto.imagenes);
+            
+            // Agregar los elementos al carrusel
+            imgContainer.appendChild(imgPrincipal);
+            carruselContainer.appendChild(btnPrev);
+            carruselContainer.appendChild(imgContainer);
+            carruselContainer.appendChild(btnNext);
+
+            // Agregar eventos a los botones
+            btnPrev.onclick = (e) => {
+              e.stopPropagation();
+              cambiarImagen(imgPrincipal, -1);
+            };
+            
+            btnNext.onclick = (e) => {
+              e.stopPropagation();
+              cambiarImagen(imgPrincipal, 1);
+            };
+
+            // Crear enlace para el nombre del producto
+            const nombreLink = document.createElement("a");
+            nombreLink.href = `ProductoMostrador.html?id=${producto.id_producto}`;
+            nombreLink.style.textDecoration = "none";
+            nombreLink.style.color = "inherit";
+            nombreLink.style.cursor = "pointer";
+
+            const nombre = document.createElement("h3");
+            nombre.textContent = producto.nombre || 'Producto sin nombre';
+            nombre.style.transition = "color 0.3s ease";
+            
+            nombreLink.appendChild(nombre);
+
+            const precio = document.createElement("p");
+            precio.textContent = producto.precio ? `$${producto.precio}` : 'Precio no disponible';
+
+            const boton = document.createElement("button");
+            boton.classList.add("boton-agregar");
+            boton.textContent = "Añadir al carrito";
+            boton.onclick = () => agregarAlCarrito(producto.id_producto);
+
+            // También hacer que la imagen sea clickeable
+            imgContainer.style.cursor = "pointer";
+            imgContainer.onclick = () => {
+              window.location.href = `ProductoMostrador.html?id=${producto.id_producto}`;
+            };
+
+            // Agregar los elementos al contenedor del producto
+            productoDiv.appendChild(carruselContainer);
+            productoDiv.appendChild(nombreLink);
+            productoDiv.appendChild(precio);
+            productoDiv.appendChild(boton);
+
+            // Agregar el producto al contenedor
+            contenedor.appendChild(productoDiv);
+          });
+
+          // Mostrar notificación de éxito con el número de resultados
+          mostrarNotificacion(`Se encontraron ${data.total} productos`, 'success');
+
+        } catch (error) {
+          console.error('Error:', error);
+          mostrarNotificacion('Error al realizar la búsqueda', 'error');
+        }
+      }
+
+      // Agregar evento para buscar al presionar Enter
+      document.getElementById('searchInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          buscarProductos();
         }
       });
     </script>

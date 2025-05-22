@@ -194,3 +194,68 @@ bodyProductos {
     max-width:100%;
     height:auto;
 }
+
+.producto-carrusel {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.producto-imagenes {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.producto-imagenes img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.carrusel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.carrusel-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+  left: 5px;
+}
+
+.next-btn {
+  right: 5px;
+}
+
+/* Asegurarse de que los botones solo aparezcan al pasar el mouse sobre el producto */
+.producto-carrusel .carrusel-btn {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.producto:hover .carrusel-btn {
+  opacity: 1;
+}

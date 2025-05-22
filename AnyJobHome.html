@@ -229,16 +229,6 @@
           Lijas, discos de corter, discos de desbaste, discos laminados, etc.
         </div>
       </div>
-      <div class="tarjeta" onclick="aplicarFiltro('Candados y herrajes')">
-        <img
-          src="images/Categorias/Cat Candados.png"
-          alt="Candados y herrajes"
-        />
-        <h3>Candados y herrajes</h3>
-        <div class="descripcion">
-          Candados, bisagras, jaladeras, correderas, pasadores, etc.
-        </div>
-      </div>
       <div class="tarjeta" onclick="aplicarFiltro('Electricos')">
         <img src="images/Categorias/Cat Electrico.png" alt="Electricos" />
         <h3>Electricos</h3>
@@ -253,13 +243,6 @@
         <div class="descripcion">
           Palas, picos, talacho, martillos, marros, pinzas, taladros,
           esmeriladoras, etc.
-        </div>
-      </div>
-      <div class="tarjeta" onclick="aplicarFiltro('Plomeria y gas')">
-        <img src="images/Categorias/Cat Plomeria.png" alt="Plomeria y gas" />
-        <h3>Plomeria y gas</h3>
-        <div class="descripcion">
-          Mangueras, regaderas, conecciones, tubos, llaves, mezcladoras, etc.
         </div>
       </div>
       <div class="tarjeta" onclick="aplicarFiltro('Tornilleria y clavos')">
@@ -370,67 +353,14 @@
     </div>
 
     <div class="contenedorProductos">
+      <h2 style="text-align: center; margin-bottom: 20px; color: #003f63;">Últimos Productos</h2>
       <div class="carrusel">
         <button class="boton boton-izquierda" onclick="moverCarrusel(-1)">
           <img src="images/Flecha izquierda.png" alt="izquierda" />
         </button>
 
         <div class="carrusel-contenido" id="carrusel">
-          <div class="producto">
-            <img src="images/Pinzas_Truper.jpg" alt="Producto" />
-            <h3>Pinzas para electricista 8" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Llave_Inglesa_Truper.jpg" alt="Producto" />
-            <h3>Pericas/Llave inglesa 12" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Serrucho_Truper.jpg" alt="Producto" />
-            <h3>Serrucho Rapid 22" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Pinzas_Truper.jpg" alt="Producto" />
-            <h3>Pinzas para electricista 8" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Llave_Inglesa_Truper.jpg" alt="Producto" />
-            <h3>Pericas/Llave inglesa 12" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Serrucho_Truper.jpg" alt="Producto" />
-            <h3>Serrucho Rapid 22" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Pinzas_Truper.jpg" alt="Producto" />
-            <h3>Pinzas para electricista 8" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Llave_Inglesa_Truper.jpg" alt="Producto" />
-            <h3>Pericas/Llave inglesa 12" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
+          <!-- Los productos se cargarán dinámicamente aquí -->
         </div>
 
         <button class="boton boton-derecha" onclick="moverCarrusel(1)">
@@ -520,7 +450,6 @@
 
     <script>
       //Carrusel de marcas
-
       let index = 0;
       const slides = document.querySelector(".slides");
       const totalSlides = document.querySelectorAll(".slide").length;
@@ -532,8 +461,95 @@
 
       setInterval(showNextSlide, 5000);
 
-      //Carrusel de productos en promoción
+      // Cargar últimos productos
+      async function cargarUltimosProductos() {
+        try {
+          const response = await fetch('phps/getProductos.php?tipo=ultimos&limit=10');
+          const productos = await response.json();
+          
+          if (productos.error) {
+            console.error('Error:', productos.error);
+            return;
+          }
 
+          const carrusel = document.getElementById('carrusel');
+          carrusel.innerHTML = productos.map(producto => `
+            <div class="producto">
+              <img src="${producto.imagenes[0]}" alt="${producto.nombre}" onclick="window.location.href='ProductoMostrador.html?id=${producto.id_producto}'" style="cursor: pointer;" />
+              <h3>${producto.nombre}</h3>
+              <p>$${producto.precio}</p>
+              <button class="boton-agregar" onclick="agregarAlCarrito(${producto.id_producto})">Añadir al carrito</button>
+            </div>
+          `).join('');
+
+        } catch (error) {
+          console.error('Error al cargar los productos:', error);
+        }
+      }
+
+      // Función para agregar al carrito
+      async function agregarAlCarrito(idProducto) {
+        try {
+          const formData = new FormData();
+          formData.append('idProducto', idProducto);
+
+          const response = await fetch('phps/agregarAlCarrito.php', {
+            method: 'POST',
+            body: formData
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            mostrarNotificacion(data.success, 'success');
+          } else if (data.error) {
+            if (data.error.includes('iniciar sesión')) {
+              mostrarNotificacion('Debes iniciar sesión para agregar productos al carrito', 'error');
+              setTimeout(() => {
+                window.location.href = 'Login.html';
+              }, 2000);
+            } else {
+              mostrarNotificacion(data.error, 'error');
+            }
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          mostrarNotificacion('Error al agregar al carrito', 'error');
+        }
+      }
+
+      function mostrarNotificacion(mensaje, tipo) {
+        const notificacion = document.createElement('div');
+        notificacion.className = `notificacion ${tipo}`;
+        notificacion.textContent = mensaje;
+        
+        notificacion.style.position = 'fixed';
+        notificacion.style.top = '20px';
+        notificacion.style.right = '20px';
+        notificacion.style.padding = '15px 25px';
+        notificacion.style.borderRadius = '5px';
+        notificacion.style.zIndex = '1000';
+        
+        if (tipo === 'success') {
+          notificacion.style.backgroundColor = '#4CAF50';
+          notificacion.style.color = 'white';
+        } else {
+          notificacion.style.backgroundColor = '#f44336';
+          notificacion.style.color = 'white';
+        }
+
+        document.body.appendChild(notificacion);
+
+        setTimeout(() => {
+          notificacion.style.opacity = '0';
+          notificacion.style.transition = 'opacity 0.5s ease';
+          setTimeout(() => {
+            document.body.removeChild(notificacion);
+          }, 500);
+        }, 3000);
+      }
+
+      //Carrusel de productos
       function moverCarrusel(direccion) {
         const carrusel = document.getElementById("carrusel");
         const desplazamiento = 250;
@@ -542,6 +558,7 @@
           behavior: "smooth",
         });
       }
+
       //buscar
       function buscarProducto() {
         const valorBusqueda = document.getElementById("busqueda").value.trim();
@@ -568,6 +585,30 @@
         if (nombreGuardado) {
           document.getElementById("bienvenida").textContent = nombreGuardado;
         }
+      });
+
+      // Función para verificar la sesión
+      async function verificarSesion() {
+        try {
+          const response = await fetch('phps/checkSession.php');
+          const data = await response.json();
+          
+          const bienvenidaElement = document.getElementById('bienvenida');
+          
+          if (data.loggedin) {
+            bienvenidaElement.textContent = `¡Hola, ${data.nombre}!`;
+          } else {
+            bienvenidaElement.textContent = 'Login';
+          }
+        } catch (error) {
+          console.error('Error al verificar la sesión:', error);
+        }
+      }
+
+      // Llamar a verificarSesion cuando cargue la página
+      window.addEventListener('DOMContentLoaded', () => {
+        verificarSesion();
+        cargarUltimosProductos();
       });
     </script>
 

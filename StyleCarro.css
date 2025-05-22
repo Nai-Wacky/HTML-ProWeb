@@ -330,6 +330,39 @@ text-align: center;
   cursor: pointer;
 }
 
+.carrito-item-imagenes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+.imagen-principal {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.miniaturas {
+  display: flex;
+  gap: 5px;
+}
+
+.miniatura {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.miniatura:hover {
+  border-color: #003f63;
+}
+
 
 
 

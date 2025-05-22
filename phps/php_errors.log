@@ -1,0 +1,24 @@
+[22-May-2025 09:41:33 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'anyjob' in C:\xampp\htdocs\HTML-ProWeb\phps\conexion.php:12
+Stack trace:
+#0 C:\xampp\htdocs\HTML-ProWeb\phps\conexion.php(12): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'anyjob')
+#1 C:\xampp\htdocs\HTML-ProWeb\phps\getProducto.php(3): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\HTML-ProWeb\phps\conexion.php on line 12
+[22-May-2025 09:43:26 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'anyjob' in C:\xampp\htdocs\HTML-ProWeb\phps\conexion.php:12
+Stack trace:
+#0 C:\xampp\htdocs\HTML-ProWeb\phps\conexion.php(12): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'anyjob')
+#1 C:\xampp\htdocs\HTML-ProWeb\phps\getProducto.php(8): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\HTML-ProWeb\phps\conexion.php on line 12
+[22-May-2025 09:44:06 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'anyjob' in C:\xampp\htdocs\HTML-ProWeb\phps\conexion.php:12
+Stack trace:
+#0 C:\xampp\htdocs\HTML-ProWeb\phps\conexion.php(12): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'anyjob')
+#1 C:\xampp\htdocs\HTML-ProWeb\phps\getProducto.php(8): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\HTML-ProWeb\phps\conexion.php on line 12
+[22-May-2025 09:44:11 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'anyjob' in C:\xampp\htdocs\HTML-ProWeb\phps\conexion.php:12
+Stack trace:
+#0 C:\xampp\htdocs\HTML-ProWeb\phps\conexion.php(12): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'anyjob')
+#1 C:\xampp\htdocs\HTML-ProWeb\phps\getProducto.php(8): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\HTML-ProWeb\phps\conexion.php on line 12
