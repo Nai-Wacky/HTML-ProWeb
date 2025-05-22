@@ -80,50 +80,52 @@
 
       .producto-detalle {
         max-width: 1200px;
-        margin: 20px auto;
-        padding: 20px;
+        min-height: 800px;
+        margin: 40px auto;
+        padding: 40px;
         background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         display: flex;
-        gap: 40px;
+        gap: 20px;
         align-items: flex-start;
       }
 
       .producto-imagenes {
-        flex: 0 0 400px;
+        flex: 0 0 600px;
         display: flex;
         flex-direction: column;
         align-items: center;
-      }
-
-      .producto-info {
-        flex: 1;
-        min-width: 300px;
-        padding-left: 20px;
+        height: 100% ;
+        margin-right: 0%;
       }
 
       .producto-carrusel {
         position: relative;
-        width: 400px;
-        height: 700px !important;
+        width: 500PX;
+        height: 500PX;
         margin-bottom: 20px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
+        border: 2px solid #ddd;
+        border-radius: 12px;
         background-color: #fff;
+        overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
       }
 
-      .producto-carrusel img {
-        max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
+      #imagen-principal {
+        max-width: 90%;
+        max-height: 90%;
         object-fit: contain;
-        transition: opacity 0.3s ease;
+        display: block;
+      }
+
+      .producto-info {
+        flex: 1;
+        min-width: 400px;
+        padding-left: 20px;
+        padding-top: 0;
       }
 
       .miniaturas-container {
@@ -186,23 +188,18 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        z-index: 2;
+        z-index: 10;
         background: rgba(0, 0, 0, 0.5);
         color: white;
         border: none;
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 24px;
-        transition: background-color 0.3s ease;
-      }
-
-      .carrusel-btn:hover {
-        background: rgba(0, 0, 0, 0.8);
+        font-size: 30px;
       }
 
       .prev-btn {
@@ -214,25 +211,27 @@
       }
 
       .producto-nombre {
-        font-size: 24px;
+        font-size: 32px;
         font-weight: bold;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
       }
 
       .producto-marca {
         color: #666;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
+        font-size: 18px;
       }
 
       .producto-precio {
-        font-size: 28px;
+        font-size: 36px;
         color: #003f63;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
       }
 
       .producto-descripcion {
-        margin-bottom: 20px;
-        line-height: 1.6;
+        margin-bottom: 30px;
+        line-height: 1.8;
+        font-size: 16px;
       }
 
       .producto-categoria {
@@ -254,6 +253,71 @@
       .btn-agregar:hover {
         background-color: #002d47;
       }
+
+      .contenedorProductos {
+        max-width: 92%;
+        margin: auto;
+        text-align: left;
+        padding-bottom: 20px;
+      }
+
+      .carrusel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .carrusel-contenido {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 15px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      .carrusel-contenido::-webkit-scrollbar {
+        display: none;
+      }
+
+      .producto {
+        flex: 0 0 auto;
+        background: white;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        width: 220px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .producto:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .boton {
+        background: white;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        margin: 10px;
+        z-index: 1;
+      }
+
+      .boton:hover {
+        background: #ddd;
+      }
+
+      .boton img {
+        width: 20px;
+        height: 20px;
+      }
     </style>
   </head>
 
@@ -266,7 +330,7 @@
 
       <!-- Buscador -->
       <div style="margin: 0 auto" class="search-box">
-        <input id="busqueda" type="text" placeholder="Herramientas..." />
+        <input id="busqueda" type="text" placeholder="¿Qué estás buscando?" />
         <button onclick="buscarProducto()">
           <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Buscar" />
         </button>
@@ -275,20 +339,16 @@
       <!-- Opciones -->
       <button class="buttonOpcion" onclick="window.location.assign('Perfil.html')">
         <img src="images/navbar/Perfil Any Job.png" width="38" height="43" title="Perfil" />
-        <h3 id="bienvenida" style="color: white">Login</h3>
+        <h3 id="bienvenida" style="color: white">Iniciar Sesión</h3>
       </button>
 
       <button class="buttonOpcion" onclick="window.location.assign('Categorias.html')">
-        <img src="images/navbar/Pedidos.png" width="30" height="43" title="Catalogo de proveedores" />
+        <img src="images/navbar/Pedidos.png" width="30" height="43" title="Catálogo de proveedores" />
       </button>
 
       <button class="buttonOpcion" onclick="window.location.assign('Carrito.html')">
         <img src="images/navbar/Carrito de compras.png" width="43" height="43" title="Carrito de compras" />
       </button>
-    </div>
-
-    <div style="background-color: #f5f5f5; padding: 10px; text-align: center; border-bottom: 1px solid #ddd;">
-      <p style="margin: 0; color: #666;">ID del producto: <span id="id-producto" style="font-weight: bold;"></span></p>
     </div>
 
     <div class="producto-detalle" id="producto-contenido">
@@ -298,7 +358,7 @@
     <div style="padding-top: 50px; padding-bottom: 20px">
       <h2
         style="
-          font-size: 3vw;
+          font-size: clamp(30px, 3vw, 50px);
           text-align: left;
           font-family: helvetica;
           padding-left: 125px;
@@ -310,69 +370,15 @@
 
     <div class="contenedorProductos">
       <div class="carrusel">
-        <button class="botonC boton-izquierda" onclick="moverCarrusel(-1)">
+        <button class="boton boton-izquierda" onclick="moverCarrusel(-1)">
           <img src="images/Flecha izquierda.png" alt="izquierda" />
         </button>
 
         <div class="carrusel-contenido" id="carrusel">
-          <div class="producto">
-            <img src="images/Pinzas_Truper.jpg" alt="Producto" />
-            <h3>Pinzas para electricista 8" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Llave_Inglesa_Truper.jpg" alt="Producto" />
-            <h3>Pericas/Llave inglesa 12" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Serrucho_Truper.jpg" alt="Producto" />
-            <h3>Serrucho Rapid 22" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Pinzas_Truper.jpg" alt="Producto" />
-            <h3>Pinzas para electricista 8" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Llave_Inglesa_Truper.jpg" alt="Producto" />
-            <h3>Pericas/Llave inglesa 12" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Serrucho_Truper.jpg" alt="Producto" />
-            <h3>Serrucho Rapid 22" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Pinzas_Truper.jpg" alt="Producto" />
-            <h3>Pinzas para electricista 8" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
-
-          <div class="producto">
-            <img src="images/Llave_Inglesa_Truper.jpg" alt="Producto" />
-            <h3>Pericas/Llave inglesa 12" Truper</h3>
-            <p>$199.99</p>
-            <button class="boton-agregar">Añadir al carrito</button>
-          </div>
+          <!-- Los productos se cargarán dinámicamente aquí -->
         </div>
 
-        <button class="botonC boton-derecha" onclick="moverCarrusel(1)">
+        <button class="boton boton-derecha" onclick="moverCarrusel(1)">
           <img src="images/Flecha derecha.png" alt="derecha" />
         </button>
       </div>
@@ -398,18 +404,9 @@
         <p>📞 800 00 ANY JOB</p>
         <p>✉️ servicioac@anyjob.com.mx</p>
         <div class="social-icons">
-          <a href="#"
-            ><img src="images/icons/facebook.svg" alt="Facebook" />Facebook</a
-          >
-          <a href="#"
-            ><img
-              src="images/icons/instagram.svg"
-              alt="Instagram"
-            />Instagram</a
-          >
-          <a href="#"
-            ><img src="images/icons/twitter.svg" alt="Twitter" />Twitter</a
-          >
+          <a href="#"><img src="images/icons/facebook.svg" alt="Facebook" />Facebook</a>
+          <a href="#"><img src="images/icons/instagram.svg" alt="Instagram" />Instagram</a>
+          <a href="#"><img src="images/icons/twitter.svg" alt="Twitter" />Twitter</a>
         </div>
       </div>
     </footer>
@@ -495,9 +492,11 @@
             </div>
           `;
 
-          // Guardar las imágenes en una variable global para el carrusel
           window.imagenes = data.imagenes;
           window.imagenActual = 0;
+
+          // Cargar productos relacionados basados en la categoría
+          await cargarProductosRelacionados(data.Categoria);
 
         } catch (error) {
           console.error('Error al cargar el producto:', error);
@@ -548,7 +547,7 @@
           const data = await response.json();
 
           if (data.success) {
-            mostrarNotificacion(data.success, 'success');
+            mostrarNotificacion('Producto agregado al carrito exitosamente', 'success');
           } else if (data.error) {
             if (data.error.includes('iniciar sesión')) {
               mostrarNotificacion('Debes iniciar sesión para agregar productos al carrito', 'error');
@@ -620,7 +619,7 @@
           if (data.loggedin) {
             bienvenidaElement.textContent = `¡Hola, ${data.nombre}!`;
           } else {
-            bienvenidaElement.textContent = 'Login';
+            bienvenidaElement.textContent = 'Iniciar Sesión';
           }
         } catch (error) {
           console.error('Error al verificar la sesión:', error);
@@ -638,6 +637,39 @@
         const valorBusqueda = document.getElementById("busqueda").value.trim();
         if (valorBusqueda) {
           window.location.href = `Categorias.html?filtro=${encodeURIComponent(valorBusqueda)}`;
+        }
+      }
+
+      async function cargarProductosRelacionados(categoriaActual) {
+        try {
+          const response = await fetch('phps/getProductos.php');
+          const productos = await response.json();
+          
+          if (!Array.isArray(productos)) {
+            console.error('Error: Los productos no son un array');
+            return;
+          }
+
+          // Filtrar productos de la misma categoría, excluyendo el producto actual
+          const params = new URLSearchParams(window.location.search);
+          const idProductoActual = params.get('id');
+          
+          const productosRelacionados = productos
+            .filter(p => p.Categoria === categoriaActual && p.id_producto !== idProductoActual)
+            .slice(0, 8); // Limitar a 8 productos
+
+          const carrusel = document.getElementById('carrusel');
+          carrusel.innerHTML = productosRelacionados.map(producto => `
+            <div class="producto">
+              <img src="${producto.imagenes[0]}" alt="${producto.nombre}" onclick="window.location.href='ProductoMostrador.html?id=${producto.id_producto}'" style="cursor: pointer;" />
+              <h3>${producto.nombre}</h3>
+              <p>$${producto.precio}</p>
+              <button class="boton-agregar" onclick="agregarAlCarrito(${producto.id_producto})">Añadir al carrito</button>
+            </div>
+          `).join('');
+
+        } catch (error) {
+          console.error('Error al cargar los productos relacionados:', error);
         }
       }
     </script>

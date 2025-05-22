@@ -493,3 +493,432 @@
 [22-May-2025 10:13:53 Europe/Berlin] Producto encontrado: {"id_producto":4,"nombre":"Nivel de burbuja","clave":"P-004","precio":350,"cantidad":100,"descripcion":"Nivel de burbuja met\u00e1lico para medici\u00f3n precisa, 50cm","Marca":"Pretul","Categoria":"Herramientas","imagenes":"images\/nivel.png,images\/nivel1.png,images\/nivel2.png,images\/nivel3.png"}
 [22-May-2025 10:13:53 Europe/Berlin] Enviando respuesta: {"id_producto":4,"nombre":"Nivel de burbuja","clave":"P-004","precio":350,"cantidad":100,"descripcion":"Nivel de burbuja met\u00e1lico para medici\u00f3n precisa, 50cm","Marca":"Pretul","Categoria":"Herramientas","imagenes":["images\/nivel.png","images\/nivel1.png","images\/nivel2.png","images\/nivel3.png"]}
 [22-May-2025 10:13:53 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 06:30:40 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 06:30:40 Europe/Berlin] Buscando producto con ID: 2
+[22-May-2025 06:30:40 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 06:30:40 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 06:30:40 Europe/Berlin] Producto encontrado: {"id_producto":2,"nombre":"Lijadora orbital","clave":"P-002","precio":1500,"cantidad":25,"descripcion":"Lijadora orbital el\u00e9ctrica, ideal para superficies planas, 30V, compatible con cualquier lija","Marca":"Makita","Categoria":"Herramientas","imagenes":"images\/lijadora_orbital.png,images\/lijadora_orbital1.png,images\/lijadora_orbital2.png,images\/lijadora_orbital3.png"}
+[22-May-2025 06:30:40 Europe/Berlin] Enviando respuesta: {"id_producto":2,"nombre":"Lijadora orbital","clave":"P-002","precio":1500,"cantidad":25,"descripcion":"Lijadora orbital el\u00e9ctrica, ideal para superficies planas, 30V, compatible con cualquier lija","Marca":"Makita","Categoria":"Herramientas","imagenes":["images\/lijadora_orbital.png","images\/lijadora_orbital1.png","images\/lijadora_orbital2.png","images\/lijadora_orbital3.png"]}
+[22-May-2025 06:30:40 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 06:33:25 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 06:33:25 Europe/Berlin] Buscando producto con ID: 22
+[22-May-2025 06:33:25 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 06:33:25 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 06:33:25 Europe/Berlin] Producto encontrado: {"id_producto":22,"nombre":"Caja de herramientas","clave":"P-022","precio":500,"cantidad":40,"descripcion":"Caja de herramientas met\u00e1lica con m\u00faltiples compartimientos, 125pzs","Marca":"Husky","Categoria":"Herramientas","imagenes":"images\/caja_herramientas.png,images\/Any-job-icon.ico,images\/Any-job-icon.ico,images\/Any-job-icon.ico"}
+[22-May-2025 06:33:25 Europe/Berlin] Enviando respuesta: {"id_producto":22,"nombre":"Caja de herramientas","clave":"P-022","precio":500,"cantidad":40,"descripcion":"Caja de herramientas met\u00e1lica con m\u00faltiples compartimientos, 125pzs","Marca":"Husky","Categoria":"Herramientas","imagenes":["images\/caja_herramientas.png","images\/Any-job-icon.ico","images\/Any-job-icon.ico","images\/Any-job-icon.ico"]}
+[22-May-2025 06:33:25 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:40:20 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:40:20 Europe/Berlin] Buscando producto con ID: 2
+[22-May-2025 07:40:20 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:40:20 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:40:20 Europe/Berlin] Producto encontrado: {"id_producto":2,"nombre":"Lijadora orbital","clave":"P-002","precio":1500,"cantidad":25,"descripcion":"Lijadora orbital el\u00e9ctrica, ideal para superficies planas, 30V, compatible con cualquier lija","Marca":"Makita","Categoria":"Herramientas","imagenes":"images\/lijadora_orbital.png,images\/lijadora_orbital1.png,images\/lijadora_orbital2.png,images\/lijadora_orbital3.png"}
+[22-May-2025 07:40:20 Europe/Berlin] Enviando respuesta: {"id_producto":2,"nombre":"Lijadora orbital","clave":"P-002","precio":1500,"cantidad":25,"descripcion":"Lijadora orbital el\u00e9ctrica, ideal para superficies planas, 30V, compatible con cualquier lija","Marca":"Makita","Categoria":"Herramientas","imagenes":["images\/lijadora_orbital.png","images\/lijadora_orbital1.png","images\/lijadora_orbital2.png","images\/lijadora_orbital3.png"]}
+[22-May-2025 07:40:20 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:21:32 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:21:32 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:21:32 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:21:32 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:21:32 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:21:32 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:21:32 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:25:22 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:25:22 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:25:22 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:25:22 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:25:22 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:25:22 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:25:22 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:25:53 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:25:53 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:25:53 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:25:53 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:25:53 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:25:53 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:25:53 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:26:22 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:26:22 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:26:22 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:26:22 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:26:22 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:26:22 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:26:22 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:26:58 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:26:58 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:26:58 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:26:58 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:26:58 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:26:58 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:26:58 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:27:26 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:27:26 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:27:26 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:27:26 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:27:26 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:27:26 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:27:26 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:28:08 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:28:08 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:28:08 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:28:08 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:28:08 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:28:08 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:28:08 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:28:53 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:28:53 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:28:53 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:28:53 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:28:53 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:28:53 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:28:53 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:30:07 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:30:07 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:30:07 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:30:07 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:30:07 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:30:07 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:30:07 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:30:58 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:30:58 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:30:58 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:30:58 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:30:58 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:30:58 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:30:58 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:31:18 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:31:18 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:31:18 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:31:18 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:31:18 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:31:18 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:31:18 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:32:08 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:32:08 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:32:08 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:32:08 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:32:08 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:32:08 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:32:08 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:32:41 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:32:41 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:32:41 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:32:41 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:32:41 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:32:41 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:32:41 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:34:04 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:34:04 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:34:04 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:34:04 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:34:04 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:34:04 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:34:04 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:34:05 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:34:05 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:34:05 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:34:05 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:34:05 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:34:05 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:34:05 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:35:07 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:35:07 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:35:07 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:35:07 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:35:07 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:35:07 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:35:07 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:36:00 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:36:00 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:36:00 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:36:00 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:36:00 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:36:00 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:36:00 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:36:57 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:36:57 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:36:57 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:36:57 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:36:57 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:36:57 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:36:57 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:37:14 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:37:14 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:37:14 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:37:14 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:37:14 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:37:14 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:37:14 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:37:34 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:37:34 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:37:34 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:37:34 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:37:34 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:37:34 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:37:34 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:37:45 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:37:45 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:37:45 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:37:45 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:37:45 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:37:45 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:37:45 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:37:59 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:37:59 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:37:59 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:37:59 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:37:59 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:37:59 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:37:59 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:39:07 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:39:07 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:39:07 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:39:07 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:39:07 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:39:07 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:39:07 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:39:18 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:39:18 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:39:18 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:39:18 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:39:18 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:39:18 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:39:18 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:39:27 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:39:27 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:39:27 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:39:27 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:39:27 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:39:27 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:39:27 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:39:35 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:39:35 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:39:35 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:39:35 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:39:35 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:39:35 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:39:35 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:40:43 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:40:43 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:40:43 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:40:43 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:40:43 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:40:43 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:40:43 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:41:37 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:41:37 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:41:37 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:41:37 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:41:37 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:41:37 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:41:37 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:41:38 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:41:38 Europe/Berlin] Buscando producto con ID: 1
+[22-May-2025 07:41:38 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:41:38 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:41:38 Europe/Berlin] Producto encontrado: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/cutter.png,images\/cutter1.png,images\/cutter2.png,images\/cutter3.png"}
+[22-May-2025 07:41:38 Europe/Berlin] Enviando respuesta: {"id_producto":1,"nombre":"Cutter profesional","clave":"P-001","precio":200,"cantidad":150,"descripcion":"Cutter de precisi\u00f3n para corte exacto de materiales, hoja 10cm","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/cutter.png","images\/cutter1.png","images\/cutter2.png","images\/cutter3.png"]}
+[22-May-2025 07:41:38 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:43:03 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:43:03 Europe/Berlin] Buscando producto con ID: 2
+[22-May-2025 07:43:03 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:43:03 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:43:03 Europe/Berlin] Producto encontrado: {"id_producto":2,"nombre":"Lijadora orbital","clave":"P-002","precio":1500,"cantidad":25,"descripcion":"Lijadora orbital el\u00e9ctrica, ideal para superficies planas, 30V, compatible con cualquier lija","Marca":"Makita","Categoria":"Herramientas","imagenes":"images\/lijadora_orbital.png,images\/lijadora_orbital1.png,images\/lijadora_orbital2.png,images\/lijadora_orbital3.png"}
+[22-May-2025 07:43:03 Europe/Berlin] Enviando respuesta: {"id_producto":2,"nombre":"Lijadora orbital","clave":"P-002","precio":1500,"cantidad":25,"descripcion":"Lijadora orbital el\u00e9ctrica, ideal para superficies planas, 30V, compatible con cualquier lija","Marca":"Makita","Categoria":"Herramientas","imagenes":["images\/lijadora_orbital.png","images\/lijadora_orbital1.png","images\/lijadora_orbital2.png","images\/lijadora_orbital3.png"]}
+[22-May-2025 07:43:03 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:43:52 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:43:52 Europe/Berlin] Buscando producto con ID: 2
+[22-May-2025 07:43:52 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:43:52 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:43:52 Europe/Berlin] Producto encontrado: {"id_producto":2,"nombre":"Lijadora orbital","clave":"P-002","precio":1500,"cantidad":25,"descripcion":"Lijadora orbital el\u00e9ctrica, ideal para superficies planas, 30V, compatible con cualquier lija","Marca":"Makita","Categoria":"Herramientas","imagenes":"images\/lijadora_orbital.png,images\/lijadora_orbital1.png,images\/lijadora_orbital2.png,images\/lijadora_orbital3.png"}
+[22-May-2025 07:43:52 Europe/Berlin] Enviando respuesta: {"id_producto":2,"nombre":"Lijadora orbital","clave":"P-002","precio":1500,"cantidad":25,"descripcion":"Lijadora orbital el\u00e9ctrica, ideal para superficies planas, 30V, compatible con cualquier lija","Marca":"Makita","Categoria":"Herramientas","imagenes":["images\/lijadora_orbital.png","images\/lijadora_orbital1.png","images\/lijadora_orbital2.png","images\/lijadora_orbital3.png"]}
+[22-May-2025 07:43:52 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:45:46 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:45:46 Europe/Berlin] Buscando producto con ID: 2
+[22-May-2025 07:45:46 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:45:46 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:45:46 Europe/Berlin] Producto encontrado: {"id_producto":2,"nombre":"Lijadora orbital","clave":"P-002","precio":1500,"cantidad":25,"descripcion":"Lijadora orbital el\u00e9ctrica, ideal para superficies planas, 30V, compatible con cualquier lija","Marca":"Makita","Categoria":"Herramientas","imagenes":"images\/lijadora_orbital.png,images\/lijadora_orbital1.png,images\/lijadora_orbital2.png,images\/lijadora_orbital3.png"}
+[22-May-2025 07:45:46 Europe/Berlin] Enviando respuesta: {"id_producto":2,"nombre":"Lijadora orbital","clave":"P-002","precio":1500,"cantidad":25,"descripcion":"Lijadora orbital el\u00e9ctrica, ideal para superficies planas, 30V, compatible con cualquier lija","Marca":"Makita","Categoria":"Herramientas","imagenes":["images\/lijadora_orbital.png","images\/lijadora_orbital1.png","images\/lijadora_orbital2.png","images\/lijadora_orbital3.png"]}
+[22-May-2025 07:45:46 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:45:59 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:45:59 Europe/Berlin] Buscando producto con ID: 4
+[22-May-2025 07:45:59 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:45:59 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:45:59 Europe/Berlin] Producto encontrado: {"id_producto":4,"nombre":"Nivel de burbuja","clave":"P-004","precio":350,"cantidad":100,"descripcion":"Nivel de burbuja met\u00e1lico para medici\u00f3n precisa, 50cm","Marca":"Pretul","Categoria":"Herramientas","imagenes":"images\/nivel.png,images\/nivel1.png,images\/nivel2.png,images\/nivel3.png"}
+[22-May-2025 07:45:59 Europe/Berlin] Enviando respuesta: {"id_producto":4,"nombre":"Nivel de burbuja","clave":"P-004","precio":350,"cantidad":100,"descripcion":"Nivel de burbuja met\u00e1lico para medici\u00f3n precisa, 50cm","Marca":"Pretul","Categoria":"Herramientas","imagenes":["images\/nivel.png","images\/nivel1.png","images\/nivel2.png","images\/nivel3.png"]}
+[22-May-2025 07:45:59 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:46:53 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:46:53 Europe/Berlin] Buscando producto con ID: 4
+[22-May-2025 07:46:53 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:46:53 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:46:53 Europe/Berlin] Producto encontrado: {"id_producto":4,"nombre":"Nivel de burbuja","clave":"P-004","precio":350,"cantidad":100,"descripcion":"Nivel de burbuja met\u00e1lico para medici\u00f3n precisa, 50cm","Marca":"Pretul","Categoria":"Herramientas","imagenes":"images\/nivel.png,images\/nivel1.png,images\/nivel2.png,images\/nivel3.png"}
+[22-May-2025 07:46:53 Europe/Berlin] Enviando respuesta: {"id_producto":4,"nombre":"Nivel de burbuja","clave":"P-004","precio":350,"cantidad":100,"descripcion":"Nivel de burbuja met\u00e1lico para medici\u00f3n precisa, 50cm","Marca":"Pretul","Categoria":"Herramientas","imagenes":["images\/nivel.png","images\/nivel1.png","images\/nivel2.png","images\/nivel3.png"]}
+[22-May-2025 07:46:53 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:50:03 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:50:03 Europe/Berlin] Buscando producto con ID: 4
+[22-May-2025 07:50:03 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:50:03 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:50:03 Europe/Berlin] Producto encontrado: {"id_producto":4,"nombre":"Nivel de burbuja","clave":"P-004","precio":350,"cantidad":100,"descripcion":"Nivel de burbuja met\u00e1lico para medici\u00f3n precisa, 50cm","Marca":"Pretul","Categoria":"Herramientas","imagenes":"images\/nivel.png,images\/nivel1.png,images\/nivel2.png,images\/nivel3.png"}
+[22-May-2025 07:50:03 Europe/Berlin] Enviando respuesta: {"id_producto":4,"nombre":"Nivel de burbuja","clave":"P-004","precio":350,"cantidad":100,"descripcion":"Nivel de burbuja met\u00e1lico para medici\u00f3n precisa, 50cm","Marca":"Pretul","Categoria":"Herramientas","imagenes":["images\/nivel.png","images\/nivel1.png","images\/nivel2.png","images\/nivel3.png"]}
+[22-May-2025 07:50:03 Europe/Berlin] === Fin de getProducto.php ===
+[22-May-2025 07:50:28 Europe/Berlin] === Inicio de getProducto.php ===
+[22-May-2025 07:50:28 Europe/Berlin] Buscando producto con ID: 5
+[22-May-2025 07:50:28 Europe/Berlin] Conexión a la base de datos establecida
+[22-May-2025 07:50:28 Europe/Berlin] SQL Query: SELECT p.*, GROUP_CONCAT(i.ruta) as imagenes 
+            FROM productos p 
+            LEFT JOIN images i ON p.id_producto = i.idproducto 
+            WHERE p.id_producto = ?
+            GROUP BY p.id_producto
+[22-May-2025 07:50:28 Europe/Berlin] Producto encontrado: {"id_producto":5,"nombre":"Manguera para jard\u00edn","clave":"P-005","precio":450,"cantidad":80,"descripcion":"Manguera flexible para riego y limpieza, 3\/16 pulgadas, espesor 0,9mm, 100 metros","Marca":"Truper","Categoria":"Herramientas","imagenes":"images\/manguera.png,images\/manguera1.png,images\/manguera2.png,images\/manguera3.png"}
+[22-May-2025 07:50:28 Europe/Berlin] Enviando respuesta: {"id_producto":5,"nombre":"Manguera para jard\u00edn","clave":"P-005","precio":450,"cantidad":80,"descripcion":"Manguera flexible para riego y limpieza, 3\/16 pulgadas, espesor 0,9mm, 100 metros","Marca":"Truper","Categoria":"Herramientas","imagenes":["images\/manguera.png","images\/manguera1.png","images\/manguera2.png","images\/manguera3.png"]}
+[22-May-2025 07:50:28 Europe/Berlin] === Fin de getProducto.php ===
