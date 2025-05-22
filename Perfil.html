@@ -77,7 +77,7 @@
         <!--<h2>Título del modal</h2>-->
         <!--<p>Contenido...</p>-->
         <div class="confPerfil">
-          <h3>Tu información</h3>
+          <h3 style="padding-bottom: 10px">Tu información</h3>
           <form id="nombreForm">
             <div class="input-container">
               <input
@@ -101,21 +101,23 @@
         <!--<h2>Título del modal</h2>-->
         <!--<p>Contenido...</p>-->
         <div class="confPerfil">
-          <h3>Correo</h3>
+          <h3 style="padding-bottom: 10px">Correo</h3>
           <form id="correoForm">
             <div class="input-container">
               <input
                 type="text"
-                name="correo"
-                id="correo"
+                name="corr"
+                id="corr"
                 placeholder=" "
                 required
               />
-              <label for="correo">Correo electronico</label>
+              <label for="corr">Correo electronico</label>
             </div>
             <button type="submit">Guardar correo</button>
           </form>
-          <h3 style="padding-top: 20px">Numero telefonico</h3>
+          <h3 style="padding-top: 20px; padding-bottom: 10px">
+            Numero telefonico
+          </h3>
           <form id="telefonoForm">
             <div class="input-container">
               <input
@@ -139,27 +141,27 @@
         <!--<h2>Título del modal</h2>-->
         <!--<p>Contenido...</p>-->
         <div class="confPerfil">
-          <h3>Cambiar contraseña</h3>
+          <h3 style="padding-bottom: 10px">Cambiar contraseña</h3>
           <form id="passwordForm">
             <div class="input-container">
               <input
-                type="text"
+                type="password"
                 name="password"
                 id="password"
                 placeholder=" "
                 required
               />
-              <label for="password">Contraseña</label>
+              <label for="password">Contraseña actual</label>
             </div>
             <div class="input-container">
               <input
-                type="text"
-                name="verificar"
-                id="verificar"
+                type="password"
+                name="password2"
+                id="password2"
                 placeholder=" "
                 required
               />
-              <label for="verificar">Contraseña</label>
+              <label for="password2">Nueva contraseña</label>
             </div>
             <button type="submit">Cambiar contraseña</button>
           </form>
@@ -167,15 +169,99 @@
       </div>
     </div>
 
-    <div id="modalPedidos" class="modal hidden">
-      <div class="modal-content">
+    <div id="modalUbicacion" class="modal hidden">
+      <div class="modal-content" style="width: 650px">
         <span class="close">&times;</span>
-        <h3>Tus pedidos</h3>
+        <div class="direccion-container">
+          <div class="titulo">Domicilios</div>
+
+          <div id="lista-direcciones">
+            <!-- Aquí se insertarán las direcciones dinámicamente -->
+          </div>
+
+          <a href="#" class="agregar" data-target="modalAgregarUbicacion"
+            >Agregar dirección ›</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div id="modalAgregarUbicacion" class="modal hidden">
+      <div class="modal-content" style="width: 650px">
+        <span class="close">&times;</span>
+        <div class="form-ubicacion">
+          <h2>Agregar nueva ubicación</h2>
+          <form id="formAgregarUbicacion">
+            <div class="form-group">
+              <label for="estado">Estado</label>
+              <input
+                type="text"
+                id="estado"
+                name="estado"
+                required
+                placeholder="Ej. Michoacán de Ocampo"
+              />
+            </div>
+            <div class="form-group">
+              <label for="municipio">Municipio o alcaldía</label>
+              <input
+                type="text"
+                id="municipio"
+                name="municipio"
+                required
+                placeholder="Ej. Morelia"
+              />
+            </div>
+            <div class="form-group">
+              <label for="cp">Código Postal</label>
+              <input
+                type="text"
+                id="cod_postal"
+                name="cod_postal"
+                maxlength="5"
+                required
+                placeholder="Ej. 58090"
+              />
+            </div>
+            <div class="form-group">
+              <label for="calle">Calle</label>
+              <input
+                type="text"
+                id="calle"
+                name="calle"
+                required
+                placeholder="Ej. Del Cueramo"
+              />
+            </div>
+            <div class="form-group">
+              <label for="colonia">Colonia o barrio</label>
+              <input
+                type="text"
+                id="colonia"
+                name="colonia"
+                required
+                placeholder="Ej. Los Encinos"
+              />
+            </div>
+            <div class="form-group">
+              <label for="numero">Número</label>
+              <input
+                type="text"
+                id="numero"
+                name="numero"
+                required
+                placeholder="Ej. 21"
+              />
+            </div>
+            <button type="submit" class="btn-agregar">Agregar</button>
+          </form>
+        </div>
       </div>
     </div>
 
     <div class="supercontenedor">
       <div class="info-Perfil">
+        <p id="tituloId">ID:</p>
         <h3 id="tituloNombre">Nombre</h3>
         <p id="tituloCorreo">Correo</p>
       </div>
@@ -183,7 +269,9 @@
 
     <div class="config-panel">
       <div class="config-item" data-target="modal">
-        <div class="icon">👤</div>
+        <div class="icon">
+          <img src="images/icons/id-card-solid.svg" alt="Información" />
+        </div>
         <div class="content">
           <h3>Tu información</h3>
           <p>Nombre elegido y datos para identificarte.</p>
@@ -192,7 +280,9 @@
       </div>
 
       <div class="config-item" data-target="modalDatos">
-        <div class="icon">✅</div>
+        <div class="icon">
+          <img src="images/icons/user-solid.svg" alt="Perfil" />
+        </div>
         <div class="content">
           <h3>Datos de tu cuenta</h3>
           <p>
@@ -204,7 +294,9 @@
       </div>
 
       <div class="config-item" data-target="modalSeguridad">
-        <div class="icon">🔒</div>
+        <div class="icon">
+          <img src="images/icons/lock-solid.svg" alt="Seguridad" />
+        </div>
         <div class="content">
           <h3>Seguridad</h3>
           <p>Configura datos sensibles como tu contraseña.</p>
@@ -212,16 +304,18 @@
         <div class="arrow">›</div>
       </div>
 
-      <!--<div class="config-item" data-target="modalPedido">
-        <div class="icon">📦</div>
+      <div class="config-item" data-target="modalUbicacion">
+        <div class="icon">
+          <img src="images/icons/location-pin-solid.svg" alt="Ubicación" />
+        </div>
         <div class="content">
-          <h3>Pedidos</h3>
-          <p>Visualiza los pedidos que has realizado.</p>
+          <h3>Ubicaciones</h3>
+          <p>Visualiza las ubicaciones que has guardado.</p>
         </div>
         <div class="arrow">›</div>
       </div>
 
-      <div class="config-item">
+      <!--<div class="config-item">
         <div class="icon">💳</div>
         <div class="content">
           <h3>Tarjetas</h3>
@@ -258,7 +352,7 @@
         });
       });
 
-      //----------------------------------------------MODAL DATOS----------------------------------------------
+      //----------------------------------------------MODAL CORREO Y TELEFONO----------------------------------------------
       // Mostrar modal al hacer clic
       document.querySelectorAll(".config-item").forEach((item) => {
         item.addEventListener("click", () => {
@@ -310,6 +404,61 @@
         });
       });
 
+      //----------------------------------------------MODAL UBICACIONES----------------------------------------------
+      // Mostrar modal al hacer clic
+      document.querySelectorAll(".config-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const modalId = item.getAttribute("data-target") || "modalUbicacion";
+          document.getElementById(modalId).classList.remove("hidden");
+        });
+      });
+
+      // Cerrar modal al hacer clic en la X
+      document.querySelectorAll(".modalUbicacion .close").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          btn.closest(".modalUbicacion").classList.add("hidden");
+        });
+      });
+
+      // Cerrar modal si se hace clic fuera del contenido
+      window.addEventListener("click", (e) => {
+        const modals = document.querySelectorAll(".modalUbicacion");
+        modals.forEach((modal) => {
+          if (e.target === modal) {
+            modal.classList.add("hidden");
+          }
+        });
+      });
+
+      //----------------------------------------------MODAL AGREGAR UBICACION----------------------------------------------
+      // Mostrar modal al hacer clic
+      document.querySelectorAll(".agregar").forEach((item) => {
+        item.addEventListener("click", () => {
+          const modalId =
+            item.getAttribute("data-target") || "modalAgregarUbicacion";
+          document.getElementById(modalId).classList.remove("hidden");
+        });
+      });
+
+      // Cerrar modal al hacer clic en la X
+      document
+        .querySelectorAll(".modalAgregarUbicacion .close")
+        .forEach((btn) => {
+          btn.addEventListener("click", () => {
+            btn.closest(".modalAgregarUbicacion").classList.add("hidden");
+          });
+        });
+
+      // Cerrar modal si se hace clic fuera del contenido
+      window.addEventListener("click", (e) => {
+        const modals = document.querySelectorAll(".modalAgregarUbicacion");
+        modals.forEach((modal) => {
+          if (e.target === modal) {
+            modal.classList.add("hidden");
+          }
+        });
+      });
+
       //----------------------------------------------LOCALSTORAGE----------------------------------------------
 
       const nombre = localStorage.getItem("nombre");
@@ -319,10 +468,11 @@
 
       if (nombre) {
         document.getElementById("nombre").value = nombre;
-        document.getElementById("correo").value = correo;
+        document.getElementById("corr").value = correo;
         document.getElementById("telefono").value = telefono;
         document.getElementById("tituloNombre").textContent = nombre;
         document.getElementById("tituloCorreo").textContent = correo;
+        document.getElementById("tituloId").textContent = "ID: " + id_usuario;
       } else {
         // Si no hay datos en localStorage, redirigir a login
         window.location.href = "Login.html";
@@ -330,32 +480,238 @@
 
       //----------------------------------------------BASE DE DATOS----------------------------------------------
 
-      const form = document.getElementById("nombreForm");
+      //----------------------------------------------CAMBIO DE NOMBRE----------------------------------------------
 
-      form.addEventListener("submit", async (e) => {
+      const formNombre = document.getElementById("nombreForm");
+
+      formNombre.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const correo = document.getElementById("corr").value;
-        const password = document.getElementById("password").value;
+        const nombre = document.getElementById("nombre").value;
 
-        const response = await fetch("phps/endPointLogin.php", {
+        const response = await fetch("phps/endPointEditName.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: `corr=${encodeURIComponent(
-            correo
-          )}&password=${encodeURIComponent(password)}`,
+          body: `nombre=${encodeURIComponent(nombre)}&id_usuario=${id_usuario}`,
         });
 
         const data = await response.json();
 
         if (data.error) {
-          //ERROR
+          alert("Error al cambiar el nombre");
         } else {
-          //SUCESS
+          localStorage.setItem("nombre", nombre);
+          alert("Nombre cambiado correctamente");
+          window.location.reload();
         }
       });
+
+      //----------------------------------------------CAMBIO DE CORREO----------------------------------------------
+
+      const formCorreo = document.getElementById("correoForm");
+
+      formCorreo.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const correo = document.getElementById("corr").value;
+
+        const response = await fetch("phps/endPointEditCorreo.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `correo=${encodeURIComponent(correo)}&id_usuario=${id_usuario}`,
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+          alert("Error al cambiar el correo: " + data.error);
+        } else {
+          localStorage.setItem("correo", correo);
+          alert("Correo cambiado correctamente");
+          window.location.reload();
+        }
+      });
+
+      //----------------------------------------------CAMBIO DE TELEFONO----------------------------------------------
+
+      const formTelefono = document.getElementById("telefonoForm");
+
+      formTelefono.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const telefono = document.getElementById("telefono").value;
+
+        const response = await fetch("phps/endPointEditTelefono.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `telefono=${encodeURIComponent(
+            telefono
+          )}&id_usuario=${id_usuario}`,
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+          alert("Error al cambiar el telefono: " + data.error);
+        } else {
+          localStorage.setItem("telefono", telefono);
+          alert("Telefono cambiado correctamente");
+          window.location.reload();
+        }
+      });
+
+      //----------------------------------------------CAMBIO DE CONTRASEÑA----------------------------------------------
+
+      const formPassword = document.getElementById("passwordForm");
+
+      formPassword.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const password = document.getElementById("password").value;
+        const password2 = document.getElementById("password2").value;
+
+        const response = await fetch("phps/endPointEditPassword.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `password=${encodeURIComponent(
+            password
+          )}&password2=${encodeURIComponent(
+            password2
+          )}&id_usuario=${id_usuario}`,
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+          mostrarError(data.error);
+        } else {
+          alert("Contraseña cambiada correctamente");
+          window.location.reload();
+        }
+      });
+
+      //----------------------------------------------AGREGAR UBICACION----------------------------------------------
+
+      const formAgregarUbicacion = document.getElementById(
+        "formAgregarUbicacion"
+      );
+
+      formAgregarUbicacion.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const estado = document.getElementById("estado").value;
+        const municipio = document.getElementById("municipio").value;
+        const cod_postal = document.getElementById("cod_postal").value;
+        const calle = document.getElementById("calle").value;
+        const colonia = document.getElementById("colonia").value;
+        const numero = document.getElementById("numero").value;
+
+        const response = await fetch("phps/endPointAddAddress.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `estado=${encodeURIComponent(
+            estado
+          )}&municipio=${encodeURIComponent(
+            municipio
+          )}&cod_postal=${encodeURIComponent(
+            cod_postal
+          )}&calle=${encodeURIComponent(calle)}&colonia=${encodeURIComponent(
+            colonia
+          )}&numero=${encodeURIComponent(numero)}&id_usuario=${id_usuario}`,
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+          alert("Error al agregar la ubicacion: " + data.error);
+        } else {
+          alert("Ubicacion agregada correctamente");
+          window.location.reload();
+        }
+      });
+
+      //----------------------------------------------MOSTRAR UBICACIONES----------------------------------------------
+
+      async function cargarDirecciones() {
+        const id_usuario = localStorage.getItem("id_usuario");
+        const lista = document.getElementById("lista-direcciones");
+        lista.innerHTML = "Cargando...";
+
+        try {
+          const response = await fetch("phps/endPointGetAddress.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `id_usuario=${encodeURIComponent(id_usuario)}`,
+          });
+          const data = await response.json();
+
+          if (data.length === 0) {
+            lista.innerHTML =
+              "<div style='color:gray;padding:20px;'>No tienes domicilios guardados.</div>";
+            return;
+          }
+
+          lista.innerHTML = ""; // Limpiar antes de agregar
+
+          data.forEach((dir) => {
+            const div = document.createElement("div");
+            div.className = "direccion-card";
+            div.innerHTML = `
+              <div class="direccion-header">
+                <i>🏠</i>
+                <span>${dir.calle} ${dir.numero}</span>
+              </div>
+              <div class="direccion-detalle">
+                Código postal ${dir.cod_postal} – ${dir.estado} – ${dir.municipio}<br>
+                Colonia: ${dir.colonia}
+              </div>
+              <div class="direccion-acciones">
+                <a href="#" onclick="editarDireccion(${dir.id_direccion})">Editar datos</a>
+                <button title="Eliminar" onclick="eliminarDireccion(${dir.id_direccion})">🗑️</button>
+              </div>
+            `;
+            lista.appendChild(div);
+          });
+        } catch (e) {
+          lista.innerHTML =
+            "<div style='color:red;padding:20px;'>Error al cargar domicilios.</div>" +
+            e;
+        }
+      }
+
+      // Llama a cargarDirecciones cada vez que se abra el modal de ubicaciones
+      document
+        .querySelectorAll('[data-target="modalUbicacion"]')
+        .forEach((btn) => {
+          btn.addEventListener("click", cargarDirecciones);
+        });
+
+      //----------------------------------------------MOSTRAR ERRORES----------------------------------------------
+
+      function mostrarError(mensaje) {
+        let errorBox = document.getElementById("mensaje-error");
+        if (!errorBox) {
+          errorBox = document.createElement("div");
+          errorBox.id = "mensaje-error";
+          errorBox.style.color = "red";
+          errorBox.style.marginTop = "10px";
+          errorBox.style.fontWeight = "bold";
+          form.appendChild(errorBox);
+        }
+        errorBox.textContent = mensaje;
+      }
     </script>
   </body>
 </html>

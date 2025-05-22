@@ -239,3 +239,151 @@ body {
   font-size: 24px;
   cursor: pointer;
 }
+
+.direccion-container {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f3f3;
+  margin: 0;
+  padding: 40px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.direccion-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+}
+
+.direccion-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.direccion-header i {
+  font-size: 20px;
+  color: #333;
+}
+
+.direccion-header span {
+  font-weight: bold;
+}
+
+.direccion-detalle {
+  color: #555;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.direccion-acciones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.direccion-acciones a {
+  color: #2968c8;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.direccion-acciones button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+}
+
+.direccion-acciones button:hover {
+  color: red;
+}
+
+.agregar {
+  display: block;
+  margin-top: 10px;
+  color: #2968c8;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.titulo {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.form-ubicacion {
+  background: #fff;
+  border-radius: 10px;
+  padding: 32px 32px 24px 32px;
+  max-width: 500px;
+  margin: 0 auto;
+  border: 1px solid #d1d5db;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.form-ubicacion h2 {
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+  text-align: left;
+}
+
+.form-ubicacion form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.98rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px 12px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fafbfc;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #003f63;
+  outline: none;
+  background: #fff;
+}
+
+.btn-agregar {
+  margin-top: 10px;
+  background: #003f63;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-agregar:hover {
+  background: #2968c8;
+}

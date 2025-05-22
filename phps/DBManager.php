@@ -129,17 +129,18 @@ class DBManager
         return $resultado;
     }
 
-    public function editPassword($id_usuario, $password) //FUNCIONA
+    public function editPassword($id_usuario, $password, $password2) //FUNCIONA
     {
         $link = $this->open();
 
-        $sql = "UPDATE usuarios SET password = ? WHERE id_usuario = ?";
+        $sql = "UPDATE usuarios SET password = ? WHERE password = ? AND id_usuario = ?";
 
         $query = mysqli_prepare($link, $sql);
 
         mysqli_stmt_bind_param(
             $query,
-            "si",
+            "ssi",
+            $password2,
             $password,
             $id_usuario
         );
@@ -173,31 +174,56 @@ class DBManager
         return $resultado;
     }
 
-
-
-    //-------------------------------------------------------------------direcciones-------------------------------------------------------------------
-
-    public function getDirecciones()
+    public function editTelefono($id_usuario, $telefono) //FUNCIONA
     {
         $link = $this->open();
 
-        $sql = "SELECT * FROM direcciones"; // Ajusta el nombre de la tabla si es diferente
-        $result = mysqli_query($link, $sql);
+        $sql = "UPDATE usuarios SET numerotel = ? WHERE id_usuario = ?";
 
-        $productos = [];
+        $query = mysqli_prepare($link, $sql);
 
-        if ($result) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                $productos[] = $row;
-            }
-        } else {
-            return ["error" => "Error al obtener los productos"];
-        }
+        mysqli_stmt_bind_param(
+            $query,
+            "si",
+            $telefono,
+            $id_usuario
+        );
+
+        $resultado = mysqli_stmt_execute($query) or die('Error update');
 
         $this->close($link);
 
-        return $productos;
+        return $resultado;
     }
+
+    //-------------------------------------------------------------------direcciones-------------------------------------------------------------------
+
+    public function getDirecciones($id_usuario)
+    {
+        $link = $this->open();
+
+        $sql = "SELECT * FROM direcciones WHERE id_usuario = ?";
+        $query = mysqli_prepare($link, $sql);
+
+        mysqli_stmt_bind_param($query, "i", $id_usuario);
+
+        $direcciones = [];
+
+        if (mysqli_stmt_execute($query)) {
+            $resultado = mysqli_stmt_get_result($query);
+
+            while ($row = mysqli_fetch_assoc($resultado)) {
+                $direcciones[] = $row;
+            }
+
+            $this->close($link);
+            return $direcciones;
+        } else {
+            $this->close($link);
+            return ["error" => "Error al obtener las direcciones"];
+        }
+    }
+
 
 
     public function addAddress(Direccion $direccion) //ADAPTADO PARA EL PROYECTO

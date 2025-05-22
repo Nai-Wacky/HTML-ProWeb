@@ -15,5 +15,5 @@ if (isset($_POST['id_usuario']) && isset($_POST['correo'])) {
         echo json_encode(["error" => "Error al registrar usuario"]);
     }
 } else {
-    echo json_encode(["error" => "No se pudo modificar"]);
+    echo json_encode(["error" => "No se pudo modificar el correo"]);
 }
