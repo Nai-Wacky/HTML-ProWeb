@@ -8,17 +8,262 @@
     />
 
     <link rel="stylesheet" href="TheStyleProductoMostrador.css" />
+    <link rel="stylesheet" href="TheStyle.css" />
+    <link rel="stylesheet" href="StyleC.css" />
 
     <title>Any Job</title>
 
     <link rel="icon" href="images/Any-job-icon.ico" type="image/x-icon" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .navbar {
+        background-color: #003f63;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+      }
+
+      .buttonImageLogo {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 5px;
+      }
+
+      .search-box {
+        display: flex;
+        align-items: center;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        padding: 5px 10px;
+        width: 500px;
+        background-color: white;
+      }
+
+      .search-box input {
+        border: none;
+        outline: none;
+        flex: 1;
+        padding: 5px;
+        font-size: 16px;
+        background: transparent;
+      }
+
+      .search-box button {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .search-box button img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .buttonOpcion {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-right: 35px;
+      }
+
+      .producto-detalle {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+      }
+
+      .producto-imagenes {
+        flex: 0 0 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .producto-info {
+        flex: 1;
+        min-width: 300px;
+        padding-left: 20px;
+      }
+
+      .producto-carrusel {
+        position: relative;
+        width: 400px;
+        height: 700px !important;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .producto-carrusel img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        transition: opacity 0.3s ease;
+      }
+
+      .miniaturas-container {
+        display: flex;
+        gap: 10px;
+        padding: 10px 0;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .miniaturas-container::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .miniaturas-container::-webkit-scrollbar-track {
+        background: #ddd;
+        border-radius: 4px;
+      }
+
+      .miniaturas-container::-webkit-scrollbar-thumb {
+        background-color: #003f63;
+        border-radius: 4px;
+      }
+
+      .miniatura {
+        flex: 0 0 90px;
+        width: 90px;
+        height: 90px;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+        margin-bottom: 10px;
+      }
+
+      .miniatura:hover {
+        border-color: #003f63;
+      }
+
+      .miniatura.activa {
+        border-color: #003f63;
+        box-shadow: 0 0 5px rgba(0, 63, 99, 0.3);
+      }
+
+      .miniatura img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .carrusel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        transition: background-color 0.3s ease;
+      }
+
+      .carrusel-btn:hover {
+        background: rgba(0, 0, 0, 0.8);
+      }
+
+      .prev-btn {
+        left: 10px;
+      }
+
+      .next-btn {
+        right: 10px;
+      }
+
+      .producto-nombre {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .producto-marca {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .producto-precio {
+        font-size: 28px;
+        color: #003f63;
+        margin-bottom: 20px;
+      }
+
+      .producto-descripcion {
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .producto-categoria {
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      .btn-agregar {
+        background-color: #003f63;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+
+      .btn-agregar:hover {
+        background-color: #002d47;
+      }
+    </style>
   </head>
 
   <body style="background-color: #eeeeee">
     <div class="navbar">
       <!-- Logo Izquierda -->
-
-      <button class="buttonImageLogo">
+      <button
+        class="buttonImageLogo"
+        onclick="window.location.assign('AnyJobHome.html')"
+      >
         <img
           src="images/Any Job Imagotipo chiquito.png"
           width="180"
@@ -28,10 +273,9 @@
       </button>
 
       <!-- Buscador -->
-
       <div style="margin: 0 auto" class="search-box">
-        <input type="text" placeholder="Herramientas..." />
-        <button>
+        <input id="busqueda" type="text" placeholder="Herramientas..." />
+        <button onclick="buscarProducto()">
           <img
             src="https://cdn-icons-png.flaticon.com/512/622/622669.png"
             alt="Buscar"
@@ -40,11 +284,12 @@
       </div>
 
       <!-- Opciones -->
-
-      <button class="buttonOpcion">
+      <button
+        class="buttonOpcion"
+        onclick="window.location.assign('Perfil.html')"
+      >
         <img
-          src="images/Perfil Any Job.png"
-          href=""
+          src="images/navbar/Perfil Any Job.png"
           width="38"
           height="43"
           title="Perfil"
@@ -52,18 +297,24 @@
         <h3 id="bienvenida" style="color: white">Login</h3>
       </button>
 
-      <button class="buttonOpcion">
+      <button
+        class="buttonOpcion"
+        onclick="window.location.assign('Categorias.html')"
+      >
         <img
-          src="images/Catalogo Any Job.png"
+          src="images/navbar/Pedidos.png"
           width="30"
           height="43"
           title="Catalogo de proveedores"
         />
       </button>
 
-      <button class="buttonOpcion">
+      <button
+        class="buttonOpcion"
+        onclick="window.location.assign('Carrito.html')"
+      >
         <img
-          src="images/Carrito de compras.png"
+          src="images/navbar/Carrito de compras.png"
           width="43"
           height="43"
           title="Carrito de compras"
@@ -71,38 +322,22 @@
       </button>
     </div>
 
-    <div class="contenedor">
-      <div class="imagen-producto">
-        <img src="images/Pala_Truper.jpg" alt="Pala T200 Truper" />
-      </div>
+    <div
+      style="
+        background-color: #f5f5f5;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+      "
+    >
+      <p style="margin: 0; color: #666">
+        ID del producto:
+        <span id="id-producto" style="font-weight: bold"></span>
+      </p>
+    </div>
 
-      <div class="detalles">
-        <h1>Pala cuadrada puño "Y" T-2000 Truper; Codigo 17161</h1>
-        <p class="precio">$199.99</p>
-
-        <label>Cantidad</label>
-        <div class="cantidad">
-          <button onclick="cambiarCantidad(-1)">-</button>
-          <input type="text" id="cantidad" value="1" readonly />
-          <button onclick="cambiarCantidad(1)">+</button>
-        </div>
-
-        <p class="precio" style="padding-top: 20px">Descripción: <br /></p>
-
-        <p class="precio" style="padding-bottom: 20px; font-size: medium">
-          Collar reforzado <br />
-          Puño comfort grip <br />
-          Espesor de 1.3mm <br />
-          Ancho de pala de 9 1/2" (24cm) <br />
-          Largo de la cabeza 19 3/4" (50cm) <br />
-          Largo total de 40 3/4" (104cm) <br />
-        </p>
-
-        <div class="botones">
-          <button class="boton boton-carrito">Agregar al carrito</button>
-          <button class="boton boton-comprar">Comprar</button>
-        </div>
-      </div>
+    <div class="producto-detalle" id="producto-contenido">
+      <!-- El contenido del producto se cargará dinámicamente aquí -->
     </div>
 
     <div style="padding-top: 50px; padding-bottom: 20px">
@@ -256,6 +491,219 @@
           document.getElementById("bienvenida").textContent = nombreGuardado;
         }
       });
+
+      async function cargarProducto() {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const idProducto = params.get("id");
+
+          if (!idProducto) {
+            mostrarError("No se especificó un producto");
+            return;
+          }
+
+          console.log("Cargando producto con ID:", idProducto);
+          const response = await fetch(`phps/getProducto.php?id=${idProducto}`);
+          const data = await response.json();
+
+          console.log("Respuesta del servidor:", data);
+
+          if (data.error) {
+            mostrarError(data.error);
+            return;
+          }
+
+          const contenedor = document.getElementById("producto-contenido");
+
+          contenedor.innerHTML = `
+            <div class="producto-imagenes">
+              <div class="producto-carrusel">
+                <button class="carrusel-btn prev-btn" onclick="cambiarImagen(-1)">&#10094;</button>
+                <img id="imagen-principal" src="${data.imagenes[0]}" alt="${
+            data.nombre
+          }">
+                <button class="carrusel-btn next-btn" onclick="cambiarImagen(1)">&#10095;</button>
+              </div>
+              <div class="miniaturas-container">
+                ${data.imagenes
+                  .map(
+                    (img, index) => `
+                  <div class="miniatura ${
+                    index === 0 ? "activa" : ""
+                  }" onclick="seleccionarImagen(${index})">
+                    <img src="${img}" alt="${data.nombre} - imagen ${
+                      index + 1
+                    }">
+                  </div>
+                `
+                  )
+                  .join("")}
+              </div>
+            </div>
+            <div class="producto-info">
+              <div class="producto-nombre">${data.nombre}</div>
+              <div class="producto-marca">Marca: ${data.Marca}</div>
+              <div class="producto-precio">$${data.precio}</div>
+              <div class="producto-categoria">Categoría: ${data.Categoria}</div>
+              <div class="producto-descripcion">${
+                data.descripcion || "Sin descripción disponible"
+              }</div>
+              <button class="btn-agregar" onclick="agregarAlCarrito(${
+                data.id_producto
+              })">Agregar al carrito</button>
+            </div>
+          `;
+
+          // Guardar las imágenes en una variable global para el carrusel
+          window.imagenes = data.imagenes;
+          window.imagenActual = 0;
+        } catch (error) {
+          console.error("Error al cargar el producto:", error);
+          mostrarError(`Error al cargar el producto: ${error.message}`);
+        }
+      }
+
+      function seleccionarImagen(index) {
+        window.imagenActual = index;
+        const imgElement = document.getElementById("imagen-principal");
+        const miniaturas = document.querySelectorAll(".miniatura");
+
+        // Actualizar imagen principal con efecto de transición
+        imgElement.style.opacity = "0";
+        setTimeout(() => {
+          imgElement.src = window.imagenes[index];
+          imgElement.style.opacity = "1";
+        }, 200);
+
+        // Actualizar estado activo de las miniaturas
+        miniaturas.forEach((miniatura, i) => {
+          if (i === index) {
+            miniatura.classList.add("activa");
+          } else {
+            miniatura.classList.remove("activa");
+          }
+        });
+      }
+
+      function cambiarImagen(direccion) {
+        const imagenes = window.imagenes;
+        if (!imagenes || imagenes.length <= 1) return;
+
+        const nuevoIndex =
+          (window.imagenActual + direccion + imagenes.length) % imagenes.length;
+        seleccionarImagen(nuevoIndex);
+      }
+
+      async function agregarAlCarrito(idProducto) {
+        try {
+          const formData = new FormData();
+          formData.append("idProducto", idProducto);
+
+          const response = await fetch("phps/agregarAlCarrito.php", {
+            method: "POST",
+            body: formData,
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            mostrarNotificacion(data.success, "success");
+          } else if (data.error) {
+            if (data.error.includes("iniciar sesión")) {
+              mostrarNotificacion(
+                "Debes iniciar sesión para agregar productos al carrito",
+                "error"
+              );
+              setTimeout(() => {
+                window.location.href = "Login.html";
+              }, 2000);
+            } else {
+              mostrarNotificacion(data.error, "error");
+            }
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          mostrarNotificacion("Error al agregar al carrito", "error");
+        }
+      }
+
+      function mostrarError(mensaje) {
+        const contenedor = document.getElementById("producto-contenido");
+        contenedor.innerHTML = `
+          <div style="text-align: center; padding: 20px;">
+            <h2>Error</h2>
+            <p>${mensaje}</p>
+            <button onclick="window.location.href='Categorias.html'" style="margin-top: 20px; padding: 10px 20px;">
+              Volver a Categorías
+            </button>
+          </div>
+        `;
+      }
+
+      function mostrarNotificacion(mensaje, tipo) {
+        const notificacion = document.createElement("div");
+        notificacion.className = `notificacion ${tipo}`;
+        notificacion.textContent = mensaje;
+
+        notificacion.style.position = "fixed";
+        notificacion.style.top = "20px";
+        notificacion.style.right = "20px";
+        notificacion.style.padding = "15px 25px";
+        notificacion.style.borderRadius = "5px";
+        notificacion.style.zIndex = "1000";
+
+        if (tipo === "success") {
+          notificacion.style.backgroundColor = "#4CAF50";
+          notificacion.style.color = "white";
+        } else {
+          notificacion.style.backgroundColor = "#f44336";
+          notificacion.style.color = "white";
+        }
+
+        document.body.appendChild(notificacion);
+
+        setTimeout(() => {
+          notificacion.style.opacity = "0";
+          notificacion.style.transition = "opacity 0.5s ease";
+          setTimeout(() => {
+            document.body.removeChild(notificacion);
+          }, 500);
+        }, 3000);
+      }
+
+      // Verificar sesión
+      async function verificarSesion() {
+        try {
+          const response = await fetch("phps/checkSession.php");
+          const data = await response.json();
+
+          const bienvenidaElement = document.getElementById("bienvenida");
+
+          if (data.loggedin) {
+            bienvenidaElement.textContent = `¡Hola, ${data.nombre}!`;
+          } else {
+            bienvenidaElement.textContent = "Login";
+          }
+        } catch (error) {
+          console.error("Error al verificar la sesión:", error);
+        }
+      }
+
+      // Inicializar la página
+      window.addEventListener("DOMContentLoaded", () => {
+        verificarSesion();
+        cargarProducto();
+      });
+
+      // Función de búsqueda
+      function buscarProducto() {
+        const valorBusqueda = document.getElementById("busqueda").value.trim();
+        if (valorBusqueda) {
+          window.location.href = `Categorias.html?filtro=${encodeURIComponent(
+            valorBusqueda
+          )}`;
+        }
+      }
     </script>
   </body>
 </html>

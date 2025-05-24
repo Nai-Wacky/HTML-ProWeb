@@ -12,6 +12,11 @@
     <title>Mi perfil</title>
 
     <link rel="icon" href="images/Any-job-icon.ico" type="image/x-icon" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
 
   <body style="background-color: #eeeeee">
@@ -315,14 +320,16 @@
         <div class="arrow">›</div>
       </div>
 
-      <!--<div class="config-item">
-        <div class="icon">💳</div>
+      <div class="config-item" onclick="cerrarSesion()">
+        <div class="icon">
+          <i class="fas fa-sign-out-alt"></i>
+        </div>
         <div class="content">
-          <h3>Tarjetas</h3>
-          <p>Tarjetas guardadas en tu cuenta.</p>
+          <h3>Cerrar Sesión</h3>
+          <p>Salir de tu cuenta actual.</p>
         </div>
         <div class="arrow">›</div>
-      </div>-->
+      </div>
     </div>
 
     <script>
@@ -476,6 +483,13 @@
       } else {
         // Si no hay datos en localStorage, redirigir a login
         window.location.href = "Login.html";
+      }
+
+      function cerrarSesion() {
+        // Limpiar localStorage
+        localStorage.clear();
+        // Redirigir al login
+        window.location.href = "AnyJobHome.html";
       }
 
       //----------------------------------------------BASE DE DATOS----------------------------------------------
